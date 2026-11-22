@@ -30,7 +30,7 @@ const EVENTS_DATA = [
     banner: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWWs8zxkqMSTbGzAT4n07YxGTKlb2BcJE_uf9sqTWvyy_j5AR0WDlMO-w_&s=10",
     summary: "Câu chuyện của 25ji, Nightcord de. xoay quanh bốn người bạn - Kanade, Mafuyu, Ena và Mizuki - những người mang trong mình những nỗi cô đơn và tổn thương khác nhau. Họ gặp nhau qua một ứng dụng mang tên Nightcord, nơi họ cùng nhau sáng tác nhạc vào “25 giờ”. Trong quá trình làm nhạc, cả bốn dần bộc lộ những mặt tối sâu kín của bản thân và học cách đối diện với chúng. Câu chuyện là hành trình họ dùng âm nhạc để kết nối, để cứu rỗi nhau, và cũng để tìm lại chính mình trong một thế giới đầy cô đơn và tuyệt vọng.",
     chapters: [
-      { ep: 0, title: "Chap Opening: Chap Opening", youtube: "https://youtu.be/eJkywpfP0xU" },
+      { ep: "OP", title: "Chap Opening", youtube: "https://youtu.be/eJkywpfP0xU" },
       { ep: 1, title: "Chap 1: Hội nhóm vào lúc nửa đêm", youtube: "https://youtu.be/l1reqZUZFjE" },
       { ep: 2, title: "Chap 2: Miku trắng", youtube: "https://youtu.be/bM0S1IMNQoA" },
       { ep: 3, title: "Chap 3: OWN", youtube: "https://youtu.be/i6HqbQrIFA0" },
@@ -45,12 +45,12 @@ const EVENTS_DATA = [
       { ep: 12, title: "Chap 12: Chỉ một bài hát", youtube: "https://youtu.be/bhuh4OmwpSE" },
       { ep: 13, title: "Chap 13: Cái 「Tôi」 chẳng có ở nơi nào", youtube: "https://youtu.be/q66BLgD-c40" },
       { ep: 14, title: "Chap 14: 「Cô đơn thật đấy nhỉ」", youtube: "https://youtu.be/pydlEL-Tidc" },
-      { ep: 15, title: "Chap 15: Trước khi cậu ấy biến mất", youtube: "https://youtu.be/QrWb7hGrfDw" }
+      { ep: 15, title: "Chap 15: Trước khi cậu ấy biến mất", youtube: "https://youtu.be/QrWb7hGrfDw" },
       { ep: 16, title: "Chap 16: Sụp đổ", youtube: "https://youtu.be/Xay9fyDNTNU" },
       { ep: 17, title: "Chap 17: Lời nguyền của hai người", youtube: "https://youtu.be/FnadJmyXnYQ" },
       { ep: 18, title: "Chap 18: Dù thế nhưng tớ vẫn muốn cứu cậu", youtube: "https://youtu.be/klIQkakGiMY" },
       { ep: 19, title: "Chap 19: Tương lai được viết nên từ niềm hối tiếc", youtube: "https://youtu.be/NSn8vORfcjo" },
-      { ep: 20, title: "Chap 20: 25-ji, Nightcord de.", youtube: "https://youtu.be/BWagRTt3EO8" },
+      { ep: 20, title: "Chap 20: 25-ji, Nightcord de.", youtube: "https://youtu.be/BWagRTt3EO8" }
     ],
     cards: [
       {
