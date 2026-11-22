@@ -57,8 +57,8 @@ const EVENTS_DATA = [
         character: "Yoisaki Kanade",
         title: "Phía bên kia màn hình...",
         rarity: 3, 
-        untrained: "https://imgur.com/a/ZcqO9uX", 
-        trained: "https://imgur.com/a/7YacXfK",   
+        untrained: "images/kanade-main-untrained.png", 
+        trained: "images/kanade-main-trained.png",   
         sideStory1: "",
         sideStory2: ""
       },
@@ -66,8 +66,8 @@ const EVENTS_DATA = [
         character: "Asahina Mafuyu",
         title: "Hình tượng 「Đứa trẻ ngoan」của tôi",
         rarity: 3,
-        untrained: "https://imgur.com/a/vqcbjNV",
-        trained: "https://imgur.com/a/3k0ldbX",
+        untrained: "images/mafuyu-main-untrained.png",
+        trained: "images/mafuyu-main-trained.png",
         sideStory1: "",
         sideStory2: "" 
       },
@@ -75,8 +75,8 @@ const EVENTS_DATA = [
         character: "Shinonome Ena",
         title: "Góc máy đẹp nhất",
         rarity: 3,
-        untrained: "https://imgur.com/a/rVRbUVJ",
-        trained: "https://imgur.com/a/PhKuyZ1",
+        untrained: "images/ena-main-untrained.png",
+        trained: "images/ena-main-trained.png",
         sideStory1: "",
         sideStory2: ""
       },
@@ -84,8 +84,8 @@ const EVENTS_DATA = [
         character: "Akiyama Mizuki",
         title: "Một điều không thể thỏa hiệp",
         rarity: 3, 
-        untrained: "https://imgur.com/a/Ndnz84U", 
-        trained: "https://imgur.com/a/tqn4nxm",   
+        untrained: "images/mizuki-main-untrained.png", 
+        trained: "images/mizuki-main-trained.png",   
         sideStory1: "",
         sideStory2: ""
       }
