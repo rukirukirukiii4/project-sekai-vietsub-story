@@ -64,7 +64,7 @@ const EVENTS_DATA = [
       },
       {
         character: "Asahina Mafuyu",
-        title: "Hình tượng「Đứa trẻ ngoan」của tôi",
+        title: "Hình tượng 「Đứa trẻ ngoan」của tôi",
         rarity: 3,
         untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res018_no003/card_normal.png",
         trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res018_no003/card_after_training.png",
@@ -86,6 +86,78 @@ const EVENTS_DATA = [
         rarity: 3, 
         untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res020_no003/card_normal.png", 
         trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res020_no003/card_after_training.png",   
+        sideStory1: "",
+        sideStory2: ""
+      }
+    ]
+  },
+
+  {
+    id: "wxs-main-story",
+    number: "Main Story Wonderlands x Showtime",
+    title: "Main Story Wonderlands x Showtime",
+    jpTitle: "ワンダーランズ×ショウタイムメインストーリー",
+    unit: "wxs",
+    date: "2020",
+    banner: "https://bushiroad-music.com/wordpress/wp-content/uploads/2024/08/05135826/e52358e8-9a13-4848-8b8b-047c41501c40-1024x619.png",
+    summary: "Tsukasa, chàng trai mang trong mình ước mơ trở thành một ngôi sao, đã may mắn được nhận vào làm bán thời gian tại công viên giải trí Phoenix Wonderland. Ở đó, cậu gặp Emu - cô gái luôn mong muốn khôi phục lại sân khấu bỏ hoang Phoenix Stage trong công viên. Cùng với Rui - một vị đạo diễn lập dị nhưng đầy sáng tạo, và Nene - cô gái rụt rè sở hữu một giọng hát tuyệt vời, họ lập nên nhóm Wonderlands×Showtime. Bốn người họ đã cùng nhau vượt qua những thất bại và mâu thuẫn, để tìm lại niềm vui và phép màu của “sân khấu mang đến nụ cười cho mọi người”.",
+    chapters: [
+      { ep: "OP", title: "Chap Opening", youtube: "https://youtu.be/8_S-DOtT1WE" },
+      { ep: 1, title: "Chap 1: Chào mừng tới Wonder Stage!", youtube: "https://youtu.be/yIDC9sQ9hv8" },
+      { ep: 2, title: "Chap 2: Ngôi sao tương lai và Wonderhoyyyy", youtube: "https://youtu.be/J1AhCMXGOt0" },
+      { ep: 3, title: "Chap 3: Sekai Xứ sở thần tiên", youtube: "https://youtu.be/nJ7mYgwblng" },
+      { ep: 4, title: "Chap 4: Cùng tìm kiếm thành viên nào!", youtube: "https://youtu.be/mhdIYyotHHk" },
+      { ep: 5, title: "Chap 5: Vị đạo diễn kỳ lạ", youtube: "https://youtu.be/2jN55sTSW2s" },
+      { ep: 6, title: "Chap 6: Thành viên thứ 4?", youtube: "https://youtu.be/MZ7lhAkpxaI" },
+      { ep: 7, title: "Chap 7: Nenerobo On Stage!?", youtube: "https://youtu.be/5hOJRqrCg-g" },
+      { ep: 8, title: "Chap 8: Thành lập! Show Unit!", youtube: "https://youtu.be/F-5U8HeVMcw" },
+      { ep: 9, title: "Chap 9: Người kỳ quặc, phát huy bản lĩnh", youtube: "https://youtu.be/IAqQBMo3gEQ" },
+      { ep: 10, title: "Chap 10: Gợi ý của KAITO", youtube: "https://youtu.be/Od49SRCpi3s" },
+      { ep: 11, title: "Chap 11: Ước mơ của Emu", youtube: "https://youtu.be/8_vgBzJ2-6U" },
+      { ep: 12, title: "Chap 12: Buổi biểu diễn bắt đầu!", youtube: "https://youtu.be/5qZPVZ10Fc4" },
+      { ep: 13, title: "Chap 13: Nụ cười đã đánh mất", youtube: "https://youtu.be/JacAj2fLvms" },
+      { ep: 14, title: "Chap 14: Cảm xúc ngày ấy", youtube: "https://youtu.be/U69puzeJFEc" },
+      { ep: 15, title: "Chap 15: Sân khấu của ông", youtube: "https://youtu.be/YCVzVRjebHg" },
+      { ep: 16, title: "Chap 16: Cách để chắc chắn sẽ không thất bại", youtube: "https://youtu.be/ZnKx5DnV6vo" },
+      { ep: 17, title: "Chap 17: Nhà giả kim cô đơn", youtube: "https://youtu.be/SVTg1kY0Uc4" },
+      { ep: 18, title: "Chap 18: Đáp án cho 「buổi Show tuyệt nhất」", youtube: "https://youtu.be/SVTg1kY0Uc4" },
+      { ep: 19, title: "Chap 19: Thế giới vẫn còn chưa bắt đầu mà", youtube: "https://youtu.be/BJireZNtPbM" },
+      { ep: 20, title: "Chap 20: Wonderlands x Showtime", youtube: "https://youtu.be/oKjBTIIR6sw" }
+    ],
+    cards: [
+      {
+        character: "Tenma Tsukasa",
+        title: "Lời chào từ phía bên trong bộ đồ mascot",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res013_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res013_no003/card_after_training.png",   
+        sideStory1: "",
+        sideStory2: ""
+      },
+      {
+        character: "Ootori Emu",
+        title: "Cùng tham gia cuộc họp bàn chiến lược nào!",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res014_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res014_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: "" 
+      },
+      {
+        character: "Kusanagi Nene",
+        title: "Đang điều khiển từ phía sau sân khấu",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res015_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res015_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: ""
+      },
+      {
+        character: "Kamishiro Rui",
+        title: "Nghệ sĩ biểu diễn thoắt ẩn thoắt hiện",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res016_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res016_no003/card_after_training.png",   
         sideStory1: "",
         sideStory2: ""
       }
