@@ -54,29 +54,38 @@ const EVENTS_DATA = [
     ],
     cards: [
       {
-        character: "Asahina Mafuyu",
-        title: "Con rối đánh mất cảm xúc",
-        rarity: 4, // Chọn 2, 3 hoặc 4
-        untrained: "", // Link ảnh thẻ chưa thức tỉnh
-        trained: "",   // Link ảnh thẻ đã thức tỉnh
-        sideStory1: "https://www.youtube.com/watch?v=WF0qiNyTYF4",
-        sideStory2: "https://www.youtube.com/watch?v=WF0qiNyTYF4"
+        character: "Yoisaki Kanade",
+        title: "Phía bên kia màn hình...",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res017_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res017_no003/card_after_training.png",   
+        sideStory1: "",
+        sideStory2: ""
       },
       {
-        character: "Yoisaki Kanade",
-        title: "Giai điệu dưới ánh đèn bàn",
-        rarity: 4,
-        untrained: "",
-        trained: "",
-        sideStory1: "https://www.youtube.com/watch?v=WF0qiNyTYF4",
-        sideStory2: "" // Chưa làm video thì cứ để trống
+        character: "Asahina Mafuyu",
+        title: "Hình tượng「Đứa trẻ ngoan」của tôi",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res018_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res018_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: "" 
+      },
+      {
+        character: "Shinonome Ena",
+        title: "Góc máy đẹp nhất",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res019_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res019_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: ""
       },
       {
         character: "Akiyama Mizuki",
-        title: "Nụ cười che giấu",
-        rarity: 2,
-        untrained: "",
-        trained: "", // Thẻ 2 sao không có ảnh thức tỉnh -> để trống web tự ẩn nút chuyển
+        title: "Một điều không thể thỏa hiệp",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res020_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res020_no003/card_after_training.png",   
         sideStory1: "",
         sideStory2: ""
       }
