@@ -21,19 +21,36 @@ const SITE_CONFIG = {
 // =========================================================
 const EVENTS_DATA = [
   {
-    id: "n25-sample-01",
-    number: "Event #01",
-    title: "Cầm tù trong vòng lặp bóng tối",
-    jpTitle: "囚われのマリオネット",
+    id: "n25-main-story",
+    number: "Main Story Niigo",
+    title: "Main Story 25-ji, Nightcord de.",
+    jpTitle: "25時、ナイトコードで。メインストーリー",
     unit: "n25",
-    date: "2024",
-    banner: "", // Dán link ảnh banner event vào giữa 2 dấu ngoặc kép (để trống web tự tạo nền đẹp)
-    summary: "Kanade cùng các thành viên 25-ji tìm kiếm giai điệu có thể cứu rỗi Mafuyu trong thế giới SEKAI trống rỗng.",
+    date: "2020",
+    banner: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWWs8zxkqMSTbGzAT4n07YxGTKlb2BcJE_uf9sqTWvyy_j5AR0WDlMO-w_&s=10",
+    summary: "Câu chuyện của 25ji, Nightcord de. xoay quanh bốn người bạn - Kanade, Mafuyu, Ena và Mizuki - những người mang trong mình những nỗi cô đơn và tổn thương khác nhau. Họ gặp nhau qua một ứng dụng mang tên Nightcord, nơi họ cùng nhau sáng tác nhạc vào “25 giờ”. Trong quá trình làm nhạc, cả bốn dần bộc lộ những mặt tối sâu kín của bản thân và học cách đối diện với chúng. Câu chuyện là hành trình họ dùng âm nhạc để kết nối, để cứu rỗi nhau, và cũng để tìm lại chính mình trong một thế giới đầy cô đơn và tuyệt vọng.",
     chapters: [
-      { ep: 1, title: "Tập 1: Con rối không có dây", youtube: "https://www.youtube.com/watch?v=WF0qiNyTYF4" },
-      { ep: 2, title: "Tập 2: Bữa tối im lặng", youtube: "https://www.youtube.com/watch?v=WF0qiNyTYF4" },
-      { ep: 3, title: "Tập 3: Vết nứt trong SEKAI", youtube: "" }, // Để trống = Chưa cập nhật
-      { ep: 4, title: "Tập 4: Lời nhắn lúc 1 giờ sáng", youtube: "" }
+      { ep: 1, title: "Chap Opening: Chap Opening", youtube: "https://youtu.be/eJkywpfP0xU" },
+      { ep: 2, title: "Chap 1: Hội nhóm vào lúc nửa đêm", youtube: "https://youtu.be/l1reqZUZFjE" },
+      { ep: 3, title: "Chap 2: Miku trắng", youtube: "https://youtu.be/bM0S1IMNQoA" },
+      { ep: 4, title: "Chap 3: OWN", youtube: "https://youtu.be/i6HqbQrIFA0" },
+      { ep: 1, title: "Chap 4: Đứa trẻ ngoan", youtube: "https://youtu.be/VguojXHrKvI" },
+      { ep: 2, title: "Chap 5: Yuki biến mất", youtube: "https://youtu.be/JoJje_EEgQ4" },
+      { ep: 3, title: "Chap 6: Sekai Không người", youtube: "https://youtu.be/6_37hqH3tu4" },
+      { ep: 4, title: "Chap 7: Các cậu đều muốn biến mất mà", youtube: "https://youtu.be/MUEetjEzsH4" },
+      { ep: 1, title: "Chap 8: Tranh vẽ của người tầm thường", youtube: "https://youtu.be/BQ1_OnkNxTE" },
+      { ep: 2, title: "Chap 9: Dù cho, mình đã muốn được là chính mình mà", youtube: "https://youtu.be/79C-r4wfjDk" },
+      { ep: 3, title: "Chap 10: Thanh âm còn thiếu sót", youtube: "https://youtu.be/4k3P5prbC8w" },
+      { ep: 4, title: "Chap 11: Thứ âm nhạc khiến người ta hạnh phúc", youtube: "https://youtu.be/Om9gN2aERPg" },
+      { ep: 1, title: "Chap 12: Chỉ một bài hát", youtube: "https://youtu.be/bhuh4OmwpSE" },
+      { ep: 2, title: "Chap 13: Cái 「Tôi」 chẳng có ở nơi nào", youtube: "https://youtu.be/q66BLgD-c40" },
+      { ep: 3, title: "Chap 14: 「Cô đơn thật đấy nhỉ」", youtube: "https://youtu.be/pydlEL-Tidc" },
+      { ep: 4, title: "Chap 15: Trước khi cậu ấy biến mất", youtube: "https://youtu.be/QrWb7hGrfDw" }
+      { ep: 1, title: "Chap 16: Sụp đổ", youtube: "https://youtu.be/Xay9fyDNTNU" },
+      { ep: 2, title: "Chap 17: Lời nguyền của hai người", youtube: "https://youtu.be/FnadJmyXnYQ" },
+      { ep: 3, title: "Chap 18: Dù thế nhưng tớ vẫn muốn cứu cậu", youtube: "https://youtu.be/klIQkakGiMY" },
+      { ep: 4, title: "Chap 19: Tương lai được viết nên từ niềm hối tiếc", youtube: "https://youtu.be/NSn8vORfcjo" },
+      { ep: 1, title: "Chap 20: 25-ji, Nightcord de.", youtube: "https://youtu.be/BWagRTt3EO8" },
     ],
     cards: [
       {
