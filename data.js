@@ -164,6 +164,78 @@ const EVENTS_DATA = [
     ]
   },
 
+    {
+    id: "vbs-main-story",
+    number: "Main Story Vivid BAD SQUAD",
+    title: "Main Story Vivid BAD SQUAD",
+    jpTitle: "Vivid BAD SQUAD メインストーリー",
+    unit: "vbs",
+    date: "2020",
+    banner: "https://img.youtube.com/vi/316Yj9-prpk/maxresdefault.jpg",
+    summary: "Sau khi tình cờ nghe An hát trên phố, Kohane - cô gái nhút nhát nhưng đam mê âm nhạc - đã bị cuốn vào thế giới sôi động của âm nhạc đường phố. Sau khi hóa giải mọi hiểu lầm, cô cùng An, Akito và Touya lập nên Vivid BAD SQUAD, mang trong mình ước mơ vượt qua huyền thoại RAD WEEKEND và lan tỏa cảm xúc chân thật qua từng giai điệu.",
+    chapters: [
+      { ep: "OP", title: "Chap Opening", youtube: "https://youtu.be/I9bU7QeKzRs" },
+      { ep: 1, title: "Chap 1: Khu phố với những nét vẽ đường phố", youtube: "https://youtu.be/ZaNrRTi7784" },
+      { ep: 2, title: "Chap 2: Bài hát hồi hộp nhất", youtube: "https://youtu.be/p0Y2Btj_Wdk" },
+      { ep: 3, title: "Chap 3: WEEKEND GARAGE", youtube: "https://youtu.be/g7vy1_uLlN4" },
+      { ep: 4, title: "Chap 4: BAD DOGS", youtube: "https://youtu.be/QYZ66QphbKQ" },
+      { ep: 5, title: "Chap 5: Sekai Đường phố", youtube: "https://youtu.be/ULfP8M_6mUI" },
+      { ep: 6, title: "Chap 6: Quán cafe bí ẩn", youtube: "https://youtu.be/GEsCv6KcEfE" },
+      { ep: 7, title: "Chap 7: Địa điểm luyện tập được ưa chuộng", youtube: "https://youtu.be/yASBcUv3M1k" },
+      { ep: 8, title: "Chap 8: Tôi muốn tin rằng cậu cũng nghĩ vậy", youtube: "https://youtu.be/Wq5qM6P1pJs" },
+      { ep: 9, title: "Chap 9: Buổi event đầu tiên", youtube: "https://youtu.be/1KFxK1-TOXI" },
+      { ep: 10, title: "Chap 10: Lòng quyết tâm được đòi hỏi", youtube: "https://youtu.be/STjxHH4OmJ8" },
+      { ep: 11, title: "Chap 11: Dũng khí để mở cánh cửa", youtube: "https://youtu.be/RdpK5P6MBy4" },
+      { ep: 12, title: "Chap 12: Chắc chắn tớ sẽ không trốn chạy", youtube: "https://youtu.be/4n4nHVP7Q5w" },
+      { ep: 13, title: "Chap 13: Vivids!", youtube: "https://youtu.be/KdJNGb5oHBY" },
+      { ep: 14, title: "Chap 14: Cậu có nói nghiêm túc không đấy?", youtube: "https://youtu.be/1IlLfl6nQ2U" },
+      { ep: 15, title: "Chap 15: Vì tớ đã được công nhận", youtube: "https://youtu.be/TaF3EsW6r0A" },
+      { ep: 16, title: "Chap 16: Người thứ 3", youtube: "https://youtu.be/JFcw-NeTnF0" },
+      { ep: 17, title: "Chap 17: Len và MEIKO và vũ khí bí mật", youtube: "https://youtu.be/_Ehr_T717uw" },
+      { ep: 18, title: "Chap 18: Tách biệt", youtube: "https://youtu.be/GQgXBhOns3w" },
+      { ep: 19, title: "Chap 19: Ready Steady", youtube: "https://youtu.be/axzVcI82dA8" },
+      { ep: 20, title: "Chap 20: Vivid BAD SQUAD", youtube: "https://youtu.be/r3ZOpsRXPJY" }
+    ],
+    cards: [
+      {
+        character: "Azusawa Kohane",
+        title: "Thở một hơi tại Sekai",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res013_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res013_no003/card_after_training.png",   
+        sideStory1: "",
+        sideStory2: ""
+      },
+      {
+        character: "Shiraishi An",
+        title: "Đang tích cực phụ giúp lắm đây!",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res014_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res014_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: "" 
+      },
+      {
+        character: "Shinonome Akito",
+        title: "Nỗi bực dọc âm ỉ",
+        rarity: 3,
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res015_no003/card_normal.png",
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res015_no003/card_after_training.png",
+        sideStory1: "",
+        sideStory2: ""
+      },
+      {
+        character: "Aoyagi Touya",
+        title: "Mối liên kết bị cắt đứt",
+        rarity: 3, 
+        untrained: "https://storage.sekai.best/sekai-jp-assets/character/member/res016_no003/card_normal.png", 
+        trained: "https://storage.sekai.best/sekai-jp-assets/character/member/res016_no003/card_after_training.png",   
+        sideStory1: "",
+        sideStory2: ""
+      }
+    ]
+  },
+
   {
     id: "vbs-sample-02",
     number: "Event #02",
