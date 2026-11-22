@@ -4,8 +4,8 @@
 const SITE_CONFIG = {
   siteTitle: "SEKAI STORY",
   subtitle: "Kho lưu trữ Event Story & Side Story Vietsub",
-  channelName: "Kênh YouTube của mình",
-  channelUrl: "https://www.youtube.com/" // Dán link kênh YouTube của bạn vào đây
+  channelName: "Kênh YouTube của chúng mình",
+  channelUrl: "https://www.youtube.com/@projectsekaivietsub3019" // Dán link kênh YouTube của bạn vào đây
 };
 
 // =========================================================
