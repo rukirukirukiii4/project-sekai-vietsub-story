@@ -1,4 +1,9 @@
 import { extractYouTubeId } from "../../utils/helpers";
+import {
+  ExternalLinkIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "../common/Icons";
 
 export default function VideoPlayer({
   playing,
@@ -33,10 +38,12 @@ export default function VideoPlayer({
       {playing && (
         <div className="p-4 border-t-[1.5px] border-border flex items-center justify-between gap-3 flex-wrap">
           <div className="flex-1 min-w-[200px]">
-            <span className="inline-block text-[11px] font-extrabold px-2.5 py-0.5 rounded-md bg-accent-soft text-accent mb-1">
+            <span className="inline-block text-xs font-extrabold px-2.5 py-0.5 rounded-md bg-accent-soft text-accent-text mb-1.5">
               {playing.badge}
             </span>
-            <h3 className="text-base font-extrabold">{playing.title}</h3>
+            <h2 className="text-base sm:text-lg font-extrabold leading-snug text-balance">
+              {playing.title}
+            </h2>
           </div>
 
           <div className="flex items-center gap-2 flex-wrap">
@@ -45,9 +52,10 @@ export default function VideoPlayer({
                 href={`https://www.youtube.com/watch?v=${videoId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg text-[12.5px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent transition"
+                className="inline-flex items-center gap-1.5 min-h-[38px] px-3 py-1.5 rounded-lg text-[13px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text transition"
               >
-                Mở trên YouTube ↗
+                Mở trên YouTube
+                <ExternalLinkIcon />
               </a>
             )}
 
@@ -57,17 +65,19 @@ export default function VideoPlayer({
                   type="button"
                   disabled={!hasPrev}
                   onClick={onPrev}
-                  className="px-3 py-1.5 rounded-lg text-[12.5px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent disabled:opacity-45 disabled:cursor-not-allowed transition"
+                  className="inline-flex items-center gap-1 min-h-[38px] px-3 py-1.5 rounded-lg text-[13px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text disabled:opacity-45 disabled:cursor-not-allowed transition"
                 >
-                  ◀ Tập trước
+                  <ChevronLeftIcon />
+                  Tập trước
                 </button>
                 <button
                   type="button"
                   disabled={!hasNext}
                   onClick={onNext}
-                  className="px-3 py-1.5 rounded-lg text-[12.5px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent disabled:opacity-45 disabled:cursor-not-allowed transition"
+                  className="inline-flex items-center gap-1 min-h-[38px] px-3 py-1.5 rounded-lg text-[13px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text disabled:opacity-45 disabled:cursor-not-allowed transition"
                 >
-                  Tập sau ▶
+                  Tập sau
+                  <ChevronRightIcon />
                 </button>
               </>
             )}

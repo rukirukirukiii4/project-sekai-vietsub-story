@@ -8,20 +8,30 @@ export function extractYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-export function setDynamicAccent(hex) {
+export function setDynamicAccent(unitOrHex) {
+  const isObj = unitOrHex && typeof unitOrHex === "object";
+  const hex = isObj ? unitOrHex.color : unitOrHex;
   if (!hex || !hex.startsWith("#")) return;
-  document.documentElement.style.setProperty("--accent", hex);
+
+  const root = document.documentElement.style;
+  root.setProperty("--accent", hex);
+
+  if (isObj && unitOrHex.fill) {
+    root.setProperty("--accent-fill", unitOrHex.fill);
+  }
+  if (isObj && unitOrHex.textLight) {
+    root.setProperty("--accent-text-light", unitOrHex.textLight);
+  }
+  if (isObj && unitOrHex.textDark) {
+    root.setProperty("--accent-text-dark", unitOrHex.textDark);
+  }
+
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
-  document.documentElement.style.setProperty(
-    "--accent-soft",
-    `rgba(${r}, ${g}, ${b}, 0.14)`
-  );
-  document.documentElement.style.setProperty(
-    "--accent-muted",
-    `rgba(${r}, ${g}, ${b}, 0.52)`
-  );
+  root.setProperty("--accent-soft", `rgba(${r}, ${g}, ${b}, 0.12)`);
+  root.setProperty("--accent-soft-dark", `rgba(${r}, ${g}, ${b}, 0.2)`);
+  root.setProperty("--accent-muted", `rgba(${r}, ${g}, ${b}, 0.52)`);
 }
 
 export function formatEpisodeTag(ep, fallbackIndex) {
@@ -31,6 +41,8 @@ export function formatEpisodeTag(ep, fallbackIndex) {
 
 export function resolveImageUrl(path) {
   if (!path) return "";
-  if (path.startsWith("http") || path.startsWith("/")) return path;
-  return `/${path}`;
+  const normalized = String(path).trim().replace(/\\/g, "/");
+  if (/^https?:\/\//i.test(normalized)) return normalized;
+  const withoutPublic = normalized.replace(/^\/?public\//i, "");
+  return withoutPublic.startsWith("/") ? withoutPublic : `/${withoutPublic}`;
 }

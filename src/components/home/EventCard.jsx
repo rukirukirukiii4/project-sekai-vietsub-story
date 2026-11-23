@@ -1,109 +1,139 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { UNITS } from "../../constants/units";
 import { resolveImageUrl } from "../../utils/helpers";
 import { useAuth } from "../../contexts/AuthContext";
+import { BookOpenIcon, CardStackIcon } from "../common/Icons";
 
 export default function EventCard({ event }) {
-  const navigate = useNavigate();
   const { getEventProgress } = useAuth();
+  const [imgFailed, setImgFailed] = useState(false);
 
   const unitInfo = UNITS[event.unit] || UNITS.all;
   const { totalCount: totalEp, percent } = getEventProgress(event);
   const totalCards = event.cards?.length || 0;
+  const bannerSrc = resolveImageUrl(event.banner);
+  const showJpTitle =
+    event.jpTitle &&
+    event.jpTitle.trim().toLowerCase() !== (event.title || "").trim().toLowerCase();
 
   return (
     <article
-      onClick={() => navigate(`/event/${event.id}`)}
-      style={{ "--card-unit-color": unitInfo.color }}
-      className="bg-surface border-[1.5px] border-border rounded-[14px] overflow-hidden sekai-shadow cursor-pointer flex flex-col transition duration-200 hover:-translate-y-1 hover:border-[var(--card-unit-color)]"
+      style={{
+        "--card-unit-color": unitInfo.color,
+        "--card-accent-text-light": unitInfo.textLight,
+        "--card-accent-text-dark": unitInfo.textDark,
+      }}
+      className="group bg-surface border-[1.5px] border-border rounded-[14px] overflow-hidden sekai-shadow flex flex-col transition duration-200 hover:-translate-y-1 motion-safe-lift hover:border-[var(--card-unit-color)] focus-within:border-[var(--card-unit-color)]"
     >
-      <div
-        className="relative aspect-[16/8.5] overflow-hidden flex items-end p-3.5"
-        style={{
-          background: `linear-gradient(135deg, ${unitInfo.color}, #1e293b)`,
-        }}
+      <Link
+        to={`/event/${event.id}`}
+        className="flex flex-col flex-1 focus:outline-none"
       >
-        {event.banner && (
-          <img
-            src={resolveImageUrl(event.banner)}
-            alt={event.title}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
         <div
-          className="absolute inset-0"
+          className="relative aspect-[16/8.5] overflow-hidden flex items-end p-3.5"
           style={{
-            background:
-              "linear-gradient(to top, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.1) 60%)",
+            background: `linear-gradient(135deg, ${unitInfo.color}, #1e293b)`,
           }}
-        />
-
-        <div className="relative z-10 flex justify-between items-center w-full gap-2">
-          {unitInfo.logo ? (
-            <div className="bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg shadow-sm flex items-center">
-              <img
-                src={unitInfo.logo}
-                alt={unitInfo.name}
-                className="h-5 w-auto max-w-[110px] object-contain"
-              />
-            </div>
-          ) : (
-            <span
-              className="px-2.5 py-1 text-[11px] font-extrabold text-white rounded-md tracking-wide"
-              style={{ backgroundColor: unitInfo.color }}
-            >
-              {event.unit === "mixed" ? "Mixed Event" : unitInfo.name}
-            </span>
+        >
+          {bannerSrc && !imgFailed && (
+            <img
+              src={bannerSrc}
+              alt={event.title}
+              loading="lazy"
+              onError={() => setImgFailed(true)}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           )}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.12) 60%)",
+            }}
+          />
 
-          {event.number && (
-            <span className="px-2.5 py-1 text-[11px] font-bold text-white bg-slate-900/65 backdrop-blur-sm rounded-md">
-              {event.number}
-            </span>
-          )}
-        </div>
-      </div>
-
-      <div className="p-4 flex flex-col flex-1 gap-2">
-        <h2 className="text-base font-extrabold leading-snug">{event.title}</h2>
-        {event.jpTitle && <p className="text-xs text-muted">{event.jpTitle}</p>}
-        {event.summary && (
-          <p className="text-[13px] text-muted leading-relaxed line-clamp-2">
-            {event.summary}
-          </p>
-        )}
-
-        <div className="mt-auto pt-3 border-t border-dashed border-border space-y-2.5">
-          {/* Thanh tiến trình đọc */}
-          <div className="space-y-1">
-            <div className="flex items-center justify-between text-[11px] font-bold text-muted">
-              <span>Tiến độ đọc</span>
+          <div className="relative z-10 flex justify-between items-center w-full gap-2">
+            {unitInfo.logo ? (
+              <div className="bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-lg shadow-sm flex items-center shrink-0">
+                <img
+                  src={unitInfo.logo}
+                  alt={unitInfo.name}
+                  className="h-5 w-auto max-w-[105px] object-contain"
+                />
+              </div>
+            ) : (
               <span
-                style={{
-                  color: percent === 100 ? "#10b981" : unitInfo.color,
-                }}
+                className="px-2.5 py-1 text-xs font-extrabold text-white rounded-md tracking-wide shrink-0"
+                style={{ backgroundColor: unitInfo.fill }}
               >
-                {percent}%
+                {unitInfo.name}
+              </span>
+            )}
+
+            {event.number && (
+              <span
+                title={event.number}
+                className="px-2.5 py-1 text-xs font-bold text-white bg-slate-900/75 backdrop-blur-sm rounded-md truncate max-w-[58%]"
+              >
+                {event.number}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="p-4 flex flex-col flex-1 gap-2">
+          <h2 className="text-[17px] font-extrabold leading-snug text-balance group-hover:text-accent-text transition-colors">
+            {event.title}
+          </h2>
+          {showJpTitle && (
+            <p className="text-xs text-muted leading-snug">{event.jpTitle}</p>
+          )}
+          {event.summary && (
+            <p className="text-sm text-muted leading-relaxed line-clamp-2">
+              {event.summary}
+            </p>
+          )}
+
+          <div className="mt-auto pt-3 border-t border-dashed border-border space-y-2.5">
+            {/* Thanh tiến trình đọc */}
+            <div className="space-y-1">
+              <div className="flex items-center justify-between text-xs font-bold text-muted tabular-nums">
+                <span>Tiến độ đọc</span>
+                <span
+                  className={
+                    percent === 100
+                      ? "text-emerald-700 dark:text-emerald-400"
+                      : "card-unit-text"
+                  }
+                >
+                  {percent}%
+                </span>
+              </div>
+              <div className="w-full h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-300"
+                  style={{
+                    width: `${percent}%`,
+                    backgroundColor: percent === 100 ? "#10b981" : unitInfo.color,
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-semibold text-muted tabular-nums">
+              <span className="inline-flex items-center gap-1.5">
+                <BookOpenIcon className="w-3.5 h-3.5" />
+                {totalEp} tập
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CardStackIcon className="w-3.5 h-3.5" />
+                {totalCards} thẻ
               </span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-300"
-                style={{
-                  width: `${percent}%`,
-                  backgroundColor: percent === 100 ? "#10b981" : unitInfo.color,
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between text-xs font-semibold text-muted">
-            <span>📖 {totalEp} tập</span>
-            <span>🃏 {totalCards} thẻ</span>
           </div>
         </div>
-      </div>
+      </Link>
     </article>
   );
 }

@@ -9,6 +9,9 @@ export default {
       },
       colors: {
         accent: "var(--accent)",
+        "accent-fill": "var(--accent-fill)",
+        "accent-ink": "var(--accent-ink)",
+        "accent-text": "var(--accent-text)",
         "accent-soft": "var(--accent-soft)",
         surface: "var(--surface)",
         "surface-alt": "var(--surface-alt)",
