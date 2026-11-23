@@ -395,7 +395,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                       </div>
                     </div>
 
-                    {/* Huy hiệu ! / ✓ góc trên phải (không còn bị cắt mép) */}
+                    {/* Huy hiệu ! / ✓ góc trên phải */}
                     <span
                       className={`absolute -top-2 -right-2 w-5 h-5 rounded-full text-[11px] font-black text-white flex items-center justify-center shadow-md border border-white/90 ${
                         isDone ? "bg-emerald-500" : "bg-[#ff5588]"
@@ -423,12 +423,13 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
               />
               <div className="sekai-showcase-scrim" />
 
-              {/* Cụm tiêu đề + nút hành động ở góc dưới phải */}
+              {/* Cụm Logo Event + tiêu đề + nút hành động ở góc dưới phải */}
               <div
                 key={`info-${activeEvent.id}`}
-                className="relative z-10 flex flex-col items-end text-right gap-3 sekai-fade-up"
+                className="relative z-10 flex flex-col items-end text-right gap-2.5 sekai-fade-up"
               >
-                <div className="w-full max-w-xl">
+                <div className="w-full max-w-xl flex flex-col items-end">
+                  {/* Dải nhãn Unit + Loại truyện + Năm */}
                   <div className="flex items-center justify-end gap-2 flex-wrap mb-2">
                     {activeUnitInfo.logo ? (
                       <span className="bg-white/95 px-2.5 py-1 rounded-lg inline-flex items-center shadow">
@@ -465,17 +466,33 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                     )}
                   </div>
 
-                  <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.8)] leading-tight">
-                    {activeEvent.title}
-                  </h1>
-
-                  {activeEvent.jpTitle && (
-                    <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-1">
-                      {activeEvent.jpTitle}
-                    </p>
+                  {/* Có ảnh logo -> hiện Logo Event chuẩn game; chưa có -> hiện chữ tiêu đề */}
+                  {activeEvent.logo ? (
+                    <>
+                      <img
+                        src={activeEvent.logo}
+                        alt={activeEvent.title}
+                        className="sekai-event-logo max-h-[88px] sm:max-h-[115px] lg:max-h-[135px] max-w-[260px] sm:max-w-[360px] lg:max-w-[420px] w-auto object-contain object-right"
+                      />
+                      <p className="mt-1.5 text-sm sm:text-base font-extrabold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                        {activeEvent.title}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.8)] leading-tight">
+                        {activeEvent.title}
+                      </h1>
+                      {activeEvent.jpTitle && (
+                        <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-1">
+                          {activeEvent.jpTitle}
+                        </p>
+                      )}
+                    </>
                   )}
 
-                  <div className="mt-2 flex items-center justify-end gap-3 text-xs font-bold text-white/90 drop-shadow">
+                  {/* Thông số tập / thẻ / tiến độ */}
+                  <div className="mt-1.5 flex items-center justify-end gap-2.5 text-xs font-bold text-white/90 drop-shadow">
                     <span>📖 {activeEvent.chapters?.length || 0} tập</span>
                     <span>•</span>
                     <span>🃏 {activeEvent.cards?.length || 0} thẻ</span>
