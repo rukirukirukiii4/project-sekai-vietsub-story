@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 import HomePage from "./pages/HomePage";
 import ReaderPage from "./pages/ReaderPage";
 
@@ -32,35 +33,39 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header
-        isDark={theme === "dark"}
-        onToggleTheme={handleToggleTheme}
-        onResetUnit={() => setSelectedUnit("all")}
-      />
+      <div className="min-h-screen flex flex-col">
+        <Header
+          isDark={theme === "dark"}
+          onToggleTheme={handleToggleTheme}
+          onResetUnit={() => setSelectedUnit("all")}
+        />
 
-      <main className="max-w-[1240px] mx-auto px-5 pt-6 pb-16">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                selectedUnit={selectedUnit}
-                onUnitChange={setSelectedUnit}
-                watchedMap={watchedMap}
-              />
-            }
-          />
-          <Route
-            path="/event/:eventId"
-            element={
-              <ReaderPage
-                watchedMap={watchedMap}
-                onToggleWatched={handleToggleWatched}
-              />
-            }
-          />
-        </Routes>
-      </main>
+        <main className="flex-1 w-full max-w-[1240px] mx-auto px-5 pt-6 pb-16">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  selectedUnit={selectedUnit}
+                  onUnitChange={setSelectedUnit}
+                  watchedMap={watchedMap}
+                />
+              }
+            />
+            <Route
+              path="/event/:eventId"
+              element={
+                <ReaderPage
+                  watchedMap={watchedMap}
+                  onToggleWatched={handleToggleWatched}
+                />
+              }
+            />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
