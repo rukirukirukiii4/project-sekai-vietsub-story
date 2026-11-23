@@ -479,16 +479,16 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                       </p>
                     </>
                   ) : (
-                    <>
-                      <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.8)] leading-tight">
-                        {activeEvent.title}
-                      </h1>
-                      {activeEvent.jpTitle && (
-                        <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-1">
-                          {activeEvent.jpTitle}
-                        </p>
-                      )}
-                    </>
+                    <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.8)] leading-tight">
+                      {activeEvent.title}
+                    </h1>
+                  )}
+
+                  {/* Luôn hiện tên tiếng Nhật ở dưới */}
+                  {activeEvent.jpTitle && (
+                    <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-0.5">
+                      {activeEvent.jpTitle}
+                    </p>
                   )}
 
                   {/* Thông số tập / thẻ / tiến độ */}
