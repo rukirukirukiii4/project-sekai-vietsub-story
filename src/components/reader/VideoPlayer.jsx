@@ -2,8 +2,6 @@ import { extractYouTubeId } from "../../utils/helpers";
 
 export default function VideoPlayer({
   playing,
-  isWatched,
-  onToggleWatched,
   hasPrev,
   hasNext,
   onPrev,
@@ -25,8 +23,8 @@ export default function VideoPlayer({
           />
         ) : (
           <div className="text-center text-slate-300 p-6 max-w-md">
-            <strong className="block text-base text-white mb-1.5">
-              Video đang được cập nhật.
+            <strong className="block text-base text-white">
+              Video đang được cập nhật
             </strong>
           </div>
         )}
@@ -52,18 +50,6 @@ export default function VideoPlayer({
                 Mở trên YouTube ↗
               </a>
             )}
-
-            <button
-              type="button"
-              onClick={onToggleWatched}
-              className={`px-3 py-1.5 rounded-lg text-[12.5px] font-bold border-[1.5px] transition ${
-                isWatched
-                  ? "bg-emerald-500 border-emerald-500 text-white"
-                  : "border-border bg-surface-alt hover:border-accent hover:text-accent"
-              }`}
-            >
-              {isWatched ? "✓ Đã xem" : "Đánh dấu đã xem"}
-            </button>
 
             {playing.type === "chapter" && (
               <>

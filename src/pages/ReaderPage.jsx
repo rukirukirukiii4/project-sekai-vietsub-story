@@ -3,16 +3,20 @@ import { useParams, useNavigate } from "react-router-dom";
 import eventsData from "../data/events.json";
 import { UNITS } from "../constants/units";
 import { setDynamicAccent, formatEpisodeTag } from "../utils/helpers";
+import { useAuth } from "../contexts/AuthContext";
 import VideoPlayer from "../components/reader/VideoPlayer";
 import ChapterList from "../components/reader/ChapterList";
 import GachaCardItem from "../components/reader/GachaCardItem";
 
-export default function ReaderPage({ watchedMap, onToggleWatched }) {
+export default function ReaderPage() {
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const { markChapterWatched, getEventProgress } = useAuth();
 
   const event = eventsData.find((ev) => ev.id === eventId);
-  const storyLabel = event?.type?.toLowerCase() === "main" ? "MAIN STORY" : "EVENT STORY";
+  const storyLabel =
+    event?.type?.toLowerCase() === "main" ? "MAIN STORY" : "EVENT STORY";
+
   const [playing, setPlaying] = useState(null);
 
   useEffect(() => {
@@ -32,10 +36,12 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
         youtube: ch.youtube,
         epIndex: 0,
       });
+      // Mặc định đánh dấu tập đầu tiên đã xem khi mở Story
+      markChapterWatched(event.id, 0);
     } else {
       setPlaying(null);
     }
-  }, [eventId, event, storyLabel]);
+  }, [eventId, event, storyLabel, markChapterWatched]);
 
   if (!event) {
     return (
@@ -53,6 +59,7 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
   }
 
   const unitInfo = UNITS[event.unit] || UNITS.all;
+  const { watchedChapters, percent } = getEventProgress(event);
 
   const handleSelectChapter = (epIdx) => {
     const ch = event.chapters[epIdx];
@@ -65,6 +72,9 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
       youtube: ch.youtube,
       epIndex: epIdx,
     });
+    // Nhấn vào tập nào -> mặc định đánh dấu tập đó đã xem
+    markChapterWatched(event.id, epIdx);
+
     if (window.innerWidth < 920) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -143,8 +153,6 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
         <div className="flex flex-col gap-5">
           <VideoPlayer
             playing={playing}
-            isWatched={playing ? !!watchedMap[playing.key] : false}
-            onToggleWatched={() => playing && onToggleWatched(playing.key)}
             hasPrev={hasPrev}
             hasNext={hasNext}
             onPrev={() => handleSelectChapter(playing.epIndex - 1)}
@@ -155,7 +163,8 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
             eventId={event.id}
             chapters={event.chapters}
             playingKey={playing?.key}
-            watchedMap={watchedMap}
+            watchedChapters={watchedChapters}
+            percent={percent}
             onSelectChapter={handleSelectChapter}
           />
         </div>

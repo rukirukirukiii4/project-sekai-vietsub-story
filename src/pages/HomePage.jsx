@@ -5,7 +5,7 @@ import { setDynamicAccent } from "../utils/helpers";
 import FilterBar from "../components/home/FilterBar";
 import EventCard from "../components/home/EventCard";
 
-export default function HomePage({ selectedUnit, onUnitChange, watchedMap }) {
+export default function HomePage({ selectedUnit, onUnitChange }) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function HomePage({ selectedUnit, onUnitChange, watchedMap }) {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredEvents.map((ev) => (
-            <EventCard key={ev.id} event={ev} watchedMap={watchedMap} />
+            <EventCard key={ev.id} event={ev} />
           ))}
         </div>
       )}
