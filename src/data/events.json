@@ -1,5 +1,77 @@
 [
   {
+    "id": "ln-main-story",
+    "number": "Main Story Leo/need"
+    "title": "Main Story Leo/need",
+    "jpTitle": "Leo/need メインストーリー",
+    "unit": "ln",
+    "type": "main",
+    "date": "2020",
+    "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNvDvsIwM8el1a1S1Npr5i9PJiGtTdA7TAuUmKxg7BTOdrx2wTbO4_LrM&s=10",
+    "summary": "Bốn người bạn thuở nhỏ - Ichika, Saki, Honami và Shiho - từng luôn bên nhau, cho đến khi một vài hiểu lầm xuất hiện khiến họ dần trở nên xa cách. Nhiều năm sau, Saki đã trở lại trường học sau một thời gian dài nằm viện và mong muốn cả nhóm có thể sum vầy như trước. Dù mỗi người vẫn mang trong lòng những tổn thương chưa lành, họ dần đối mặt với cảm xúc thật của mình và tìm lại sợi dây gắn kết đã mất. Một lần nữa, âm nhạc lại vang lên - họ cùng nhau thành lập nên Leo/need, như một minh chứng cho tình bạn không bao giờ tan biến.",
+    "chapters": [
+      { "ep": "OP", "title": "Chap Opening", "youtube": "https://youtu.be/LrEGwZsHhE4" },
+      { "ep": 1, "title": "4 người bạn từ thời thơ ấu", "youtube": "https://youtu.be/TM-aj1psLQQ" },
+      { "ep": 2, "title": "Ít nhất thì, tớ", "youtube": "https://youtu.be/fHCfxIZshVQ" },
+      { "ep": 3, "title": "Chỉ có 2 chúng ta thôi nên cô đơn thật nhỉ", "youtube": "https://youtu.be/vheg-BaGLUg" },
+      { "ep": 4, "title": "Sekai Lớp học", "youtube": "https://youtu.be/DLGeYiCArAs" },
+      { "ep": 5, "title": "Cùng nhau thành lập band nhạc nhé", "youtube": "https://youtu.be/8R8cIOL6GQ0" },
+      { "ep": 6, "title": "Bước đi đầu tiên", "youtube": "https://youtu.be/sS3qm4E7c3Y" },
+      { "ep": 7, "title": "Dạy em đi, Luka-san!", "youtube": "https://youtu.be/aBKUQ4k_0Jw" },
+      { "ep": 8, "title": "Ngôi sao không thể thấy", "youtube": "https://youtu.be/72IY-nufX6c" },
+      { "ep": 9, "title": "Nhóm nhạc 3 người", "youtube": "https://youtu.be/PhI1vQaxa1k" },
+      { "ep": 10, "title": "Jungle gym và cơn mưa sao băng", "youtube": "https://youtu.be/eSESJgj-laA" },
+      { "ep": 11, "title": "Tớ đã cảnh cáo rồi mà", "youtube": "https://youtu.be/9u2Ec_BOOOg" },
+      { "ep": 12, "title": "「Cậu về phe ai thế?」", "youtube": "https://youtu.be/Ubiv_3yXvzU" },
+      { "ep": 13, "title": "Quyết tâm của Saki", "youtube": "https://youtu.be/BYaHCXiQclg" },
+      { "ep": 14, "title": "Vì nó rất quan trọng mà", "youtube": "https://youtu.be/8ojtwC2kEnA" },
+      { "ep": 15, "title": "Đừng có đánh trống lảng", "youtube": "https://youtu.be/YmnxHT1aBis" },
+      { "ep": 16, "title": "「Mãi mãi bên nhau」", "youtube": "https://youtu.be/xs1cWYCGBa8" },
+      { "ep": 17, "title": "Cảm xúc của Honami", "youtube": "https://youtu.be/h_iJK-GA-H0" },
+      { "ep": 18, "title": "Bầu trời sao của 4 người", "youtube": "https://youtu.be/_744AfX4Jps" },
+      { "ep": 19, "title": "needLe", "youtube": "https://youtu.be/PP6LW7gPIxQ" },
+      { "ep": 20, "title": "Leo/need", "youtube": "https://youtu.be/a3hvrspsPCUc" }
+    ],
+    "cards": [
+      {
+        "character": "Hoshino Ichika",
+        "title": "Nơi ánh mắt ngước nhìn",
+        "rarity": 3,
+        "untrained": "/images/ichika-main-untrained.png",
+        "trained": "/images/ichika-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Tenma Saki",
+        "title": "100 điều muốn làm",
+        "rarity": 3,
+        "untrained": "/images/saki-main-untrained.png",
+        "trained": "/images/saki-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Mochizuki Honami",
+        "title": "Mặc dù hương vị vẫn không hề thay đổi",
+        "rarity": 3,
+        "untrained": "/images/honami-main-untrained.png",
+        "trained": "/images/honami-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Hinomori Shiho",
+        "title": "Giai điệu còn vương lại trong lồng ngực",
+        "rarity": 3,
+        "untrained": "/images/shiho-main-untrained.png",
+        "trained": "/images/shiho-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      }
+    ]
+  },
+  {
     "id": "mmj-main-story",
     "number": "Main Story MORE MORE JUMP!",
     "title": "Main Story MORE MORE JUMP!",
