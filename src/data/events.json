@@ -216,67 +216,6 @@
     ]
   },
   {
-    "id": "02",
-    "number": "Event #02",
-    "title": "Vượt qua huyền thoại RAD WEEKEND",
-    "jpTitle": "いつか、背中あわせのリリックを",
-    "unit": "vbs",
-    "type": "event",
-    "date": "2024",
-    "banner": "",
-    "summary": "Vivid BAD SQUAD đối mặt với khoảng cách thực lực giữa các thành viên trước đêm diễn tại phố Vivid.",
-    "chapters": [
-      { "ep": 1, "title": "Tập 1: Đêm nhạc trên phố Vivid", "youtube": "https://www.youtube.com/watch?v=qpgM4uIPtTc" },
-      { "ep": 2, "title": "Tập 2: Cộng sự ăn ý", "youtube": "https://www.youtube.com/watch?v=qpgM4uIPtTc" },
-      { "ep": 3, "title": "Tập 3: Lời hứa chưa trọn vẹn", "youtube": "" }
-    ],
-    "cards": [
-      {
-        "character": "Shiraishi An",
-        "title": "Ánh đèn sân khấu rực cháy",
-        "rarity": 4,
-        "untrained": "",
-        "trained": "",
-        "sideStory1": "https://www.youtube.com/watch?v=qpgM4uIPtTc",
-        "sideStory2": ""
-      },
-      {
-        "character": "Azusawa Kohane",
-        "title": "Bước chân đầu tiên",
-        "rarity": 4,
-        "untrained": "",
-        "trained": "",
-        "sideStory1": "https://www.youtube.com/watch?v=qpgM4uIPtTc",
-        "sideStory2": ""
-      }
-    ]
-  },
-  {
-    "id": "03",
-    "number": "Event #03",
-    "title": "Nụ cười tỏa sáng trên sân khấu phép màu",
-    "jpTitle": "全力！ワンダーハロウィン！",
-    "unit": "wxs",
-    "date": "2024",
-    "banner": "",
-    "summary": "Tsukasa và Rui lên kế hoạch cho buổi diễn đặc biệt lớn nhất từ trước đến nay tại Phoenix Wonderland.",
-    "chapters": [
-      { "ep": 1, "title": "Tập 1: Ý tưởng điên rồ của đạo diễn", "youtube": "https://www.youtube.com/watch?v=sM2PphbvUgQ" },
-      { "ep": 2, "title": "Tập 2: Buổi tổng duyệt hỗn loạn", "youtube": "https://www.youtube.com/watch?v=sM2PphbvUgQ" }
-    ],
-    "cards": [
-      {
-        "character": "Tenma Tsukasa",
-        "title": "Ngôi sao của tương lai",
-        "rarity": 4,
-        "untrained": "",
-        "trained": "",
-        "sideStory1": "https://www.youtube.com/watch?v=sM2PphbvUgQ",
-        "sideStory2": ""
-      }
-    ]
-  },
-  {
     "id": "11",
     "number": "Event #11",
     "title": "Color of myself!",
