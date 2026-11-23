@@ -629,6 +629,11 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                 <h3 className="font-black text-lg leading-snug">
                   {activeEvent.title}
                 </h3>
+                {activeEvent.jpTitle && (
+                  <p className="text-xs text-white/80 font-medium mt-0.5">
+                    {activeEvent.jpTitle}
+                  </p>
+                )}
               </div>
             </div>
 
