@@ -45,10 +45,10 @@ export default function ChapterList({
           let itemStyle =
             "border-border bg-surface hover:border-accent hover:translate-x-0.5"; // Chưa xem
           if (isActive) {
-            itemStyle = "border-accent bg-accent-soft opacity-100"; // Đang phát
+            itemStyle = "border-accent bg-accent-soft"; // Đang phát
           } else if (isWatched) {
             itemStyle =
-              "border-border/60 bg-slate-200/50 dark:bg-slate-800/35 opacity-55 hover:opacity-90"; // Đã xem (nền nhạt đi)
+              "border-border/70 bg-slate-100/80 dark:bg-slate-800/40 hover:border-accent/60"; // Đã xem (nền nhạt)
           }
 
           return (
@@ -59,14 +59,23 @@ export default function ChapterList({
               className={`w-full text-left flex items-center gap-3 px-3.5 py-2.5 rounded-[10px] border-[1.5px] transition ${itemStyle}`}
             >
               <span
-                className={`text-xs font-extrabold px-2 py-1 rounded-[7px] text-white min-w-[56px] text-center shrink-0 transition ${
-                  isWatched && !isActive ? "bg-accent/60" : "bg-accent"
-                }`}
+                style={
+                  isWatched && !isActive
+                    ? { backgroundColor: "var(--accent-muted)" }
+                    : undefined
+                }
+                className="text-xs font-extrabold px-2 py-1 rounded-[7px] bg-accent text-white min-w-[56px] text-center shrink-0 transition"
               >
                 {formatEpisodeTag(ch.ep, idx)}
               </span>
 
-              <span className="flex-1 text-sm font-bold">{ch.title}</span>
+              <span
+                className={`flex-1 text-sm font-bold transition ${
+                  isWatched && !isActive ? "text-muted" : ""
+                }`}
+              >
+                {ch.title}
+              </span>
 
               {!hasLink && (
                 <span className="text-[11.5px] font-bold px-2 py-0.5 rounded-full bg-slate-400/20 text-muted whitespace-nowrap">

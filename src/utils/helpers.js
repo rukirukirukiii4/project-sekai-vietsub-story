@@ -18,6 +18,10 @@ export function setDynamicAccent(hex) {
     "--accent-soft",
     `rgba(${r}, ${g}, ${b}, 0.14)`
   );
+  document.documentElement.style.setProperty(
+    "--accent-muted",
+    `rgba(${r}, ${g}, ${b}, 0.52)`
+  );
 }
 
 export function formatEpisodeTag(ep, fallbackIndex) {
