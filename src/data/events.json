@@ -374,6 +374,83 @@
       }
     ]
   },
+  {
+    "id": "vs-main-story",
+    "number": "Main Story VIRTUAL SINGER",
+    "title": "Main Story VIRTUAL SINGER",
+    "jpTitle": "VIRTUAL SINGER メインストーリー",
+    "unit": "vs",
+    "type": "main",
+    "date": "2020",
+    "keyStory": false,
+    "banner": "/banner_images/vs_main.png",
+    "bgImage": "/bg_image/bg_vs.png", 
+    "logo": "/event_logo/vs_main_logo.png",
+    "summary": "Main Story từ góc nhìn của các VIRTUAL SINGER",
+    "chapters": [
+      { "ep": "LN", "title": "Sekai Lớp Học", "youtube": "https://youtu.be/OkQ-YZS_eYI" },
+      { "ep": "MMJ", "title": "Sekai Sân Khấu", "youtube": "https://youtu.be/uYbr6xUX3K0" },
+      { "ep": "VBS", "title": "Sekai Đường Phố", "youtube": "https://youtu.be/e0fPxl3GkV8" },
+      { "ep": "WxS", "title": "Sekai Xứ Sở Thần Tiên", "youtube": "https://youtu.be/Izdyf0UEYDc" },
+      { "ep": "25", "title": "Sekai Không Người", "youtube": "https://youtu.be/5Zf_MR5_mY4" }
+    ],
+    "cards": [
+      {
+        "character": "Hatsune Miku",
+        "title": "Ánh mắt dõi theo",
+        "rarity": 3,
+        "untrained": "/images/miku-main-untrained.png",
+        "trained": "/images/miku-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Kagamine Rin",
+        "title": "Sân khấu lấp lánh",
+        "rarity": 3,
+        "untrained": "/images/rin-main-untrained.png",
+        "trained": "/images/rin-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Kagamine Len",
+        "title": "「Làm hòa」khó khăn",
+        "rarity": 3,
+        "untrained": "/images/len-main-untrained.png",
+        "trained": "/images/len-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Megurine Luka",
+        "title": "Bàn tay dẫn lối",
+        "rarity": 3,
+        "untrained": "/images/luka-main-untrained.png",
+        "trained": "/images/luka-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "MEIKO",
+        "title": "Tách cà phê được dồn cả tâm huyết",
+        "rarity": 3,
+        "untrained": "/images/meiko-main-untrained.png",
+        "trained": "/images/meiko-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "KAITO",
+        "title": "Tuyển dụng thành viên cho đoàn kịch",
+        "rarity": 3,
+        "untrained": "/images/kaito-main-untrained.png",
+        "trained": "/images/kaito-main-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      }
+    ]
+  },
 
   {
     "id": "11",
