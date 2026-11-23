@@ -12,6 +12,7 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
   const navigate = useNavigate();
 
   const event = eventsData.find((ev) => ev.id === eventId);
+  const storyLabel = event?.type?.toLowerCase() === "main" ? "MAIN STORY" : "EVENT STORY";
   const [playing, setPlaying] = useState(null);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
       setPlaying({
         key: `${event.id}__ep_0`,
         type: "chapter",
-        badge: `MAIN STORY • ${formatEpisodeTag(ch.ep, 0)}`,
+        badge: `${storyLabel} • ${formatEpisodeTag(ch.ep, 0)}`,
         title: ch.title,
         youtube: ch.youtube,
         epIndex: 0,
@@ -34,7 +35,7 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
     } else {
       setPlaying(null);
     }
-  }, [eventId, event]);
+  }, [eventId, event, storyLabel]);
 
   if (!event) {
     return (
@@ -59,7 +60,7 @@ export default function ReaderPage({ watchedMap, onToggleWatched }) {
     setPlaying({
       key: `${event.id}__ep_${epIdx}`,
       type: "chapter",
-      badge: `MAIN STORY • ${formatEpisodeTag(ch.ep, epIdx)}`,
+      badge: `${storyLabel} • ${formatEpisodeTag(ch.ep, epIdx)}`,
       title: ch.title,
       youtube: ch.youtube,
       epIndex: epIdx,
