@@ -1,77 +1,88 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import siteConfig from "../../data/siteConfig.json";
 import { useAuth } from "../../contexts/AuthContext";
 import AuthModal from "./AuthModal";
+import {
+  StarEmblemIcon,
+  PlayIcon,
+  SunIcon,
+  MoonIcon,
+  UserIcon,
+} from "./Icons";
 
 export default function Header({ isDark, onToggleTheme, onResetUnit }) {
-  const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [authOpen, setAuthOpen] = useState(false);
-
-  const handleGoHome = () => {
-    if (onResetUnit) onResetUnit();
-    navigate("/");
-  };
 
   return (
     <>
       <header className="sticky top-0 z-50 bg-surface border-b-[3px] border-accent shadow-sm transition-colors duration-200">
-        <div className="max-w-[1240px] mx-auto px-5 py-3 flex items-center justify-between gap-3.5 flex-wrap">
-          <div
-            onClick={handleGoHome}
-            className="flex items-center gap-3 cursor-pointer select-none"
+        <div className="max-w-[1240px] mx-auto px-3.5 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3">
+          <Link
+            to="/"
+            onClick={() => onResetUnit?.()}
+            className="flex items-center gap-2 sm:gap-3 min-w-0 rounded-lg"
           >
-            <div
-              className="w-9 h-9 rounded-[10px] rotate-45 grid place-items-center shrink-0 shadow-md"
-              style={{
-                background: "linear-gradient(135deg, var(--accent), #38bdf8)",
-              }}
-            >
-              <span className="-rotate-45 text-white font-extrabold text-base">
-                ★
-              </span>
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-[9px] rotate-45 grid place-items-center shrink-0 bg-accent-fill text-accent-ink shadow-sm transition-colors duration-200">
+              <StarEmblemIcon className="-rotate-45 w-4 h-4 sm:w-[18px] sm:h-[18px]" />
             </div>
-            <div>
-              <h1 className="text-[19px] font-extrabold tracking-wide leading-tight">
+            <div className="min-w-0">
+              <span className="block text-[15px] sm:text-[19px] font-extrabold tracking-wide leading-tight whitespace-nowrap">
                 {siteConfig.siteTitle}
-              </h1>
-              <p className="text-xs text-muted">{siteConfig.subtitle}</p>
+              </span>
+              <p className="hidden sm:block text-xs text-muted truncate">
+                {siteConfig.subtitle}
+              </p>
             </div>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <a
               href={siteConfig.channelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13px] font-semibold bg-accent text-white hover:brightness-105 transition"
+              aria-label={siteConfig.channelName}
+              title={siteConfig.channelName}
+              className="inline-flex items-center justify-center gap-1.5 h-9 w-9 sm:w-auto sm:px-3.5 rounded-full text-[13px] font-semibold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text transition"
             >
-              ▶ {siteConfig.channelName}
+              <PlayIcon className="w-3.5 h-3.5 text-accent-text shrink-0" />
+              <span className="hidden md:inline">{siteConfig.channelName}</span>
+              <span className="hidden sm:inline md:hidden">YouTube</span>
             </a>
 
             <button
               type="button"
               onClick={onToggleTheme}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13px] font-semibold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent transition"
+              aria-label={isDark ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
+              title={isDark ? "Giao diện sáng" : "Giao diện tối"}
+              className="inline-flex items-center justify-center gap-1.5 h-9 w-9 sm:w-auto sm:px-3.5 rounded-full text-[13px] font-semibold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text transition"
             >
-              {isDark ? "☀️ Giao diện sáng" : "🌙 Giao diện tối"}
+              {isDark ? <SunIcon /> : <MoonIcon />}
+              <span className="hidden sm:inline">
+                {isDark ? "Giao diện sáng" : "Giao diện tối"}
+              </span>
             </button>
 
             <button
               type="button"
               onClick={() => setAuthOpen(true)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-[13px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent transition"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 h-9 px-2.5 sm:px-3.5 rounded-full text-xs sm:text-[13px] font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent-text transition"
             >
               {currentUser ? (
                 <>
-                  <span className="w-5 h-5 rounded-full bg-accent text-white text-[11px] flex items-center justify-center">
+                  <span className="w-5 h-5 rounded-full bg-accent-fill text-accent-ink text-[11px] flex items-center justify-center shrink-0">
                     {currentUser.displayName.charAt(0).toUpperCase()}
                   </span>
-                  <span>{currentUser.displayName}</span>
+                  <span className="max-w-[96px] sm:max-w-[140px] truncate">
+                    {currentUser.displayName}
+                  </span>
                 </>
               ) : (
-                <span>👤 Đăng nhập</span>
+                <>
+                  <UserIcon className="w-4 h-4 shrink-0" />
+                  <span>Đăng nhập</span>
+                </>
               )}
             </button>
           </div>
