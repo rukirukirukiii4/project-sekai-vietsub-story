@@ -16,40 +16,25 @@ function formatSupabaseUser(user) {
     id: user.id,
     email: user.email,
     displayName:
-      user.user_metadata?.display_name || user.email?.split("@")[0] || "User",
+      user.user_metadata?.full_name ||
+      user.user_metadata?.name ||
+      user.user_metadata?.display_name ||
+      user.email?.split("@")[0] ||
+      "User",
+    avatarUrl:
+      user.user_metadata?.avatar_url || user.user_metadata?.picture || "",
   };
-}
-
-function translateAuthError(message = "") {
-  const msg = message.toLowerCase();
-  if (msg.includes("invalid login credentials")) {
-    return "Sai email hoặc mật khẩu.";
-  }
-  if (msg.includes("user already registered")) {
-    return "Email này đã được đăng ký.";
-  }
-  if (msg.includes("email not confirmed")) {
-    return "Tài khoản chưa xác nhận email. Vui lòng kiểm tra hộp thư.";
-  }
-  if (msg.includes("password should be at least")) {
-    return "Mật khẩu phải từ 6 ký tự trở lên.";
-  }
-  return message || "Có lỗi xảy ra, vui lòng thử lại.";
 }
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
-
-  // Tiến độ lưu trên Cloud cho user đã đăng nhập: { [eventId]: { [epIndex]: true } }
   const [cloudProgress, setCloudProgress] = useState({});
-  // Tiến độ lưu tạm dưới máy cho chế độ Khách
   const [guestProgress, setGuestProgress] = useLocalStorage(
     "sekai_guest_progress_v1",
     {}
   );
 
-  // Tải tiến độ đọc của user từ Supabase
   const fetchUserProgress = useCallback(async (userId) => {
     if (!userId) {
       setCloudProgress({});
@@ -74,7 +59,6 @@ export function AuthProvider({ children }) {
     setCloudProgress(mapped);
   }, []);
 
-  // Lắng nghe trạng thái đăng nhập Supabase
   useEffect(() => {
     let mounted = true;
 
@@ -106,69 +90,25 @@ export function AuthProvider({ children }) {
     };
   }, [fetchUserProgress]);
 
-  // Đăng ký bằng Email + Mật khẩu
-  const register = async ({ displayName, email, password }) => {
-    const cleanName = displayName.trim();
-    const cleanEmail = email.trim().toLowerCase();
-
-    if (!cleanName || !cleanEmail || !password) {
-      return { ok: false, message: "Vui lòng nhập đầy đủ thông tin." };
-    }
-    if (password.length < 6) {
-      return { ok: false, message: "Mật khẩu phải từ 6 ký tự trở lên." };
-    }
-
-    const { data, error } = await supabase.auth.signUp({
-      email: cleanEmail,
-      password,
+  const loginWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
       options: {
-        data: { display_name: cleanName },
+        redirectTo: window.location.origin,
       },
     });
 
     if (error) {
-      return { ok: false, message: translateAuthError(error.message) };
+      return { ok: false, message: error.message };
     }
-
-    // Trường hợp Supabase đang bật Confirm Email -> nhắc người dùng check mail
-    if (data.user && !data.session) {
-      return {
-        ok: true,
-        needsConfirm: true,
-        message:
-          "Đăng ký thành công! Vui lòng kiểm tra hộp thư email để xác nhận trước khi đăng nhập.",
-      };
-    }
-
     return { ok: true };
   };
 
-  // Đăng nhập
-  const login = async ({ email, password }) => {
-    const cleanEmail = email.trim().toLowerCase();
-    if (!cleanEmail || !password) {
-      return { ok: false, message: "Vui lòng nhập email và mật khẩu." };
-    }
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email: cleanEmail,
-      password,
-    });
-
-    if (error) {
-      return { ok: false, message: translateAuthError(error.message) };
-    }
-
-    return { ok: true };
-  };
-
-  // Đăng xuất
   const logout = async () => {
     await supabase.auth.signOut();
     setCloudProgress({});
   };
 
-  // Đánh dấu tập đã xem (lưu lên Supabase nếu đã login, ngược lại lưu localStorage)
   const markChapterWatched = useCallback(
     async (eventId, epIndex) => {
       if (!eventId || epIndex === null || epIndex === undefined) return;
@@ -187,7 +127,6 @@ export function AuthProvider({ children }) {
         return;
       }
 
-      // Cập nhật state ngay lập tức để thanh tiến trình mượt mà
       let alreadyWatched = false;
       setCloudProgress((prev) => {
         if (prev[eventId]?.[epIndex]) {
@@ -205,7 +144,6 @@ export function AuthProvider({ children }) {
 
       if (alreadyWatched) return;
 
-      // Lưu lên Supabase DB
       const { error } = await supabase.from("reading_progress").upsert(
         {
           user_id: currentUser.id,
@@ -225,7 +163,6 @@ export function AuthProvider({ children }) {
     [currentUser, setGuestProgress]
   );
 
-  // Lấy tiến trình đọc của 1 Story
   const getEventProgress = useCallback(
     (event) => {
       const activeMap = currentUser ? cloudProgress : guestProgress;
@@ -252,8 +189,7 @@ export function AuthProvider({ children }) {
       value={{
         currentUser,
         authLoading,
-        register,
-        login,
+        loginWithGoogle,
         logout,
         markChapterWatched,
         getEventProgress,

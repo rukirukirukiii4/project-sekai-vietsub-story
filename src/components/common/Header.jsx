@@ -65,9 +65,18 @@ export default function Header({ isDark, onToggleTheme, onResetUnit }) {
             >
               {currentUser ? (
                 <>
-                  <span className="w-5 h-5 rounded-full bg-accent text-white text-[11px] flex items-center justify-center">
-                    {currentUser.displayName.charAt(0).toUpperCase()}
-                  </span>
+                  {currentUser.avatarUrl ? (
+                    <img
+                      src={currentUser.avatarUrl}
+                      alt={currentUser.displayName}
+                      referrerPolicy="no-referrer"
+                      className="w-5 h-5 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span className="w-5 h-5 rounded-full bg-accent text-white text-[11px] flex items-center justify-center">
+                      {currentUser.displayName.charAt(0).toUpperCase()}
+                    </span>
+                  )}
                   <span>{currentUser.displayName}</span>
                 </>
               ) : (
