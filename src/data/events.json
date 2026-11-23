@@ -466,23 +466,58 @@
     "logo": "/event_logo/ev1_logo.png",
     "summary": "Sau khi thành lập band nhạc cùng với ba người bạn thuở nhỏ, mỗi ngày của Saki đều tràn ngập niềm hạnh phúc. Cho đến một ngày, cô bắt gặp tấm áp phích về một sự kiện tại đài thiên văn và quyết định lên kế hoạch để cả nhóm cùng tham dự...",
     "chapters": [
-      { "ep": 1, "title": "Tập 1: Buổi livestream bắt đầu!", "youtube": "https://youtu.be/x1131mfkSEs?si=fp-CCjI7XpYvKkeh" },
-      { "ep": 2, "title": "Tập 2: Idol mới tại Sekai!?", "youtube": "https://youtu.be/RhJtBu17GTQ?si=-HL52LyLl8jh79zt" },
-      { "ep": 3, "title": "Tập 3: Hình tượng \"hoàn hảo\" bị sụp đổ", "youtube": "https://youtu.be/8g5jaqFI9Pc?si=3442JLKmJ9dP_Kuh" },
-      { "ep": 4, "title": "Tập 4: Hình tượng được dựng nên", "youtube": "https://youtu.be/T96Xz0ObUZA?si=pTostxDCvpBSnJUF" },
-      { "ep": 5, "title": "Tập 5: Một \"bản thân\" không được mong đợi", "youtube": "https://youtu.be/KnAVDEb6VIc?si=2KTl-VElNWYozLb1" },
-      { "ep": 6, "title": "Tập 6: Bằng những lời nói chân thật", "youtube": "https://youtu.be/PzVoPzBYZvA?si=u1N8yzJxUqx_p0Sw" },
-      { "ep": 7, "title": "Tập 7: Quyết tâm", "youtube": "https://youtu.be/LiabSqqKcn4?si=iHetmXRFOG0P9L4Z" },
-      { "ep": 8, "title": "Tập 8: Sống đúng lòng mình, chấp nhận sự tình", "youtube": "https://youtu.be/7AK3wWdQVb8?si=kh3hvJt7aqjZ-KH_" }
+      { "ep": 1, "title": "Tập 1: Cơn mưa của sự cô đơn", "youtube": "https://youtu.be/hRarzR3g65c" },
+      { "ep": 2, "title": "Tập 2: Cùng với mọi người", "youtube": "https://youtu.be/gRtfPPsWsdE" },
+      { "ep": 3, "title": "Tập 3: Thích bass hơn là ngắm sao", "youtube": "https://youtu.be/hvDnisuLAeg" },
+      { "ep": 4, "title": "Tập 4: Cho tới ngày hẹn", "youtube": "https://youtu.be/AAsGKrXSSoM" },
+      { "ep": 5, "title": "Tập 5: Lúc nào cũng", "youtube": "https://youtu.be/ipZ_tPXCsBg" },
+      { "ep": 6, "title": "Tập 6: Cơn mưa và hoàng hôn", "youtube": "https://youtu.be/RmqkZfgEoWo" },
+      { "ep": 7, "title": "Tập 7: Cùng từ từ tiến lên nhé", "youtube": "https://youtu.be/9Gn-6ptYR1A" },
+      { "ep": 8, "title": "Tập 8: Bầu trời sao của chúng ta", "youtube": "https://youtu.be/OryW4vBrAJc" }
     ],
     "cards": [
       {
-        "character": "Hinomori Shizuku",
-        "title": "誰でもない“この私”を",
+        "character": "Tenma Saki",
+        "title": "Rainy Distance",
         "rarity": 4,
-        "untrained": "public\\images\\szk_1_untrained.png",
-        "trained": "public\\images\\szk_1_trained.png",
-        "sideStory1": "https://www.youtube.com/watch?v=sM2PphbvUgQ",
+        "untrained": "/images/ev1-saki-untrained.png",
+        "trained": "/images/ev1-saki-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Megurine Luka",
+        "title": "Lau đi cơn mưa hoàng hôn",
+        "rarity": 4,
+        "untrained": "/images/ev1-luka-untrained.png",
+        "trained": "/images/ev1-luka-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Hinomori Shiho",
+        "title": "「Làm hòa」khó khăn",
+        "rarity": 4,
+        "untrained": "/images/ev1-shiho-untrained.png",
+        "trained": "/images/ev1-shiho-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Mochizuki Honami",
+        "title": "Bàn tay dẫn lối",
+        "rarity": 3,
+        "untrained": "/images/ev1-honami-untrained.png",
+        "trained": "/images/ev1-honami-trained.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Hoshino Ichika",
+        "title": "Tuyển dụng thành viên cho đoàn kịch",
+        "rarity": 2,
+        "untrained": "/images/ev1-ichika-untrained.png",
+        "sideStory1": "",
         "sideStory2": ""
       }
     ]
