@@ -5,7 +5,6 @@ import { UNITS } from "../constants/units";
 import { setDynamicAccent } from "../utils/helpers";
 import { useAuth } from "../contexts/AuthContext";
 
-// Đổi tiền tố này nếu Route tới ReaderPage trong App.jsx của bạn khác (vd: "/story" hoặc "/read")
 const EVENT_ROUTE_PREFIX = "/event";
 
 const STORY_FILTERS = [
@@ -17,7 +16,6 @@ const STORY_FILTERS = [
   { id: "unread", label: "Chưa đọc xong" },
 ];
 
-// Chuẩn hóa loại hiển thị ruy-băng giống trong game
 function getStoryBadge(ev, unitColor) {
   const type = (ev.type || "").toLowerCase();
   if (type === "main") {
@@ -41,14 +39,13 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
 
   const [search, setSearch] = useState("");
   const [storyFilter, setStoryFilter] = useState("all");
-  const [sortOrder, setSortOrder] = useState("asc"); // "asc": theo thứ tự tổ chức | "desc": mới nhất trước
+  const [sortOrder, setSortOrder] = useState("asc");
   const [activeId, setActiveId] = useState(eventsData[0]?.id || null);
 
   const [unitDrawerOpen, setUnitDrawerOpen] = useState(false);
   const [filterMenuOpen, setFilterMenuOpen] = useState(false);
   const [infoModalOpen, setInfoModalOpen] = useState(false);
 
-  // Tính tổng % hoàn thành toàn bộ truyện (giống ストーリー完読率)
   const overallStats = useMemo(() => {
     let totalChapters = 0;
     let watchedTotal = 0;
@@ -67,11 +64,12 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
     });
 
     const percent =
-      totalChapters > 0 ? ((watchedTotal / totalChapters) * 100).toFixed(1) : "0.0";
+      totalChapters > 0
+        ? ((watchedTotal / totalChapters) * 100).toFixed(1)
+        : "0.0";
     return { percent, watchedTotal, totalChapters };
   }, [getEventProgress]);
 
-  // Lọc & sắp xếp danh sách Event
   const filteredEvents = useMemo(() => {
     const q = search.trim().toLowerCase();
 
@@ -105,7 +103,6 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
     return sortOrder === "desc" ? [...list].reverse() : list;
   }, [selectedUnit, search, storyFilter, sortOrder, getEventProgress]);
 
-  // Luôn đảm bảo có 1 event đang được chọn khi đổi bộ lọc
   const activeEvent = useMemo(() => {
     return (
       filteredEvents.find((ev) => ev.id === activeId) ||
@@ -120,7 +117,6 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
     }
   }, [activeEvent, activeId]);
 
-  // Cập nhật màu accent động theo unit của event đang chọn hoặc bộ lọc nhóm
   useEffect(() => {
     const unitKey =
       selectedUnit !== "all" ? selectedUnit : activeEvent?.unit || "all";
@@ -147,27 +143,19 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
   };
 
   return (
-    <section className="sekai-stage flex flex-col justify-between select-none">
-      {/* 1. ẢNH NỀN FULL-SCREEN THEO EVENT ĐANG CHỌN */}
-      {activeEvent ? (
-        <div
-          key={activeEvent.id}
-          className="sekai-stage-bg"
-          style={{
-            backgroundImage: `url("${activeEvent.bgImage || activeEvent.banner}")`,
-          }}
-        />
-      ) : (
-        <div className="sekai-stage-bg bg-slate-900" />
-      )}
-      <div className="sekai-stage-scrim" />
-
-      {/* 2. THANH CÔNG CỤ TRÊN CÙNG (SEARCH + TỈ LỆ HOÀN THÀNH + FILTER + SORT) */}
-      <div className="relative z-20 flex flex-wrap items-center justify-between gap-2.5 px-3.5 md:px-6 pt-3.5 md:pt-5 pb-2">
-        {/* Ô tìm kiếm (giữ nguyên tính năng cũ) */}
+    <section className="sekai-stage flex flex-col select-none">
+      {/* 1. THANH CÔNG CỤ TRÊN CÙNG (TÁCH RIÊNG, KHÔNG CHE ẢNH NỀN) */}
+      <div className="relative z-20 flex flex-wrap items-center justify-between gap-2.5 px-3.5 md:px-5 py-3 bg-[var(--surface)] border-b-[1.5px] border-[var(--border)]">
+        {/* Ô tìm kiếm */}
         <div className="relative flex-1 min-w-[220px] max-w-md">
           <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-muted">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              viewBox="0 0 24 24"
+            >
               <circle cx="11" cy="11" r="7" />
               <path strokeLinecap="round" d="m20 20-3.5-3.5" />
             </svg>
@@ -177,7 +165,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Tìm tên event (tiếng Việt hoặc tiếng Nhật)..."
-            className="sekai-glass w-full pl-10 pr-8 py-2 rounded-full text-[13px] font-medium text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-accent transition"
+            className="w-full pl-10 pr-8 py-2 rounded-full text-[13px] font-medium bg-[var(--surface-alt)] border-[1.5px] border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-accent transition"
           />
           {search && (
             <button
@@ -191,11 +179,11 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
           )}
         </div>
 
-        {/* Cụm HUD góc trên phải giống game */}
+        {/* Cụm HUD phải */}
         <div className="flex items-center gap-2 flex-wrap">
-          {/* Tỉ lệ đọc hoàn thành (ストーリー完読率) */}
+          {/* Tỉ lệ hoàn thành */}
           <div
-            className="px-3.5 py-1.5 rounded-xl text-white flex items-center gap-2.5 border border-white/15 backdrop-blur-md shadow-sm"
+            className="px-3.5 py-1.5 rounded-xl text-white flex items-center gap-2.5 border border-white/15 shadow-sm"
             style={{ backgroundColor: "var(--stage-hud-bg)" }}
             title={`Đã đọc ${overallStats.watchedTotal}/${overallStats.totalChapters} tập`}
           >
@@ -216,15 +204,15 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
             </div>
           </div>
 
-          {/* Nút Phễu lọc loại truyện (Key Story / Main Story / Mixed...) */}
+          {/* Nút phễu lọc loại truyện */}
           <div className="relative">
             <button
               type="button"
               onClick={() => setFilterMenuOpen((prev) => !prev)}
-              className={`h-10 px-3 rounded-full flex items-center gap-1.5 text-xs font-bold shadow transition border ${
+              className={`h-10 px-3.5 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm transition border-[1.5px] ${
                 storyFilter !== "all"
-                  ? "bg-accent text-white border-white/40"
-                  : "bg-white/95 text-slate-700 border-white hover:bg-white"
+                  ? "bg-accent text-white border-accent"
+                  : "bg-[var(--surface-alt)] text-[var(--text)] border-[var(--border)] hover:border-accent"
               }`}
               title="Lọc loại truyện (Key Story, Main Story...)"
             >
@@ -269,13 +257,13 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
             )}
           </div>
 
-          {/* Nút Đảo thứ tự (開催順 ▼) */}
+          {/* Nút đổi thứ tự */}
           <button
             type="button"
             onClick={() =>
               setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
             }
-            className="h-10 px-3.5 rounded-full text-xs font-bold text-white border border-white/20 backdrop-blur-md flex items-center gap-1.5 hover:brightness-110 transition shadow"
+            className="h-10 px-3.5 rounded-full text-xs font-bold text-white border border-white/20 flex items-center gap-1.5 hover:brightness-110 transition shadow-sm"
             style={{ backgroundColor: "var(--stage-hud-bg)" }}
           >
             <span>{sortOrder === "asc" ? "Thứ tự phát hành" : "Mới nhất"}</span>
@@ -286,31 +274,250 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
         </div>
       </div>
 
-      {/* 3. TAB TRƯỢT LỌC NHÓM NHẠC Ở MÉP TRÁI (> ユニット / すべて) */}
-      <button
-        type="button"
-        onClick={() => setUnitDrawerOpen(true)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-30 py-3.5 px-2 rounded-r-2xl text-white border border-l-0 border-white/20 backdrop-blur-md shadow-lg flex flex-col items-center gap-1 hover:pl-3 transition-all"
-        style={{ backgroundColor: "var(--stage-drawer-tab)" }}
-        title="Lọc theo nhóm nhạc"
-      >
-        <span className="text-base font-black leading-none">›</span>
-        <span className="text-[10px] font-extrabold tracking-tight">Nhóm</span>
-        <span
-          className="text-[9px] font-bold px-1.5 py-0.5 rounded-full max-w-[56px] truncate"
-          style={{
-            backgroundColor: currentUnitMeta.color || "#00ccbb",
-          }}
-        >
-          {selectedUnit === "all" ? "Tất cả" : currentUnitMeta.shortName || currentUnitMeta.name}
-        </span>
-      </button>
+      {/* 2. THÂN CHÍNH CHIA 2 CỘT TÁCH BIỆT: TRÁI = BANNER | PHẢI = BACKGROUND 16:9 */}
+      {filteredEvents.length === 0 ? (
+        <div className="py-16 px-6 flex items-center justify-center bg-[var(--surface-alt)]">
+          <div className="rounded-2xl p-8 text-center max-w-sm bg-[var(--surface)] border-[1.5px] border-dashed border-[var(--border)]">
+            <p className="font-bold text-base mb-1">
+              Không tìm thấy truyện phù hợp
+            </p>
+            <p className="text-xs text-muted mb-4">
+              Thử đổi từ khóa, chọn lại nhóm nhạc hoặc đặt lại bộ lọc nhé.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearch("");
+                setStoryFilter("all");
+                onUnitChange("all");
+              }}
+              className="px-4 py-2 rounded-full text-xs font-bold bg-accent text-white"
+            >
+              Đặt lại bộ lọc
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] items-stretch">
+          {/* CỘT TRÁI ĐỘC LẬP: NÚT LỌC NHÓM + DANH SÁCH BANNER 5:2 */}
+          <div className="relative order-2 lg:order-1 bg-[var(--surface-alt)] lg:border-r-[1.5px] border-t-[1.5px] lg:border-t-0 border-[var(--border)]">
+            {/* Tab trượt chọn nhóm ở mép trái */}
+            <button
+              type="button"
+              onClick={() => setUnitDrawerOpen(true)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 py-3.5 px-2 rounded-r-2xl text-white border border-l-0 border-white/20 shadow-lg flex flex-col items-center gap-1 hover:pl-3 transition-all"
+              style={{ backgroundColor: "var(--stage-drawer-tab)" }}
+              title="Lọc theo nhóm nhạc"
+            >
+              <span className="text-base font-black leading-none">›</span>
+              <span className="text-[10px] font-extrabold tracking-tight">
+                Nhóm
+              </span>
+              <span
+                className="text-[9px] font-bold px-1.5 py-0.5 rounded-full max-w-[54px] truncate"
+                style={{
+                  backgroundColor: currentUnitMeta.color || "#00ccbb",
+                }}
+              >
+                {selectedUnit === "all"
+                  ? "Tất cả"
+                  : currentUnitMeta.shortName || currentUnitMeta.name}
+              </span>
+            </button>
 
-      {/* NGĂN KÉO CHỌN NHÓM NHẠC */}
+            {/* Danh sách cuộn khớp đúng chiều cao khung ảnh 16:9 bên phải */}
+            <div className="lg:absolute lg:inset-0 max-h-[420px] lg:max-h-none overflow-y-auto sekai-banner-scroll flex flex-col gap-3.5 pl-14 pr-6 py-4">
+              {filteredEvents.map((ev) => {
+                const isSelected = activeEvent?.id === ev.id;
+                const uInfo = UNITS[ev.unit] || UNITS.all;
+                const badge = getStoryBadge(ev, uInfo.color);
+                const prog = getEventProgress?.(ev) || { percent: 0 };
+                const isDone = prog.percent >= 100;
+
+                return (
+                  <button
+                    key={ev.id}
+                    type="button"
+                    onClick={() => setActiveId(ev.id)}
+                    onDoubleClick={() => handleOpenReader(ev)}
+                    className={`group relative w-full text-left rounded-xl overflow-visible transition-all duration-200 shrink-0 ${
+                      isSelected
+                        ? "translate-x-2 scale-[1.02] z-10"
+                        : "opacity-85 hover:opacity-100 hover:translate-x-1"
+                    }`}
+                  >
+                    {/* Khung banner chuẩn tỉ lệ 5:2 (1000x400 px) */}
+                    <div
+                      className={`relative w-full aspect-[5/2] rounded-xl overflow-hidden border-2 transition-all ${
+                        isSelected
+                          ? "border-accent shadow-[0_6px_20px_var(--accent-muted)]"
+                          : "border-[var(--border)] group-hover:border-accent/60"
+                      }`}
+                    >
+                      <img
+                        src={ev.banner}
+                        alt={ev.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+
+                      {/* Ruy-băng loại truyện góc trên trái */}
+                      <div
+                        className="sekai-ribbon absolute top-0 left-0 pl-2.5 pr-4 py-0.5 text-[10px] font-extrabold text-white tracking-wide shadow flex items-center gap-1"
+                        style={{ backgroundColor: badge.bg }}
+                      >
+                        <span>{badge.icon}</span>
+                        <span>{badge.text}</span>
+                      </div>
+
+                      {/* Tiêu đề + thanh tiến độ mỏng dưới đáy */}
+                      <div className="absolute inset-x-0 bottom-0 px-2.5 pb-1.5 pt-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[12px] font-extrabold text-white drop-shadow line-clamp-1">
+                            {ev.title}
+                          </span>
+                          <span className="text-[10px] font-bold text-teal-200 shrink-0">
+                            {prog.percent}%
+                          </span>
+                        </div>
+                        <div className="mt-1 h-1 w-full rounded-full bg-white/25 overflow-hidden">
+                          <div
+                            className="h-full rounded-full transition-all duration-300"
+                            style={{
+                              width: `${prog.percent}%`,
+                              backgroundColor: isDone
+                                ? "#4ade80"
+                                : uInfo.color || "#5ce6d6",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Huy hiệu ! / ✓ góc trên phải (không còn bị cắt mép) */}
+                    <span
+                      className={`absolute -top-2 -right-2 w-5 h-5 rounded-full text-[11px] font-black text-white flex items-center justify-center shadow-md border border-white/90 ${
+                        isDone ? "bg-emerald-500" : "bg-[#ff5588]"
+                      }`}
+                      title={isDone ? "Đã đọc hoàn thành" : "Còn tập chưa đọc"}
+                    >
+                      {isDone ? "✓" : "!"}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* CỘT PHẢI ĐỘC LẬP: KHUNG BACKGROUND 16:9 (1920x1080 px) KHÔNG BỊ BANNER CHE */}
+          {activeEvent && (
+            <div className="relative order-1 lg:order-2 w-full aspect-[16/9] min-h-[300px] lg:min-h-[460px] overflow-hidden bg-slate-900 flex flex-col justify-end p-5 md:p-7">
+              {/* Ảnh nền riêng (bgImage), tự fallback sang banner nếu chưa thêm bgImage */}
+              <div
+                key={activeEvent.id}
+                className="sekai-stage-bg"
+                style={{
+                  backgroundImage: `url("${activeEvent.bgImage || activeEvent.banner}")`,
+                }}
+              />
+              <div className="sekai-showcase-scrim" />
+
+              {/* Cụm tiêu đề + nút hành động ở góc dưới phải */}
+              <div
+                key={`info-${activeEvent.id}`}
+                className="relative z-10 flex flex-col items-end text-right gap-3 sekai-fade-up"
+              >
+                <div className="w-full max-w-xl">
+                  <div className="flex items-center justify-end gap-2 flex-wrap mb-2">
+                    {activeUnitInfo.logo ? (
+                      <span className="bg-white/95 px-2.5 py-1 rounded-lg inline-flex items-center shadow">
+                        <img
+                          src={activeUnitInfo.logo}
+                          alt={activeUnitInfo.name}
+                          className="h-5 w-auto max-w-[110px] object-contain"
+                        />
+                      </span>
+                    ) : (
+                      <span
+                        className="px-2.5 py-1 rounded-md text-[11px] font-extrabold text-white shadow"
+                        style={{ backgroundColor: activeUnitInfo.color }}
+                      >
+                        {activeEvent.unit === "mixed"
+                          ? "Mixed Event"
+                          : activeUnitInfo.name}
+                      </span>
+                    )}
+
+                    {activeBadge && (
+                      <span
+                        className="px-2.5 py-1 rounded-md text-[11px] font-extrabold text-white shadow"
+                        style={{ backgroundColor: activeBadge.bg }}
+                      >
+                        {activeBadge.icon} {activeBadge.text}
+                      </span>
+                    )}
+
+                    {activeEvent.date && (
+                      <span className="px-2.5 py-1 rounded-md text-[11px] font-bold text-white/90 bg-black/55 backdrop-blur-sm">
+                        {activeEvent.date}
+                      </span>
+                    )}
+                  </div>
+
+                  <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.8)] leading-tight">
+                    {activeEvent.title}
+                  </h1>
+
+                  {activeEvent.jpTitle && (
+                    <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-1">
+                      {activeEvent.jpTitle}
+                    </p>
+                  )}
+
+                  <div className="mt-2 flex items-center justify-end gap-3 text-xs font-bold text-white/90 drop-shadow">
+                    <span>📖 {activeEvent.chapters?.length || 0} tập</span>
+                    <span>•</span>
+                    <span>🃏 {activeEvent.cards?.length || 0} thẻ</span>
+                    <span>•</span>
+                    <span className="text-teal-300">
+                      Tiến độ: {activeProgress.percent}%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Nút (i) và Đọc ngay */}
+                <div className="flex items-center gap-3 mt-1">
+                  <button
+                    type="button"
+                    onClick={() => setInfoModalOpen(true)}
+                    className="w-11 h-11 rounded-full bg-white/95 text-slate-800 font-black text-lg shadow-lg hover:scale-105 active:scale-95 transition flex items-center justify-center border-2 border-white"
+                    title="Xem tóm tắt và danh sách thẻ"
+                    aria-label="Thông tin truyện"
+                  >
+                    i
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleOpenReader(activeEvent)}
+                    className="sekai-confirm-btn h-11 sm:h-12 px-8 sm:px-14 rounded-full font-black text-sm sm:text-base tracking-wide flex items-center gap-2"
+                  >
+                    <span>Đọc ngay</span>
+                    <span className="text-lg leading-none">›</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 3. NGĂN KÉO CHỌN NHÓM NHẠC */}
       {unitDrawerOpen && (
         <div className="fixed inset-0 z-50 flex">
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setUnitDrawerOpen(false)}
           />
           <aside className="relative z-10 w-[290px] max-w-[85vw] h-full bg-[var(--surface)] border-r border-[var(--border)] p-4 flex flex-col shadow-2xl">
@@ -375,203 +582,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
         </div>
       )}
 
-      {/* 4. NỘI DUNG CHÍNH: CỘT BANNER TRÁI + SPOTLIGHT PHẢI */}
-      {filteredEvents.length === 0 ? (
-        <div className="relative z-10 flex-1 flex items-center justify-center p-6">
-          <div className="sekai-glass rounded-2xl p-8 text-center max-w-sm">
-            <p className="font-bold text-base mb-1">Không tìm thấy truyện phù hợp</p>
-            <p className="text-xs text-muted mb-4">
-              Thử đổi từ khóa, chọn lại nhóm nhạc hoặc đặt lại bộ lọc nhé.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearch("");
-                setStoryFilter("all");
-                onUnitChange("all");
-              }}
-              className="px-4 py-2 rounded-full text-xs font-bold bg-accent text-white"
-            >
-              Đặt lại bộ lọc
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-4 px-3.5 md:px-6 pl-14 md:pl-16 pb-5 pt-2 items-end">
-          {/* CỘT TRÁI: DANH SÁCH BANNER DỌC GIỐNG GAME */}
-          <div className="order-2 lg:order-1 flex flex-col gap-3 max-h-[58vh] lg:max-h-[calc(100vh-235px)] overflow-y-auto sekai-banner-scroll py-2 pr-3 pl-1">
-            {filteredEvents.map((ev) => {
-              const isSelected = activeEvent?.id === ev.id;
-              const uInfo = UNITS[ev.unit] || UNITS.all;
-              const badge = getStoryBadge(ev, uInfo.color);
-              const prog = getEventProgress?.(ev) || { percent: 0 };
-              const isDone = prog.percent >= 100;
-
-              return (
-                <button
-                  key={ev.id}
-                  type="button"
-                  onClick={() => setActiveId(ev.id)}
-                  onDoubleClick={() => handleOpenReader(ev)}
-                  className={`group relative w-full text-left rounded-xl overflow-visible transition-all duration-200 shrink-0 ${
-                    isSelected
-                      ? "translate-x-2.5 scale-[1.03] z-10"
-                      : "opacity-85 hover:opacity-100 hover:translate-x-1"
-                  }`}
-                >
-                  {/* Khung ảnh banner */}
-                  <div
-                    className={`relative h-[92px] sm:h-[104px] w-full rounded-xl overflow-hidden border-2 transition-all ${
-                      isSelected
-                        ? "border-white shadow-[0_0_24px_rgba(255,255,255,0.45)]"
-                        : "border-white/40 group-hover:border-white/80"
-                    }`}
-                  >
-                    <img
-                      src={ev.banner}
-                      alt={ev.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/15" />
-
-                    {/* Ruy-băng Key Story / Main Story ở góc trên trái */}
-                    <div
-                      className="sekai-ribbon absolute top-0 left-0 pl-2.5 pr-4 py-0.5 text-[10px] font-extrabold text-white tracking-wide shadow flex items-center gap-1"
-                      style={{ backgroundColor: badge.bg }}
-                    >
-                      <span>{badge.icon}</span>
-                      <span>{badge.text}</span>
-                    </div>
-
-                    {/* Tên truyện + thanh tiến độ mỏng dưới đáy banner */}
-                    <div className="absolute inset-x-0 bottom-0 px-2.5 pb-1.5 pt-4">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-[12px] font-extrabold text-white drop-shadow line-clamp-1">
-                          {ev.title}
-                        </span>
-                        <span className="text-[10px] font-bold text-teal-200 shrink-0">
-                          {prog.percent}%
-                        </span>
-                      </div>
-                      <div className="mt-1 h-1 w-full rounded-full bg-white/25 overflow-hidden">
-                        <div
-                          className="h-full rounded-full transition-all duration-300"
-                          style={{
-                            width: `${prog.percent}%`,
-                            backgroundColor: isDone ? "#4ade80" : uInfo.color || "#5ce6d6",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Huy hiệu ! đỏ (chưa đọc xong) hoặc ✓ xanh (đã đọc xong) ở góc trên phải */}
-                  <span
-                    className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[11px] font-black text-white flex items-center justify-center shadow-md border border-white/80 ${
-                      isDone ? "bg-emerald-500" : "bg-[#ff5588]"
-                    }`}
-                    title={isDone ? "Đã đọc hoàn thành" : "Còn tập chưa đọc"}
-                  >
-                    {isDone ? "✓" : "!"}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* CỘT PHẢI: THÔNG TIN EVENT ĐANG CHỌN + NÚT (i) + NÚT ĐỌC NGAY (決定) */}
-          {activeEvent && (
-            <div
-              key={activeEvent.id}
-              className="order-1 lg:order-2 flex flex-col items-start lg:items-end justify-end gap-3.5 sekai-fade-up pt-16 lg:pt-0"
-            >
-              {/* Khối tiêu đề & thông tin */}
-              <div className="w-full max-w-xl lg:text-right">
-                <div className="flex items-center lg:justify-end gap-2 flex-wrap mb-2">
-                  {activeUnitInfo.logo ? (
-                    <span className="bg-white/95 px-2.5 py-1 rounded-lg inline-flex items-center shadow">
-                      <img
-                        src={activeUnitInfo.logo}
-                        alt={activeUnitInfo.name}
-                        className="h-5 w-auto max-w-[110px] object-contain"
-                      />
-                    </span>
-                  ) : (
-                    <span
-                      className="px-2.5 py-1 rounded-md text-[11px] font-extrabold text-white shadow"
-                      style={{ backgroundColor: activeUnitInfo.color }}
-                    >
-                      {activeEvent.unit === "mixed"
-                        ? "Mixed Event"
-                        : activeUnitInfo.name}
-                    </span>
-                  )}
-
-                  {activeBadge && (
-                    <span
-                      className="px-2.5 py-1 rounded-md text-[11px] font-extrabold text-white shadow"
-                      style={{ backgroundColor: activeBadge.bg }}
-                    >
-                      {activeBadge.icon} {activeBadge.text}
-                    </span>
-                  )}
-
-                  {activeEvent.date && (
-                    <span className="px-2.5 py-1 rounded-md text-[11px] font-bold text-white/90 bg-black/50 backdrop-blur-sm">
-                      {activeEvent.date}
-                    </span>
-                  )}
-                </div>
-
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.75)] leading-tight">
-                  {activeEvent.title}
-                </h1>
-
-                {activeEvent.jpTitle && (
-                  <p className="text-xs sm:text-sm font-semibold text-white/85 drop-shadow mt-1">
-                    {activeEvent.jpTitle}
-                  </p>
-                )}
-
-                <div className="mt-2.5 flex items-center lg:justify-end gap-3 text-xs font-bold text-white/90 drop-shadow">
-                  <span>📖 {activeEvent.chapters?.length || 0} tập</span>
-                  <span>•</span>
-                  <span>🃏 {activeEvent.cards?.length || 0} thẻ</span>
-                  <span>•</span>
-                  <span className="text-teal-300">
-                    Tiến độ: {activeProgress.percent}%
-                  </span>
-                </div>
-              </div>
-
-              {/* Thanh nút hành động góc phải dưới: (i) + Đọc ngay (決定) */}
-              <div className="flex items-center gap-3 mt-1">
-                <button
-                  type="button"
-                  onClick={() => setInfoModalOpen(true)}
-                  className="w-11 h-11 rounded-full bg-white/95 text-slate-800 font-black text-lg shadow-lg hover:scale-105 active:scale-95 transition flex items-center justify-center border-2 border-white"
-                  title="Xem tóm tắt và danh sách thẻ"
-                  aria-label="Thông tin truyện"
-                >
-                  i
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleOpenReader(activeEvent)}
-                  className="sekai-confirm-btn h-12 px-10 sm:px-14 rounded-full font-black text-base tracking-wide flex items-center gap-2"
-                >
-                  <span>Đọc ngay</span>
-                  <span className="text-lg leading-none">›</span>
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* 5. MODAL XEM NHANH TÓM TẮT & THẺ EVENT (KHI BẤM NÚT i) */}
+      {/* 4. MODAL XEM NHANH TÓM TẮT & THẺ EVENT */}
       {infoModalOpen && activeEvent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
@@ -579,8 +590,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
             onClick={() => setInfoModalOpen(false)}
           />
           <div className="relative z-10 w-full max-w-lg rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-2xl overflow-hidden sekai-fade-up">
-            {/* Banner đầu modal */}
-            <div className="relative h-40">
+            <div className="relative h-44">
               <img
                 src={activeEvent.bgImage || activeEvent.banner}
                 alt={activeEvent.title}
@@ -596,7 +606,8 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
               </button>
               <div className="absolute bottom-3 left-4 right-4 text-white">
                 <div className="text-[11px] font-bold text-teal-300 mb-0.5">
-                  {activeEvent.number} {activeEvent.date ? `• ${activeEvent.date}` : ""}
+                  {activeEvent.number}{" "}
+                  {activeEvent.date ? `• ${activeEvent.date}` : ""}
                 </div>
                 <h3 className="font-black text-lg leading-snug">
                   {activeEvent.title}
@@ -604,7 +615,6 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
               </div>
             </div>
 
-            {/* Nội dung modal */}
             <div className="p-4 sm:p-5 max-h-[60vh] overflow-y-auto unit-scrollbar">
               {activeEvent.summary && (
                 <div className="mb-4">
@@ -628,7 +638,9 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                         key={i}
                         className="p-2 rounded-xl bg-[var(--surface-alt)] border border-[var(--border)] text-xs"
                       >
-                        <div className="font-bold truncate">{card.character}</div>
+                        <div className="font-bold truncate">
+                          {card.character}
+                        </div>
                         <div className="text-[11px] text-muted truncate">
                           {"★".repeat(card.rarity || 3)} {card.title}
                         </div>
