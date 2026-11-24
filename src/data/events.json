@@ -454,7 +454,7 @@
 
   {
     "id": "1",
-    "number": "Event #1",
+    "nuwmber": "Event #1",
     "title": "Ngôi sao sáng nhất sau cơn mưa",
     "jpTitle": "雨上がりの一番星",
     "unit": "ln",
@@ -496,7 +496,7 @@
       },
       {
         "character": "Hinomori Shiho",
-        "title": "「Làm hòa」khó khăn",
+        "title": "Giá mà tôi nhận ra được độ nóng ấy",
         "rarity": 4,
         "untrained": "/images/ev1-shiho-untrained.png",
         "trained": "/images/ev1-shiho-trained.png",
@@ -505,7 +505,7 @@
       },
       {
         "character": "Mochizuki Honami",
-        "title": "Bàn tay dẫn lối",
+        "title": "Cứ thong thả nghỉ ngơi nha",
         "rarity": 3,
         "untrained": "/images/ev1-honami-untrained.png",
         "trained": "/images/ev1-honami-trained.png",
@@ -514,7 +514,7 @@
       },
       {
         "character": "Hoshino Ichika",
-        "title": "Tuyển dụng thành viên cho đoàn kịch",
+        "title": "Bước chân của vì sao",
         "rarity": 2,
         "untrained": "/images/ev1-ichika.png",
         "sideStory1": "",
