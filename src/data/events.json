@@ -521,5 +521,76 @@
         "sideStory2": ""
       }
     ]
+  },
+    {
+    "id": "2",
+    "number": "Event #2",
+    "title": "Marionette bị cầm tù",
+    "jpTitle": "囚われのマリオネット",
+    "unit": "n25",
+    "type": "event",
+    "date": "2020",
+    "keyStory": true,
+    "banner": "https://res.cloudinary.com/logocollection/image/upload/v1795594003/ev2_banner_loshqs.png",
+    "bgImage": "https://res.cloudinary.com/logocollection/image/upload/v1795594326/bg_ev2_bu03gq.png", 
+    "logo": "https://res.cloudinary.com/logocollection/image/upload/v1795573361/2_barkpx.png",
+    "summary": "Để thực hiện \"lời hứa\" với Mafuyu, Kanade khao khát muốn được biết về Mafuyu nhiều hơn nữa.
+Chính vào lúc ấy, tại buổi triển lãm búp bê mà cả bốn thành viên trong nhóm cùng tới xem, một sự cố lạ đã xảy ra với Mafuyu...",
+    "chapters": [
+      { "ep": 1, "title": "Tập 1: Điều tôi cảm nhận được", "youtube": "https://youtu.be/AurYPJ5Exr8" },
+      { "ep": 2, "title": "Tập 2: Tấm vé được trao tận tay", "youtube": "https://youtu.be/sXG_4cjwURc" },
+      { "ep": 3, "title": "Tập 3: Muốn biết nhiều hơn nữa", "youtube": "https://youtu.be/cMitfCmdDSg" },
+      { "ep": 4, "title": "Tập 4: Marionette ở trong lồng", "youtube": "https://youtu.be/GpDv8oz3nQ0" },
+      { "ep": 5, "title": "Tập 5: Căm ghét đồng loại", "youtube": "https://youtu.be/Sq3A2algUHA" },
+      { "ep": 6, "title": "Tập 6: Búp bê gặp giấc mộng", "youtube": "https://youtu.be/dhdAuNRSW3M" },
+      { "ep": 7, "title": "Tập 7: Có những điều không thích lẫn nỗi đau", "youtube": "https://youtu.be/c4UFSIi5y0M" },
+      { "ep": 8, "title": "Tập 8: Tớ không biết, nhưng mà", "youtube": "https://youtu.be/k0_uZD_vnVc" }
+    ],
+    "cards": [
+      {
+        "character": "Tenma Saki",
+        "title": "Rainy Distance",
+        "rarity": 4,
+        "untrained": "https://res.cloudinary.com/logocollection/image/upload/v1795573539/ev1-saki-untrained_mmqd24.png",
+        "trained": "https://res.cloudinary.com/logocollection/image/upload/v1795573537/ev1-saki-trained_efsdvh.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Megurine Luka",
+        "title": "Lau đi cơn mưa hoàng hôn",
+        "rarity": 4,
+        "untrained": "https://res.cloudinary.com/logocollection/image/upload/v1795573535/ev1-luka-untrained_j2noxo.png",
+        "trained": "https://res.cloudinary.com/logocollection/image/upload/v1795573533/ev1-luka-trained_xmca1l.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Hinomori Shiho",
+        "title": "Giá mà tôi nhận ra được độ nóng ấy",
+        "rarity": 4,
+        "untrained": "https://res.cloudinary.com/logocollection/image/upload/v1795573552/ev1-shiho-untrained_xsyfxy.png",
+        "trained": "https://res.cloudinary.com/logocollection/image/upload/v1795573540/ev1-shiho-trained_xxprf2.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Mochizuki Honami",
+        "title": "Cứ thong thả nghỉ ngơi nha",
+        "rarity": 3,
+        "untrained": "https://res.cloudinary.com/logocollection/image/upload/v1795573530/ev1-honami-untrained_tis8fi.png",
+        "trained": "https://res.cloudinary.com/logocollection/image/upload/v1795573505/ev1-honami-trained_eiu1so.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      },
+      {
+        "character": "Hoshino Ichika",
+        "title": "Bước chân của vì sao",
+        "rarity": 2,
+        "untrained": "https://res.cloudinary.com/logocollection/image/upload/v1795573531/ev1-ichika_iyntk3.png",
+        "sideStory1": "",
+        "sideStory2": ""
+      }
+    ]
   }
 ]
