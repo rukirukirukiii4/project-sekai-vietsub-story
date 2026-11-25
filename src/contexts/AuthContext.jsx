@@ -60,7 +60,6 @@ export function AuthProvider({ children }) {
     setCloudProgress(mapped);
   }, []);
 
-  // Lấy role từ bảng profiles
   const fetchUserRole = useCallback(async (userId) => {
     if (!userId) return "guest";
 
@@ -89,7 +88,6 @@ export function AuthProvider({ children }) {
         return;
       }
 
-      // Chạy song song: lấy role + lấy tiến độ đọc
       const [userRole] = await Promise.all([
         fetchUserRole(session.user.id),
         fetchUserProgress(session.user.id),
@@ -116,12 +114,12 @@ export function AuthProvider({ children }) {
     };
   }, [fetchUserProgress, fetchUserRole]);
 
-  const loginWithGoogle = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
+  // Đăng nhập bằng Google ID Token (không chuyển hướng qua supabase.co)
+  const loginWithGoogleIdToken = async (token, nonce) => {
+    const { error } = await supabase.auth.signInWithIdToken({
       provider: "google",
-      options: {
-        redirectTo: window.location.origin,
-      },
+      token,
+      nonce,
     });
 
     if (error) {
@@ -131,6 +129,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
+    window.google?.accounts?.id?.disableAutoSelect?.();
     await supabase.auth.signOut();
     setCurrentUser(null);
     setCloudProgress({});
@@ -221,7 +220,7 @@ export function AuthProvider({ children }) {
         role,
         isAdmin,
         authLoading,
-        loginWithGoogle,
+        loginWithGoogleIdToken,
         logout,
         markChapterWatched,
         getEventProgress,
