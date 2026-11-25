@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import eventsData from "../data/events.json";
 import { UNITS } from "../constants/units";
-import { setDynamicAccent, formatEpisodeTag } from "../utils/helpers";
+import {
+  setDynamicAccent,
+  formatEpisodeTag,
+  resolveImageUrl,
+} from "../utils/helpers";
 import { useAuth } from "../contexts/AuthContext";
 import VideoPlayer from "../components/reader/VideoPlayer";
 import ChapterList from "../components/reader/ChapterList";
@@ -127,7 +131,9 @@ export default function ReaderPage() {
             <div
               className="absolute inset-0 bg-cover bg-center opacity-20 dark:opacity-25 pointer-events-none"
               style={{
-                backgroundImage: `url("${event.bgImage || event.banner}")`,
+                backgroundImage: `url("${resolveImageUrl(
+                  event.bgImage || event.banner
+                )}")`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[var(--surface)] via-[var(--surface)]/90 to-[var(--surface)]/55 pointer-events-none" />
@@ -139,7 +145,7 @@ export default function ReaderPage() {
             {unitInfo.logo ? (
               <div className="bg-slate-100 dark:bg-white/95 px-2.5 py-1 rounded-lg flex items-center shadow-xs">
                 <img
-                  src={unitInfo.logo}
+                  src={resolveImageUrl(unitInfo.logo)}
                   alt={unitInfo.name}
                   className="h-6 w-auto max-w-[120px] object-contain"
                 />
@@ -153,7 +159,7 @@ export default function ReaderPage() {
               </span>
             )}
 
-            {/* Ruy-băng loại truyện (Key Story / Main Story / Event Story) */}
+            {/* Ruy-băng loại truyện (Main Story / Key Story / Event Story) */}
             <span
               className="sekai-ribbon pl-2.5 pr-4 py-1 text-[11px] font-extrabold text-white"
               style={{
@@ -163,7 +169,11 @@ export default function ReaderPage() {
                     : "#475569",
               }}
             >
-              {event.keyStory ? "✦ KEY STORY" : storyLabel}
+              {event.type?.toLowerCase() === "main"
+                ? "★ MAIN STORY"
+                : event.keyStory
+                ? "✦ KEY STORY"
+                : storyLabel}
             </span>
 
             {event.number && (

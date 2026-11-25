@@ -6,6 +6,8 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import HomePage from "./pages/HomePage";
 import ReaderPage from "./pages/ReaderPage";
+import AdminRoute from "./components/common/AdminRoute";
+import AdminPage from "./pages/AdminPage";
 
 export default function App() {
   const [theme, setTheme] = useLocalStorage("sekai_story_theme_v1", "light");
@@ -46,6 +48,14 @@ export default function App() {
                 }
               />
               <Route path="/event/:eventId" element={<ReaderPage />} />
+              <Route
+                path="/admin"
+                element={
+                  <AdminRoute>
+                    <AdminPage />
+                  </AdminRoute>
+                }
+              />
             </Routes>
           </main>
 

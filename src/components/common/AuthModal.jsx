@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function AuthModal({ isOpen, onClose }) {
-  const { currentUser, loginWithGoogle, logout } = useAuth();
+  const { currentUser, isAdmin, loginWithGoogle, logout } = useAuth();
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -63,15 +63,29 @@ export default function AuthModal({ isOpen, onClose }) {
                 </div>
               )}
 
-              <div className="min-w-0">
-                <div className="font-extrabold text-base truncate">
-                  {currentUser.displayName}
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="font-extrabold text-base truncate">
+                    {currentUser.displayName}
+                  </span>
+                  {isAdmin ? (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-400 text-slate-900 shrink-0">
+                      ★ ADMIN
+                    </span>
+                  ) : (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-muted shrink-0">
+                      Guest
+                    </span>
+                  )}
                 </div>
+
                 <div className="text-xs text-muted truncate">
                   {currentUser.email}
                 </div>
+
                 <div className="text-[11px] font-semibold text-emerald-500 mt-0.5">
-                  ✓ Trực tuyến
+                  ✓ Trực tuyến •{" "}
+                  {isAdmin ? "Quyền quản trị viên" : "Tài khoản thành viên"}
                 </div>
               </div>
             </div>

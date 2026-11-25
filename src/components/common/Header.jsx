@@ -6,7 +6,7 @@ import AuthModal from "./AuthModal";
 
 export default function Header({ isDark, onToggleTheme, onResetUnit }) {
   const navigate = useNavigate();
-  const { currentUser } = useAuth();
+  const { currentUser, isAdmin } = useAuth();
   const [authOpen, setAuthOpen] = useState(false);
 
   const handleGoHome = () => {
@@ -78,11 +78,25 @@ export default function Header({ isDark, onToggleTheme, onResetUnit }) {
                     </span>
                   )}
                   <span>{currentUser.displayName}</span>
+                  {isAdmin && (
+                    <span className="px-1.5 py-0.5 rounded-full text-[10px] font-black bg-amber-400 text-slate-900">
+                      ADMIN
+                    </span>
+                  )}
                 </>
               ) : (
                 <span>👤 Đăng nhập</span>
               )}
             </button>
+          {isAdmin && (
+              <button
+                type="button"
+                onClick={() => navigate("/admin")}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13px] font-bold border-[1.5px] border-amber-400/70 bg-amber-400/15 text-amber-600 dark:text-amber-300 hover:bg-amber-400 hover:text-slate-900 transition"
+              >
+                Kho ảnh
+              </button>
+            )}
           </div>
         </div>
       </header>

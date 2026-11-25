@@ -31,6 +31,18 @@ export function formatEpisodeTag(ep, fallbackIndex) {
 
 export function resolveImageUrl(path) {
   if (!path) return "";
-  if (path.startsWith("http") || path.startsWith("/")) return path;
-  return `/${path}`;
+  const clean = String(path).trim();
+
+  if (/^https?:\/\//i.test(clean)) {
+    if (
+      clean.includes("res.cloudinary.com") &&
+      clean.includes("/image/upload/") &&
+      !clean.includes("/image/upload/f_auto")
+    ) {
+      return clean.replace("/image/upload/", "/image/upload/f_auto,q_auto/");
+    }
+    return clean;
+  }
+
+  return clean.startsWith("/") ? clean : `/${clean}`;
 }

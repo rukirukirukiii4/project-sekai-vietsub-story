@@ -10,11 +10,12 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const AuthContext = createContext(null);
 
-function formatSupabaseUser(user) {
+function formatSupabaseUser(user, role = "guest") {
   if (!user) return null;
   return {
     id: user.id,
     email: user.email,
+    role,
     displayName:
       user.user_metadata?.full_name ||
       user.user_metadata?.name ||
@@ -59,36 +60,61 @@ export function AuthProvider({ children }) {
     setCloudProgress(mapped);
   }, []);
 
+  // Lấy role từ bảng profiles
+  const fetchUserRole = useCallback(async (userId) => {
+    if (!userId) return "guest";
+
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", userId)
+      .maybeSingle();
+
+    if (error) {
+      console.error("Lỗi tải quyền user:", error.message);
+      return "guest";
+    }
+    return data?.role || "guest";
+  }, []);
+
   useEffect(() => {
     let mounted = true;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!mounted) return;
-      const formatted = formatSupabaseUser(session?.user);
-      setCurrentUser(formatted);
-      if (formatted) {
-        fetchUserProgress(formatted.id);
+    const syncSession = async (session) => {
+      if (!session?.user) {
+        if (!mounted) return;
+        setCurrentUser(null);
+        setCloudProgress({});
+        setAuthLoading(false);
+        return;
       }
+
+      // Chạy song song: lấy role + lấy tiến độ đọc
+      const [userRole] = await Promise.all([
+        fetchUserRole(session.user.id),
+        fetchUserProgress(session.user.id),
+      ]);
+
+      if (!mounted) return;
+      setCurrentUser(formatSupabaseUser(session.user, userRole));
       setAuthLoading(false);
+    };
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      syncSession(session);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      const formatted = formatSupabaseUser(session?.user);
-      setCurrentUser(formatted);
-      if (formatted) {
-        fetchUserProgress(formatted.id);
-      } else {
-        setCloudProgress({});
-      }
+      syncSession(session);
     });
 
     return () => {
       mounted = false;
       subscription.unsubscribe();
     };
-  }, [fetchUserProgress]);
+  }, [fetchUserProgress, fetchUserRole]);
 
   const loginWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
@@ -106,6 +132,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     await supabase.auth.signOut();
+    setCurrentUser(null);
     setCloudProgress({});
   };
 
@@ -184,10 +211,15 @@ export function AuthProvider({ children }) {
     [currentUser, cloudProgress, guestProgress]
   );
 
+  const role = currentUser?.role || "guest";
+  const isAdmin = Boolean(currentUser && role === "admin");
+
   return (
     <AuthContext.Provider
       value={{
         currentUser,
+        role,
+        isAdmin,
         authLoading,
         loginWithGoogle,
         logout,

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import eventsData from "../data/events.json";
 import { UNITS } from "../constants/units";
-import { setDynamicAccent } from "../utils/helpers";
+import { setDynamicAccent, resolveImageUrl } from "../utils/helpers";
 import { useAuth } from "../contexts/AuthContext";
 
 const EVENT_ROUTE_PREFIX = "/event";
@@ -55,7 +55,9 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
       totalChapters += chCount;
       const prog = getEventProgress?.(ev);
       if (prog) {
-        if (Array.isArray(prog.watchedChapters)) {
+        if (typeof prog.watchedCount === "number") {
+          watchedTotal += prog.watchedCount;
+        } else if (Array.isArray(prog.watchedChapters)) {
           watchedTotal += prog.watchedChapters.length;
         } else if (typeof prog.percent === "number") {
           watchedTotal += Math.round((prog.percent / 100) * chCount);
@@ -128,8 +130,8 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
     : UNITS[selectedUnit] || UNITS.all;
 
   const activeProgress = activeEvent
-    ? getEventProgress?.(activeEvent) || { watchedChapters: [], percent: 0 }
-    : { watchedChapters: [], percent: 0 };
+    ? getEventProgress?.(activeEvent) || { watchedChapters: {}, percent: 0 }
+    : { watchedChapters: {}, percent: 0 };
 
   const activeBadge = activeEvent
     ? getStoryBadge(activeEvent, activeUnitInfo.color)
@@ -355,7 +357,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                       }`}
                     >
                       <img
-                        src={ev.banner}
+                        src={resolveImageUrl(ev.banner)}
                         alt={ev.title}
                         loading="lazy"
                         className="w-full h-full object-cover"
@@ -418,7 +420,9 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                 key={activeEvent.id}
                 className="sekai-stage-bg"
                 style={{
-                  backgroundImage: `url("${activeEvent.bgImage || activeEvent.banner}")`,
+                  backgroundImage: `url("${resolveImageUrl(
+                    activeEvent.bgImage || activeEvent.banner
+                  )}")`,
                 }}
               />
               <div className="sekai-showcase-scrim" />
@@ -434,7 +438,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                     {activeUnitInfo.logo ? (
                       <span className="bg-white/95 px-2.5 py-1 rounded-lg inline-flex items-center shadow">
                         <img
-                          src={activeUnitInfo.logo}
+                          src={resolveImageUrl(activeUnitInfo.logo)}
                           alt={activeUnitInfo.name}
                           className="h-5 w-auto max-w-[110px] object-contain"
                         />
@@ -470,7 +474,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                   {activeEvent.logo ? (
                     <>
                       <img
-                        src={activeEvent.logo}
+                        src={resolveImageUrl(activeEvent.logo)}
                         alt={activeEvent.title}
                         className="sekai-event-logo max-h-[88px] sm:max-h-[115px] lg:max-h-[135px] max-w-[260px] sm:max-w-[360px] lg:max-w-[420px] w-auto object-contain object-right"
                       />
@@ -577,7 +581,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
                       {unit.logo ? (
                         <div className="inline-flex bg-white/95 px-2 py-1 rounded-md">
                           <img
-                            src={unit.logo}
+                            src={resolveImageUrl(unit.logo)}
                             alt={unit.name}
                             className="h-5 w-auto max-w-[130px] object-contain"
                           />
@@ -609,7 +613,7 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
           <div className="relative z-10 w-full max-w-lg rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-2xl overflow-hidden sekai-fade-up">
             <div className="relative h-44">
               <img
-                src={activeEvent.bgImage || activeEvent.banner}
+                src={resolveImageUrl(activeEvent.bgImage || activeEvent.banner)}
                 alt={activeEvent.title}
                 className="w-full h-full object-cover"
               />
