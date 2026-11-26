@@ -28,6 +28,12 @@ const CLOUDINARY_FOLDERS = [
     icon: "✨",
     hint: "Logo PNG tách nền cho từng sự kiện",
   },
+  {
+    path: "web_sekai/stamp",
+    label: "Stamp",
+    icon: "🏷️",
+    hint: "Sticker / Stamp nhân vật trong game",
+  },
 ];
 
 function formatBytes(bytes = 0) {
@@ -56,6 +62,8 @@ export default function AdminPage() {
   const [copiedId, setCopiedId] = useState(null);
   const [deletingId, setDeletingId] = useState(null);
 
+  const isStampFolder = activeFolder === "web_sekai/stamp";
+
   const getAccessToken = async () => {
     const {
       data: { session },
@@ -63,38 +71,35 @@ export default function AdminPage() {
     return session?.access_token || "";
   };
 
-  const fetchAssets = useCallback(
-    async (folderPath, cursor = "") => {
-      setLoadingList(true);
-      setListError("");
-      try {
-        const token = await getAccessToken();
-        let url = `/api/cloudinary-assets?folder=${encodeURIComponent(folderPath)}`;
-        if (cursor) url += `&next_cursor=${encodeURIComponent(cursor)}`;
+  const fetchAssets = useCallback(async (folderPath, cursor = "") => {
+    setLoadingList(true);
+    setListError("");
+    try {
+      const token = await getAccessToken();
+      let url = `/api/cloudinary-assets?folder=${encodeURIComponent(folderPath)}`;
+      if (cursor) url += `&next_cursor=${encodeURIComponent(cursor)}`;
 
-        const res = await fetch(url, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
+      const res = await fetch(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
 
-        if (!res.ok) {
-          throw new Error(data.error || "Không tải được danh sách ảnh.");
-        }
-
-        if (cursor) {
-          setAssets((prev) => [...prev, ...(data.resources || [])]);
-        } else {
-          setAssets(data.resources || []);
-        }
-        setNextCursor(data.next_cursor || null);
-      } catch (err) {
-        setListError(err.message);
-      } finally {
-        setLoadingList(false);
+      if (!res.ok) {
+        throw new Error(data.error || "Không tải được danh sách ảnh.");
       }
-    },
-    []
-  );
+
+      if (cursor) {
+        setAssets((prev) => [...prev, ...(data.resources || [])]);
+      } else {
+        setAssets(data.resources || []);
+      }
+      setNextCursor(data.next_cursor || null);
+    } catch (err) {
+      setListError(err.message);
+    } finally {
+      setLoadingList(false);
+    }
+  }, []);
 
   useEffect(() => {
     setSearch("");
@@ -178,7 +183,7 @@ export default function AdminPage() {
 
   const handleDeleteAsset = async (item) => {
     const confirmed = window.confirm(
-      `Bạn có chắc muốn xóa vĩnh viễn ảnh "${item.display_name}" khỏi Cloudinary?\n(Nếu đang gắn link ảnh này trong events.json thì ảnh trên web sẽ bị lỗi!)`
+      `Bạn có chắc muốn xóa vĩnh viễn ảnh "${item.display_name}" khỏi Cloudinary?\n(Nếu đang gắn link ảnh này trên web thì ảnh sẽ bị lỗi!)`
     );
     if (!confirmed) return;
 
@@ -252,8 +257,8 @@ export default function AdminPage() {
         </button>
       </div>
 
-      {/* Chọn thư mục */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      {/* Chọn thư mục (5 cột trên màn hình lớn) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         {CLOUDINARY_FOLDERS.map((folder) => {
           const isActive = activeFolder === folder.path;
           return (
@@ -314,15 +319,15 @@ export default function AdminPage() {
         />
 
         <div className="max-w-md mx-auto space-y-2.5">
-          <div className="text-3xl">☁️</div>
+          <div className="text-3xl">{isStampFolder ? "🏷️" : "☁️"}</div>
           <div className="text-sm font-extrabold">
-            Upload ảnh vào thư mục{" "}
+            Upload {isStampFolder ? "Stamp" : "ảnh"} vào thư mục{" "}
             <code className="px-2 py-0.5 rounded bg-surface-alt border border-border text-accent">
               {activeFolder}
             </code>
           </div>
           <p className="text-xs text-muted">
-            Kéo thả nhiều ảnh vào đây hoặc bấm nút bên dưới để chọn file từ máy
+            Kéo thả nhiều file vào đây hoặc bấm nút bên dưới để chọn file từ máy
             tính ({currentFolderMeta?.hint}).
           </p>
 
@@ -334,6 +339,8 @@ export default function AdminPage() {
           >
             {uploading
               ? `⏳ Đang tải lên (${uploadProgress.done}/${uploadProgress.total})...`
+              : isStampFolder
+              ? "📤 Chọn Stamp để Upload"
               : "📤 Chọn ảnh để Upload"}
           </label>
 
@@ -349,7 +356,7 @@ export default function AdminPage() {
       <section className="bg-surface border-[1.5px] border-border rounded-2xl sekai-shadow overflow-hidden">
         <div className="px-4 py-3 border-b-[1.5px] border-border bg-surface-alt flex items-center justify-between gap-3 flex-wrap">
           <div className="font-extrabold text-sm">
-            {currentFolderMeta?.icon} Ảnh trong{" "}
+            {currentFolderMeta?.icon} {isStampFolder ? "Stamp" : "Ảnh"} trong{" "}
             <span className="text-accent">{activeFolder}</span> (
             {filteredAssets.length})
           </div>
@@ -358,7 +365,9 @@ export default function AdminPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Tìm theo tên file..."
+            placeholder={
+              isStampFolder ? "Tìm theo tên stamp..." : "Tìm theo tên file..."
+            }
             className="w-full sm:w-64 px-3.5 py-1.5 rounded-full text-xs border-[1.5px] border-border bg-surface outline-none focus:border-accent"
           />
         </div>
@@ -370,14 +379,20 @@ export default function AdminPage() {
             </div>
           ) : loadingList && assets.length === 0 ? (
             <div className="text-center py-12 text-sm text-muted font-semibold">
-              ⏳ Đang tải danh sách ảnh từ Cloudinary...
+              ⏳ Đang tải danh sách từ Cloudinary...
             </div>
           ) : filteredAssets.length === 0 ? (
             <div className="text-center py-12 text-sm text-muted">
-              Chưa có ảnh nào trong thư mục này.
+              Chưa có {isStampFolder ? "stamp" : "ảnh"} nào trong thư mục này.
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div
+              className={
+                isStampFolder
+                  ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5"
+                  : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+              }
+            >
               {filteredAssets.map((item) => {
                 const isCopied = copiedId === item.public_id;
                 const isDeleting = deletingId === item.public_id;
@@ -387,7 +402,11 @@ export default function AdminPage() {
                     key={item.public_id}
                     className="rounded-xl border-[1.5px] border-border bg-surface-alt overflow-hidden flex flex-col"
                   >
-                    <div className="relative aspect-video bg-slate-900/10 dark:bg-slate-900 flex items-center justify-center overflow-hidden">
+                    <div
+                      className={`relative bg-slate-900/10 dark:bg-slate-900 flex items-center justify-center overflow-hidden ${
+                        isStampFolder ? "aspect-square p-2.5" : "aspect-video"
+                      }`}
+                    >
                       <img
                         src={resolveImageUrl(item.secure_url)}
                         alt={item.display_name}
@@ -465,7 +484,7 @@ export default function AdminPage() {
                 onClick={() => fetchAssets(activeFolder, nextCursor)}
                 className="px-5 py-2 rounded-full text-xs font-bold border-[1.5px] border-border bg-surface-alt hover:border-accent hover:text-accent transition"
               >
-                {loadingList ? "Đang tải..." : "Tải thêm ảnh"}
+                {loadingList ? "Đang tải..." : "Tải thêm"}
               </button>
             </div>
           )}
