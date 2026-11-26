@@ -19,7 +19,6 @@ const RARITY_FILTERS = [
 export default function SideStoryPage() {
   const navigate = useNavigate();
 
-  // Tự động chọn Miku đầu tiên (fallback về phần tử đầu tiên trong file JSON)
   const defaultCharId =
     charactersData.find((c) => c.id === "miku")?.id ||
     charactersData[0]?.id ||
@@ -48,14 +47,12 @@ export default function SideStoryPage() {
     setDynamicAccent(themeColor);
   }, [themeColor]);
 
-  // Reset bộ lọc thẻ khi đổi nhân vật
   const handleSelectCharacter = (id) => {
     setSelectedCharId(id);
     setSearchCard("");
     setRarityFilter("all");
   };
 
-  // Lọc và sắp xếp danh sách Side Story của nhân vật đang chọn
   const filteredStories = useMemo(() => {
     if (!activeChar?.sideStories) return [];
     const q = searchCard.trim().toLowerCase();
@@ -100,7 +97,7 @@ export default function SideStoryPage() {
 
   return (
     <section className="flex flex-col gap-3 select-none">
-      {/* Thanh điều hướng trên cùng: Quay lại + Thông báo nhóm kín FB */}
+      {/* Thanh điều hướng trên cùng */}
       <div className="flex flex-wrap items-center justify-between gap-2.5">
         <button
           type="button"
@@ -113,7 +110,6 @@ export default function SideStoryPage() {
           <span>Quay lại Event Story</span>
         </button>
 
-        {/* Banner nhắc tham gia nhóm kín FB */}
         <a
           href={FB_GROUP_URL}
           target="_blank"
@@ -127,7 +123,6 @@ export default function SideStoryPage() {
 
       {/* KHUNG CHÍNH 3 CỘT: [AVATAR TRÒN] | [ẢNH ĐỨNG] | [PROFILE + SIDE STORY] */}
       <div className="sekai-stage relative overflow-hidden bg-[var(--surface)]">
-        {/* Nền màu nhẹ + Chữ tên nhân vật mờ phía sau giống trong game */}
         <div
           className="pointer-events-none absolute inset-0 opacity-15 dark:opacity-20"
           style={{
@@ -142,8 +137,8 @@ export default function SideStoryPage() {
           {activeChar.enName || activeChar.name}
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[88px_280px_1fr] xl:grid-cols-[92px_320px_1fr] min-h-[calc(100vh-195px)]">
-          {/* CỘT 1 (TRÁI NGOÀI CÙNG): DẢI AVATAR TRÒN CÁC NHÂN VẬT */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[82px_245px_1fr] xl:grid-cols-[86px_270px_1fr] min-h-[calc(100vh-195px)]">
+          {/* CỘT 1: DẢI AVATAR TRÒN */}
           <aside className="bg-[var(--surface-alt)]/90 backdrop-blur-md border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)] flex lg:flex-col items-center gap-2.5 p-2.5 overflow-x-auto lg:overflow-x-hidden lg:overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
             {charactersData.map((char) => {
               const isSelected = char.id === activeChar.id;
@@ -183,7 +178,6 @@ export default function SideStoryPage() {
                     )}
                   </div>
 
-                  {/* Chấm báo đang chọn */}
                   {isSelected && (
                     <span
                       className="absolute -right-0.5 -bottom-0.5 w-4 h-4 rounded-full border-2 border-white text-[9px] text-white font-black flex items-center justify-center"
@@ -197,12 +191,11 @@ export default function SideStoryPage() {
             })}
           </aside>
 
-          {/* CỘT 2 (GIỮA): ẢNH ĐỨNG NHÂN VẬT + BẢNG TÊN DỌC GIỐNG GAME */}
+          {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + BẢNG TÊN DỌC */}
           <div
             key={`portrait-${activeChar.id}`}
             className="relative flex items-end justify-center min-h-[260px] lg:min-h-full overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60 pt-4 px-3 sekai-fade-up"
           >
-            {/* Logo nhóm ở góc trên phải khung ảnh đứng */}
             {activeUnit?.logo && (
               <div className="absolute top-3 right-3 z-10 bg-white/90 px-2.5 py-1 rounded-lg shadow-sm">
                 <img
@@ -213,7 +206,6 @@ export default function SideStoryPage() {
               </div>
             )}
 
-            {/* Bảng tên dọc góc trái dưới giống game (朝比奈 まふゆ / ASAHINA MAFUYU) */}
             <div className="absolute left-3 bottom-4 z-20 flex items-end gap-1.5 pointer-events-none">
               <div
                 className="sekai-vertical-text px-2 py-3 rounded-lg text-white font-black text-base tracking-widest shadow-lg border border-white/25"
@@ -226,7 +218,6 @@ export default function SideStoryPage() {
               </div>
             </div>
 
-            {/* Ảnh nhân vật đứng (tachi-e) */}
             {activeChar.portrait ? (
               <img
                 src={activeChar.portrait}
@@ -240,7 +231,7 @@ export default function SideStoryPage() {
             )}
           </div>
 
-          {/* CỘT 3 (PHẢI): TRÊN = PROFILE | DƯỚI = DANH SÁCH SIDE STORY 2 CỘT */}
+          {/* CỘT 3: PROFILE (CHUẨN BỐ CỤC GAME, HIỆN FULL CHỮ) + DANH SÁCH SIDE STORY */}
           <div className="flex flex-col gap-4 p-4 md:p-5 overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
             {/* PHẦN TRÊN: THẺ PROFILE NHÂN VẬT */}
             <div className="rounded-2xl bg-[var(--surface)]/90 backdrop-blur-md border-[1.5px] border-[var(--border)] p-4 shadow-sm">
@@ -263,67 +254,73 @@ export default function SideStoryPage() {
                 <button
                   type="button"
                   onClick={() => setProfileExpanded((prev) => !prev)}
-                  className="px-3 py-1 rounded-full text-[11px] font-bold border border-[var(--border)] bg-[var(--surface-alt)] hover:border-accent transition"
+                  className="px-3 py-1 rounded-full text-[11px] font-bold border border-[var(--border)] bg-[var(--surface-alt)] hover:border-accent transition shrink-0"
                 >
                   {profileExpanded ? "Thu gọn hồ sơ ▲" : "Xem hồ sơ ▼"}
                 </button>
               </div>
 
               {profileExpanded && (
-                <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1fr] gap-3">
-                  {/* Bảng thông số (CV, Trường, Sở thích...) giống nửa trên ảnh mẫu */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
-                    {activeChar.profile?.birthday && (
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
-                        <span className="font-extrabold text-muted shrink-0">
-                          Sinh nhật
-                        </span>
-                        <span className="text-[var(--border)]">|</span>
-                        <span className="font-bold truncate">
-                          {activeChar.profile.birthday}
-                        </span>
-                      </div>
-                    )}
-                    {activeChar.profile?.height && (
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
-                        <span className="font-extrabold text-muted shrink-0">
-                          Chiều cao
-                        </span>
-                        <span className="text-[var(--border)]">|</span>
-                        <span className="font-bold truncate">
-                          {activeChar.profile.height}
-                        </span>
-                      </div>
-                    )}
+                <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1fr] gap-3 items-start">
+                  {/* Cột trái: 1 cột dọc rộng rãi, hiện FULL chữ không cắt */}
+                  <div className="flex flex-col gap-1.5 text-xs">
                     {profileRows.map((row) => (
                       <div
                         key={row.label}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70"
+                        className="grid grid-cols-[78px_1fr] items-start gap-2.5 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70"
                       >
-                        <span className="font-extrabold text-muted shrink-0">
+                        <span className="font-extrabold text-muted border-r border-[var(--border)] pr-2 leading-snug">
                           {row.label}
                         </span>
-                        <span className="text-[var(--border)]">|</span>
-                        <span className="font-semibold truncate">
+                        <span className="font-semibold break-words leading-snug">
                           {row.value}
                         </span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Khung giới thiệu nhân vật */}
-                  {activeChar.profile?.bio && (
-                    <div className="rounded-xl bg-[var(--surface-alt)] border border-[var(--border)]/70 p-3 text-xs sm:text-[13px] leading-relaxed text-[var(--text)]">
-                      {activeChar.profile.bio}
-                    </div>
-                  )}
+                  {/* Cột phải: Sinh nhật + Chiều cao ở trên, khung giới thiệu ở dưới */}
+                  <div className="flex flex-col gap-2">
+                    {(activeChar.profile?.birthday ||
+                      activeChar.profile?.height) && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        {activeChar.profile?.birthday && (
+                          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
+                            <span className="font-extrabold text-muted shrink-0">
+                              Sinh nhật
+                            </span>
+                            <span className="text-[var(--border)]">|</span>
+                            <span className="font-bold break-words">
+                              {activeChar.profile.birthday}
+                            </span>
+                          </div>
+                        )}
+                        {activeChar.profile?.height && (
+                          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
+                            <span className="font-extrabold text-muted shrink-0">
+                              Chiều cao
+                            </span>
+                            <span className="text-[var(--border)]">|</span>
+                            <span className="font-bold break-words">
+                              {activeChar.profile.height}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {activeChar.profile?.bio && (
+                      <div className="rounded-xl bg-[var(--surface-alt)] border border-[var(--border)]/70 p-3.5 text-xs sm:text-[13px] leading-relaxed text-[var(--text)]">
+                        {activeChar.profile.bio}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
 
-            {/* PHẦN DƯỚI: DANH SÁCH SIDE STORY CỦA NHÂN VẬT (2 CỘT GIỐNG GAME) */}
+            {/* PHẦN DƯỚI: DANH SÁCH SIDE STORY CỦA NHÂN VẬT */}
             <div className="flex-1 rounded-2xl bg-[var(--surface)]/90 backdrop-blur-md border-[1.5px] border-[var(--border)] p-4 shadow-sm flex flex-col gap-3">
-              {/* Header + Tìm kiếm + Lọc độ hiếm + Sắp xếp */}
               <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[var(--border)]">
                 <div className="flex items-center gap-2">
                   <span
@@ -338,7 +335,6 @@ export default function SideStoryPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
-                  {/* Tìm tên thẻ */}
                   <input
                     type="text"
                     value={searchCard}
@@ -347,7 +343,6 @@ export default function SideStoryPage() {
                     className="w-36 sm:w-44 px-3 py-1.5 rounded-full text-xs bg-[var(--surface-alt)] border border-[var(--border)] focus:outline-none focus:border-accent"
                   />
 
-                  {/* Đảo thứ tự */}
                   <button
                     type="button"
                     onClick={() =>
@@ -378,7 +373,7 @@ export default function SideStoryPage() {
                 ))}
               </div>
 
-              {/* Lưới 2 cột các thẻ Side Story giống nửa dưới ảnh mẫu */}
+              {/* Lưới 2 cột các thẻ Side Story */}
               {filteredStories.length === 0 ? (
                 <div className="text-center py-10 text-sm text-muted border-[1.5px] border-dashed border-[var(--border)] rounded-xl">
                   Chưa có Side Story nào khớp với bộ lọc này.
@@ -395,7 +390,6 @@ export default function SideStoryPage() {
                         key={card.id}
                         className="flex items-center gap-3 p-2.5 rounded-xl bg-[var(--surface-alt)] border-[1.5px] border-[var(--border)] hover:border-accent/70 transition shadow-xs"
                       >
-                        {/* Icon thẻ vuông bên trái + số sao */}
                         <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden border-2 border-white dark:border-slate-700 shadow-sm bg-slate-200 dark:bg-slate-800">
                           {card.icon ? (
                             <img
@@ -414,12 +408,8 @@ export default function SideStoryPage() {
                           </div>
                         </div>
 
-                        {/* Tên thẻ + 2 nút Phần 1 (前編) & Phần 2 (後編) mở link FB ở tab mới */}
                         <div className="flex-1 min-w-0 flex flex-col gap-2">
-                          <h3
-                            className="text-xs sm:text-[13px] font-extrabold leading-snug line-clamp-1"
-                            title={card.title}
-                          >
+                          <h3 className="text-xs sm:text-[13px] font-extrabold leading-snug break-words">
                             {card.title}
                           </h3>
 
