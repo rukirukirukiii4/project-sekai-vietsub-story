@@ -57,7 +57,7 @@ export default function App() {
                   </AdminRoute>
                 }
               />
-              <Route path="/side-story/:storyId" element={<SideStoryPage />} />
+              <Route path="/side-stories" element={<SideStoryPage />} />
             </Routes>
           </main>
 
