@@ -5,7 +5,7 @@ import { UNITS } from "../constants/units";
 import { setDynamicAccent } from "../utils/helpers";
 
 // Thay bằng link nhóm kín Facebook của bạn
-const FB_GROUP_URL = "https://www.facebook.com/groups/746210381092173";
+const FB_GROUP_URL = "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN";
 
 const RARITY_FILTERS = [
   { id: "all", label: "Tất cả" },
@@ -84,7 +84,10 @@ export default function SideStoryPage() {
     );
   }
 
+  // 10 mục chia đều thành 2 cột x 5 hàng ngang nhau
   const profileRows = [
+    { label: "Sinh nhật", value: activeChar.profile?.birthday },
+    { label: "Chiều cao", value: activeChar.profile?.height },
     { label: "CV", value: activeChar.profile?.cv },
     { label: "Trường", value: activeChar.profile?.school },
     { label: "Lớp", value: activeChar.profile?.grade },
@@ -94,6 +97,9 @@ export default function SideStoryPage() {
     { label: "Món ghét", value: activeChar.profile?.dislikedFood },
     { label: "Điểm yếu", value: activeChar.profile?.weakness },
   ].filter((row) => row.value);
+
+  const introBeforeUrl = activeChar.profile?.introBeforeAnni3;
+  const introAfterUrl = activeChar.profile?.introAfterAnni3;
 
   return (
     <section className="flex flex-col gap-3 select-none">
@@ -231,7 +237,7 @@ export default function SideStoryPage() {
             )}
           </div>
 
-          {/* CỘT 3: PROFILE (CHUẨN BỐ CỤC GAME, HIỆN FULL CHỮ) + DANH SÁCH SIDE STORY */}
+          {/* CỘT 3: PROFILE (2 CỘT ĐỀU + BIO + 2 NÚT GIỚI THIỆU BẢN THÂN) + SIDE STORY */}
           <div className="flex flex-col gap-4 p-4 md:p-5 overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
             {/* PHẦN TRÊN: THẺ PROFILE NHÂN VẬT */}
             <div className="rounded-2xl bg-[var(--surface)]/90 backdrop-blur-md border-[1.5px] border-[var(--border)] p-4 shadow-sm">
@@ -261,13 +267,13 @@ export default function SideStoryPage() {
               </div>
 
               {profileExpanded && (
-                <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1fr] gap-3 items-start">
-                  {/* Cột trái: 1 cột dọc rộng rãi, hiện FULL chữ không cắt */}
-                  <div className="flex flex-col gap-1.5 text-xs">
+                <div className="flex flex-col gap-2.5">
+                  {/* Lưới 2 cột thông tin chung đều nhau */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     {profileRows.map((row) => (
                       <div
                         key={row.label}
-                        className="grid grid-cols-[78px_1fr] items-start gap-2.5 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70"
+                        className="grid grid-cols-[84px_1fr] items-center gap-2.5 px-3 py-2 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70 h-full"
                       >
                         <span className="font-extrabold text-muted border-r border-[var(--border)] pr-2 leading-snug">
                           {row.label}
@@ -279,40 +285,53 @@ export default function SideStoryPage() {
                     ))}
                   </div>
 
-                  {/* Cột phải: Sinh nhật + Chiều cao ở trên, khung giới thiệu ở dưới */}
-                  <div className="flex flex-col gap-2">
-                    {(activeChar.profile?.birthday ||
-                      activeChar.profile?.height) && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                        {activeChar.profile?.birthday && (
-                          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
-                            <span className="font-extrabold text-muted shrink-0">
-                              Sinh nhật
-                            </span>
-                            <span className="text-[var(--border)]">|</span>
-                            <span className="font-bold break-words">
-                              {activeChar.profile.birthday}
-                            </span>
-                          </div>
-                        )}
-                        {activeChar.profile?.height && (
-                          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--surface-alt)] border border-[var(--border)]/70">
-                            <span className="font-extrabold text-muted shrink-0">
-                              Chiều cao
-                            </span>
-                            <span className="text-[var(--border)]">|</span>
-                            <span className="font-bold break-words">
-                              {activeChar.profile.height}
-                            </span>
-                          </div>
-                        )}
-                      </div>
+                  {/* Khung Bio tụt thẳng xuống dưới, rộng bằng 2 cột phía trên */}
+                  {activeChar.profile?.bio && (
+                    <div className="w-full rounded-xl bg-[var(--surface-alt)] border border-[var(--border)]/70 p-3.5 text-xs sm:text-[13px] leading-relaxed text-[var(--text)]">
+                      {activeChar.profile.bio}
+                    </div>
+                  )}
+
+                  {/* 2 nút Giới thiệu bản thân (Trước Anni 3 & Sau Anni 3) mở link FB tab mới */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
+                    {introBeforeUrl ? (
+                      <a
+                        href={introBeforeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold bg-[var(--surface-alt)] text-[var(--text)] border-[1.5px] border-[var(--border)] hover:border-accent hover:bg-accent hover:text-white transition shadow-xs"
+                        title="Đọc giới thiệu bản thân trước Anni 3 trên Facebook (tab mới)"
+                      >
+                        <span>📖 Giới thiệu bản thân (Trước Anni 3)</span>
+                        <span className="text-[11px] opacity-80">↗</span>
+                      </a>
+                    ) : (
+                      <span
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold bg-[var(--surface-alt)] text-muted border-[1.5px] border-dashed border-[var(--border)] opacity-50 cursor-not-allowed"
+                        title="Chưa có link bài viết"
+                      >
+                        <span>📖 Giới thiệu bản thân (Trước Anni 3)</span>
+                      </span>
                     )}
 
-                    {activeChar.profile?.bio && (
-                      <div className="rounded-xl bg-[var(--surface-alt)] border border-[var(--border)]/70 p-3.5 text-xs sm:text-[13px] leading-relaxed text-[var(--text)]">
-                        {activeChar.profile.bio}
-                      </div>
+                    {introAfterUrl ? (
+                      <a
+                        href={introAfterUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold bg-[var(--surface-alt)] text-[var(--text)] border-[1.5px] border-[var(--border)] hover:border-accent hover:bg-accent hover:text-white transition shadow-xs"
+                        title="Đọc giới thiệu bản thân sau Anni 3 trên Facebook (tab mới)"
+                      >
+                        <span>✨ Giới thiệu bản thân (Sau Anni 3)</span>
+                        <span className="text-[11px] opacity-80">↗</span>
+                      </a>
+                    ) : (
+                      <span
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold bg-[var(--surface-alt)] text-muted border-[1.5px] border-dashed border-[var(--border)] opacity-50 cursor-not-allowed"
+                        title="Chưa có link bài viết"
+                      >
+                        <span>✨ Giới thiệu bản thân (Sau Anni 3)</span>
+                      </span>
                     )}
                   </div>
                 </div>
