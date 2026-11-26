@@ -183,6 +183,18 @@ export default function HomePage({ selectedUnit, onUnitChange }) {
 
         {/* Cụm HUD phải */}
         <div className="flex items-center gap-2 flex-wrap">
+          {/* Nút chuyển sang trang Side Story nhân vật */}
+          <button
+            type="button"
+            onClick={() => navigate("/side-stories")}
+            className="h-10 px-4 rounded-full text-xs font-extrabold text-white shadow-sm flex items-center gap-1.5 hover:brightness-110 active:scale-95 transition"
+            style={{
+              background: "linear-gradient(135deg, #ff6699 0%, #884499 100%)",
+            }}
+          >
+            <span>🃏</span>
+            <span>Side Story</span>
+          </button>
           {/* Tỉ lệ hoàn thành */}
           <div
             className="px-3.5 py-1.5 rounded-xl text-white flex items-center gap-2.5 border border-white/15 shadow-sm"
