@@ -13,7 +13,7 @@
       "height": "158cm",
       "bio": "Cô ca sĩ ảo nổi bật với mái tóc buộc hai bên màu xanh ngọc đặc trưng. Cô thể hiện các ca khúc thuộc nhiều thể loại khác nhau bằng giọng hát tươi sáng, đáng yêu và tràn đầy sức sống. Trong số các ca sĩ ảo, tên tuổi của cô được biết đến rộng rãi trên toàn thế giới, không phân biệt thế hệ.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/988035700242972/"
     }
   },
   {
@@ -30,7 +30,7 @@
       "height": "152cm",
       "bio": "Nổi bật với mái tóc bob vàng rực cùng chiếc nơ lớn làm điểm nhấn, cô ca sĩ ảo sánh vai cùng Kagamine Len tạo nên một cặp song ca gắn kết. Thanh âm duyên dáng, giàu sức hút của cô như sinh ra để đồng điệu với vẻ ngoài dễ thương và căng tràn năng lượng.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003432185369990/"
     }
   },
   {
@@ -47,7 +47,7 @@
       "height": "156cm",
       "bio": "Nổi bật với mái tóc vàng rực buộc ngắn nơi sau gáy, cậu ca sĩ ảo sánh vai cùng Kagamine Rin tạo nên một cặp song ca gắn kết. Ẩn trong thanh âm nội lực, vững vàng đậm chất thiếu niên ấy là khả năng truyền tải cảm xúc tinh tế và giàu sắc thái.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1011829427863599/"
     }
   },
   {
@@ -64,7 +64,7 @@
       "height": "162cm",
       "bio": "Nữ ca sĩ ảo mang dấu ấn riêng với mái tóc dài màu hồng đặc trưng. Cô sở hữu chất giọng mềm mại, hòa quyện trọn vẹn với phong thái điềm đạm, nhưng đôi lúc lại cất lên những thanh âm đầy nhiệt huyết. Với khả năng song ngữ, cô có thể hát bằng cả tiếng Nhật lẫn tiếng Anh.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003372392042636/"
     }
   },
   {
@@ -81,7 +81,7 @@
       "height": "167cm",
       "bio": "Nữ ca sĩ ảo mang dấu ấn riêng với mái tóc bob ngắn màu hạt dẻ, nổi bật cùng áo dáng lửng màu đỏ và chân váy ngắn. Cô sở hữu kỹ năng thanh nhạc vượt trội, đầy vững vàng cùng chất giọng dịu dàng và ấm áp mang nét đặc trưng của phái nữ.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003163765396832/"
     }
   },
   {
@@ -98,7 +98,7 @@
       "height": "175cm",
       "bio": "Nam ca sĩ ảo mang dấu ấn riêng với mái tóc xanh lam đậm hơi vểnh nhẹ, nổi bật cùng bộ trang phục phối chiếc khăn choàng dài màu xanh. Với chất giọng tự nhiên mà thanh mát, anh làm chủ linh hoạt từ những nốt trầm dày dặn đậm chất nam tính cho đến những quãng cao bay bổng, ngân vang.",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1009683888078153/"
     }
   },
   {
@@ -123,7 +123,282 @@
       "weakness": "Các trò chơi cảm giác mạnh",
       "bio": "Tuy bề ngoài có phần lạnh lùng, Ichika thực chất là một cô gái dịu dàng và luôn hết lòng vì bạn bè. Cùng những người bạn thuở nhỏ là Saki, Honami và Shiho lập nên ban nhạc Leo/need, cô đã hiện thực hóa ước mơ bấy lâu khi chính thức bước chân vào con đường chuyên nghiệp. Trong Leo/need, cô đảm nhận vai trò guitar kiêm hát chính. Vừa chắp bút viết lời cho các ca khúc của nhóm, gần đây cô còn thử sức sáng tác nhạc sử dụng \"Hatsune Miku\".",
       "introBeforeAnni3": "",
-      "introAfterAnni3": ""
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/997111902668685/"
+    }
+  },
+  {
+    "id": "saki",
+    "name": "Tenma Saki",
+    "jpName": "天馬咲希",
+    "enName": "TENMA SAKI",
+    "unit": "ln",
+    "color": "#FFDD44",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Isobe Karin (礒部 花凜)",
+      "birthday": "9 tháng 5",
+      "height": "160cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-B",
+      "hobby": "Xem các video về thời trang và trang điểm, tự tay làm trang sức hạt cườm",
+      "skill": "Làm tóc, Otedama ( trò chơi tung hứng truyền thống của Nhật Bản)",
+      "favoriteFood": "Bim bim (snack)",
+      "dislikedFood": "Cháo",
+      "weakness": "Ở một mình",
+      "bio": "Luôn rạng rỡ với nụ cười thường trực trên môi, Saki là người khuấy động bầu không khí của cả nhóm. Trong Leo/need, cô đảm nhận vị trí keyboard. Từng trải qua quãng thời gian hay đau ốm đến mức chẳng thể đến trường như bình thường, cô vô cùng trân quý những khoảnh khắc ở bên mọi người, hết mình tận hưởng tuổi thanh xuân, cũng như sẻ chia và ở bên vỗ về trái tim những người đang mang nỗi đau. Chính những tâm tư ấy cũng được cô gửi gắm trọn vẹn vào quá trình sáng tác nhạc.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/981626824217193/"
+    }
+  },
+  {
+    "id": "honami",
+    "name": "Mochizuki Honami",
+    "jpName": "望月穂波",
+    "enName": "MOCHIZUKI HONAMI",
+    "unit": "ln",
+    "color": "#EE6666",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Ueda Reina (上田麗奈)",
+      "birthday": "27 tháng 10",
+      "height": "166cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-A",
+      "hobby": "Đi dạo cùng chú chó cưng, trồng rau tại nhà",
+      "skill": "Làm việc nhà nói chung, bơi lội",
+      "favoriteFood": "Bánh táo",
+      "dislikedFood": "Pho mai",
+      "weakness": "Vẽ tranh",
+      "bio": "Là một học sinh ưu tú văn võ song toàn, Honami mang trong mình sự dịu dàng đầy bao dung. Trong Leo/need, cô đảm nhận vị trí trống. Vì tâm niệm không muốn làm tổn thương bất kỳ ai, cô từng hay trăn trở mỗi khi phải đưa ra quyết định; thế nhưng thông qua hoạt động cùng ban nhạc, cô đã dần có thêm chút dũng khí để dám tự mình quyết định. Giờ đây, chính sự kiên cường trong tinh thần ấy đang nâng đỡ và trở thành điểm tựa cho Leo/need.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/993198026393406/"
+    }
+  },
+  {
+    "id": "shiho",
+    "name": "Hinomori Shiho",
+    "jpName": "日野森志歩",
+    "enName": "HINOMORI SHIHO",
+    "unit": "ln",
+    "color": "#BBDD22",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Nakashima Yuki (中島 由貴)",
+      "birthday": "8 tháng 1",
+      "height": "159cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-B",
+      "hobby": "Đi xem live của ban nhạc nữ mình thích, luyện tập và trình diễn bass",
+      "skill": "Thư pháp",
+      "favoriteFood": "Ramen, thịt hamburg",
+      "dislikedFood": "Đậu phụ",
+      "weakness": "Chị gái",
+      "bio": "Đảm nhận vị trí bass trong Leo/need. Vì luôn khắt khe với âm nhạc và mang bản tính độc hành, không ưa những mối quan hệ xuề xòa, cô từng nhiều lần bị những người xung quanh hiểu lầm. Thế nhưng, cô lại vô cùng trân trọng mọi người trong Leo/need - những người bạn đã cùng cô chạy về phía ước mơ trở thành dân chuyên nghiệp và biến mong ước ấy thành hiện thực.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003139325399276/"
+    }
+  },
+  {
+    "id": "minori",
+    "name": "Hanasato Minori",
+    "jpName": "花里みのり",
+    "enName": "HANASATO MINORI",
+    "unit": "mmj",
+    "color": "#FFCCAA",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Ogura Yui (小倉 唯)",
+      "birthday": "14 tháng 4",
+      "height": "159cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-D",
+      "hobby": "Bắt chước vũ đạo, viết nhật ký, chăm sóc động vật",
+      "skill": "Tạo câu khẩu hiệu",
+      "favoriteFood": "Cá hồi",
+      "dislikedFood": "Bông cải xanh",
+      "weakness": "Không giỏi hành động bình tĩnh, điềm đạm",
+      "bio": "Một cô gái thuần khiết và luôn nỗ lực hết mình. Tuy là thành viên duy nhất trong MORE MORE JUMP! chưa từng có kinh nghiệm làm thần tượng, nhưng qua biết bao hoạt động, cô đã được người hâm mộ đón nhận và thực hiện được ước nguyện bấy lâu là tổ chức thành công buổi biểu diễn riêng. Hiện tại, cô vẫn tiếp tục hoạt động với mục tiêu trở thành một thần tượng quốc dân có thể tổ chức đêm diễn tại sân vận động mái vòm (Dome).",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003962375316971/"
+    }
+  },
+  {
+    "id": "haruka",
+    "name": "Kiritani Haruka",
+    "jpName": "桐谷遥",
+    "enName": "KIRITANI HARUKA",
+    "unit": "mmj",
+    "color": "#99CCFF",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Yoshioka Mayu (吉岡 茉祐)",
+      "birthday": "5 tháng 10",
+      "height": "163cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-D",
+      "hobby": "Sưu tầm goods cánh cụt",
+      "skill": "Chơi bóng rổ",
+      "favoriteFood": "Tất cả các loại đồ ngọt",
+      "dislikedFood": "Wasabi",
+      "weakness": "Ghét sự lười biếng",
+      "bio": "Cựu thần tượng hàng đầu từng trực thuộc nhóm nhạc thần tượng quốc dân \"ASRUN\". Hiện tại, buổi diễn riêng của MORE MORE JUMP! đã trở thành bước ngoặt khơi dậy mạnh mẽ hơn nữa nhiệt huyết làm thần tượng trong cô. Cô đã cùng Minori chuyển sang hệ tín chỉ, hạ quyết tâm một lần nữa dốc trọn toàn lực cho con đường thần tượng.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/998269609219581/"
+    }
+  },
+  {
+    "id": "airi",
+    "name": "Momoi Airi",
+    "jpName": "桃井愛莉",
+    "enName": "MOMOI AIRI",
+    "unit": "mmj",
+    "color": "#FFAACC",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Furihata Ai (降幡 愛)",
+      "birthday": "19 tháng 3",
+      "height": "156cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "3-E",
+      "hobby": "Nghiên cứu về thần tượng, đi mua sắm",
+      "skill": "Nấu ăn, chăm sóc trẻ con",
+      "favoriteFood": "Wagashi (Bánh kẹo truyền thống của Nhật Bản)",
+      "dislikedFood": "Gan",
+      "weakness": "Mèo (Dị ứng)",
+      "bio": "Cựu thành viên của nhóm nhạc thần tượng \"QT\". Lấy niềm đam mê mãnh liệt cùng lòng tự hào dành cho nghề thần tượng làm thế mạnh, cô năng nổ giữ vai trò là người tiếp thêm lửa và vực dậy tinh thần cho các thành viên. Bên cạnh đó, nhờ năng lực lập kế hoạch và quản lý lịch trình vượt trội, cô còn chủ động quán xuyến những công việc thiết yếu không thể thiếu đối với MORE MORE JUMP! - một nhóm nhạc không có công ty chủ quản.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003429162036959/"
+    }
+  },
+  {
+    "id": "shizuku",
+    "name": "Hinomori Shizuku",
+    "jpName": "日野森雫",
+    "enName": "HINOMORI SHIZUKU",
+    "unit": "mmj",
+    "color": "#99EEDD",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Hon'izumi Rina (本泉 莉奈)",
+      "birthday": "6 tháng 12",
+      "height": "168cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "3-E",
+      "hobby": "Đọc sách, đi dạo",
+      "skill": "Cung đạo, thêu thùa",
+      "favoriteFood": "Udon, tàu hũ ky",
+      "dislikedFood": "Tất cả các món cay",
+      "weakness": "Đọc bản đồ, sử dụng đồ công nghệ máy móc",
+      "bio": "Cựu center của \"Cheerful＊Days\" - nhóm nhạc thần tượng đến nay vẫn vô cùng được yêu mến. Cô từng mang trong lòng nỗi khúc mắc vì mối quan hệ không hòa hợp với các thành viên cũ dẫn đến việc phải rời nhóm. Thế nhưng nhờ dịp cùng góp mặt trong lần đầu lên sóng truyền hình của MORE MORE JUMP!, cô đã phần nào hòa giải được với họ và đang lạc quan tiến về phía trước.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/997248862654989/"
+    }
+  },
+  {
+    "id": "kohane",
+    "name": "Azusawa Kohane",
+    "jpName": "小豆沢こはね",
+    "enName": "AZUSAWA KOHANE",
+    "unit": "vbs",
+    "color": "#FF679A",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Akina (秋奈)",
+      "birthday": "2 tháng 3",
+      "height": "156cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "2-A",
+      "hobby": "Chăm sóc chú rắn cưng mà bố mình nuôi",
+      "skill": "Chụp ảnh",
+      "favoriteFood": "Bánh đào tiên, goma dango (bánh rán vừng)",
+      "dislikedFood": "Món trộn dấm",
+      "weakness": "Đứng trước mọi người",
+      "bio": "Vốn có tính cách nhút nhát, nhưng nhờ quá trình cùng đồng đội miệt mài rèn giũa, thúc đẩy nhau tiến bộ cũng như khổ luyện dưới sự chỉ dạy của Taiga - một trong những thành viên từng làm nên sự kiện huyền thoại - cô đã có thể tự tin vào giọng hát của bản thân. Dù từng một lần bị chính sư phụ Taiga đánh bại và nếm trải cảm giác cay đắng, cô vẫn khắc ghi nỗi niềm ấy trong tim để đứng dậy, một lần nữa tuyên bố sẽ vượt qua \"RAD WEEKEND\".",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/998280125885196/"
+    }
+  },
+  {
+    "id": "an",
+    "name": "Shiraishi An",
+    "jpName": "白石杏",
+    "enName": "SHIRAISHI AN",
+    "unit": "",
+    "color": "#00BBDD",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Tomomi Jiena Sumi (鷲見友美ジェナ)",
+      "birthday": "26 tháng 7",
+      "height": "160cm",
+      "school": "Trường THPT Kamiyama",
+      "grade": "2-A",
+      "hobby": "Trồng cây bạc hà",
+      "skill": "Pha trà hoặc cà phê",
+      "favoriteFood": "Kem rượu Rum nho khô",
+      "dislikedFood": "Cà chua",
+      "weakness": "Sợ ma, chuyện kinh dị",
+      "bio": "Cô gái tươi sáng, thẳng thắn và chân thành, là gương mặt đại diện đầy sức hút của WEEKEND GARAGE. Giữa lúc đang nỗ lực hoạt động để tạo nên một sự kiện vượt qua \"RAD WEEKEND\" huyền thoại do nhóm của cha cô tổ chức năm xưa, cô bàng hoàng khi biết được bí mật của Nagi - người mà cô hằng ngưỡng mộ. Thế nhưng, sau khi nghe cha kể lại những tâm nguyện của Nagi, cô đã vực dậy tinh thần và một lần nữa thề sẽ vượt qua huyền thoại ấy.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/1003159838730558/"
+    }
+  },
+  {
+    "id": "akito",
+    "name": "Shinonome Akito",
+    "jpName": "東雲彰人",
+    "enName": "SHINONOME AKITO",
+    "unit": "",
+    "color": "#FF7722",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Imai Fumiya (今井 文也)",
+      "birthday": "12 tháng 11",
+      "height": "176cm",
+      "school": "Trường THPT Kamiyama",
+      "grade": "2-A",
+      "hobby": "Phối đồ",
+      "skill": "Beatbox",
+      "favoriteFood": "Pancake, cheesecake",
+      "dislikedFood": "Cà rốt",
+      "weakness": "Chó",
+      "bio": "Một người đầy nỗ lực, không ngừng trải qua những buổi khổ luyện khắc nghiệt đến tận cùng với giấc mơ vượt qua sự kiện huyền thoại \"RAD WEEKEND\". Trước sức nặng của bí mật ẩn giấu đằng sau \"RAD WEEKEND\", cậu từng có lúc tưởng chừng như muốn chùn bước. Thế nhưng, bằng niềm tâm huyết mãnh liệt gửi trọn vào ước mơ, cậu đã bừng lên ý chí và quyết tâm không ngừng đương đầu thách thức.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/981626824217193/"
+    }
+  },
+  {
+    "id": "touya",
+    "name": "Aoyagi Touya",
+    "jpName": "青柳冬弥",
+    "enName": "AOYAGI TOUYA",
+    "unit": "",
+    "color": "#0077DD",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Itou Kento (伊東 健人)",
+      "birthday": "25 tháng 5",
+      "height": "179cm",
+      "school": "Trường THPT Kamiyama",
+      "grade": "2-B",
+      "hobby": "Đọc sách",
+      "skill": "Chơi piano, violin",
+      "favoriteFood": "Cà phê, bánh quy",
+      "dislikedFood": "Mực",
+      "weakness": "Những nơi cao",
+      "bio": "Một tài năng xuất chúng xuất thân từ gia đình chơi nhạc cổ điển danh giá. Hướng tới mục tiêu vượt qua sự kiện huyền thoại \"RAD WEEKEND\", cậu còn thử sức ở cả lĩnh vực sáng tác nhạc. Dù từng choáng ngợp khi nhận ra đẳng cấp thực sự của huyền thoại năm xưa, nhưng khắc ghi trong tim những trải nghiệm đã qua, cậu bắt đầu khao khát được sát cánh cùng đồng đội vượt qua bức tường cản và chiêm ngưỡng khung cảnh phía bên kia.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": "https://www.facebook.com/groups/746210381092173/posts/981626824217193/"
     }
   },
   {
@@ -141,7 +416,7 @@
       "height": "162cm",
       "school": "Học viện nữ sinh Miyamasuzaka",
       "grade": "3-B",
-      "hobby": "Thủy cung",
+      "hobby": "Bể thủy sinh",
       "skill": "Giao tiếp tiếng Anh",
       "favoriteFood": "Cơm mẹ nấu",
       "dislikedFood": "Không rõ",

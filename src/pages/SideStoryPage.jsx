@@ -5,7 +5,7 @@ import { UNITS } from "../constants/units";
 import { setDynamicAccent } from "../utils/helpers";
 
 // Thay bằng link nhóm kín Facebook của bạn
-const FB_GROUP_URL = "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN";
+const FB_GROUP_URL = "https://www.facebook.com/groups/746210381092173";
 
 const RARITY_FILTERS = [
   { id: "all", label: "Tất cả" },
