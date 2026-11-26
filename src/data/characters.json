@@ -7,7 +7,7 @@
     "unit": "vs",
     "color": "#33ccbb",
     "avatar": "/ava/ava_miku.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_miku.png",
     "profile": {
       "birthday": "31 tháng 8",
       "height": "158cm",
@@ -24,7 +24,7 @@
     "unit": "vs",
     "color": "#FFCC11",
     "avatar": "/ava/ava_rin.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_rin.png",
     "profile": {
       "birthday": "27 tháng 12",
       "height": "152cm",
@@ -41,7 +41,7 @@
     "unit": "vs",
     "color": "#FFEE11",
     "avatar": "/ava/ava_len.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_len.png",
     "profile": {
       "birthday": "27 tháng 12",
       "height": "156cm",
@@ -58,7 +58,7 @@
     "unit": "vs",
     "color": "#FFBBCC",
     "avatar": "/ava/ava_luka.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_luka.png",
     "profile": {
       "birthday": "30 tháng 1",
       "height": "162cm",
@@ -75,7 +75,7 @@
     "unit": "vs",
     "color": "#DD4444",
     "avatar": "/ava/ava_meiko.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_meiko.png",
     "profile": {
       "birthday": "5 tháng 11",
       "height": "167cm",
@@ -92,7 +92,7 @@
     "unit": "vs",
     "color": "#3366CC",
     "avatar": "/ava/ava_kaito.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_kaito.png",
     "profile": {
       "birthday": "17 tháng 2",
       "height": "175cm",
@@ -109,7 +109,7 @@
     "unit": "ln",
     "color": "#33AAEE",
     "avatar": "/ava/ava_ick.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_ick.png",
     "profile": {
       "cv": "Noguchi Ruriko (野口 瑠璃子)",
       "birthday": "11 tháng 8",
@@ -134,7 +134,7 @@
     "unit": "ln",
     "color": "#FFDD44",
     "avatar": "/ava/ava_saki.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_saki.png",
     "profile": {
       "cv": "Isobe Karin (礒部 花凜)",
       "birthday": "9 tháng 5",
@@ -159,7 +159,7 @@
     "unit": "ln",
     "color": "#EE6666",
     "avatar": "/ava/ava_hnm.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_hnm.png",
     "profile": {
       "cv": "Ueda Reina (上田麗奈)",
       "birthday": "27 tháng 10",
@@ -184,7 +184,7 @@
     "unit": "ln",
     "color": "#BBDD22",
     "avatar": "/ava/ava_shiho.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_shiho.png",
     "profile": {
       "cv": "Nakashima Yuki (中島 由貴)",
       "birthday": "8 tháng 1",
@@ -209,7 +209,7 @@
     "unit": "mmj",
     "color": "#FFCCAA",
     "avatar": "/ava/ava_mnr.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_mnr.png",
     "profile": {
       "cv": "Ogura Yui (小倉 唯)",
       "birthday": "14 tháng 4",
@@ -234,7 +234,7 @@
     "unit": "mmj",
     "color": "#99CCFF",
     "avatar": "/ava/ava_hrk.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_hrk.png",
     "profile": {
       "cv": "Yoshioka Mayu (吉岡 茉祐)",
       "birthday": "5 tháng 10",
@@ -259,7 +259,7 @@
     "unit": "mmj",
     "color": "#FFAACC",
     "avatar": "/ava/ava_airi.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_airi.png",
     "profile": {
       "cv": "Furihata Ai (降幡 愛)",
       "birthday": "19 tháng 3",
@@ -284,7 +284,7 @@
     "unit": "mmj",
     "color": "#99EEDD",
     "avatar": "/ava/ava_szk.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_szk.png",
     "profile": {
       "cv": "Hon'izumi Rina (本泉 莉奈)",
       "birthday": "6 tháng 12",
@@ -309,7 +309,7 @@
     "unit": "vbs",
     "color": "#FF679A",
     "avatar": "/ava/ava_khn.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_khn.png",
     "profile": {
       "cv": "Akina (秋奈)",
       "birthday": "2 tháng 3",
@@ -334,7 +334,7 @@
     "unit": "vbs",
     "color": "#00BBDD",
     "avatar": "/ava/ava_an.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_an.png",
     "profile": {
       "cv": "Tomomi Jiena Sumi (鷲見友美ジェナ)",
       "birthday": "26 tháng 7",
@@ -359,7 +359,7 @@
     "unit": "vbs",
     "color": "#FF7722",
     "avatar": "/ava/ava_akt.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_akt.png",
     "profile": {
       "cv": "Imai Fumiya (今井 文也)",
       "birthday": "12 tháng 11",
@@ -384,7 +384,7 @@
     "unit": "vbs",
     "color": "#0077DD",
     "avatar": "/ava/ava_touya.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_touya.png",
     "profile": {
       "cv": "Itou Kento (伊東 健人)",
       "birthday": "25 tháng 5",
@@ -409,7 +409,7 @@
     "unit": "wxs",
     "color": "#FFBB00",
     "avatar": "/ava/ava_tks.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_tks.png",
     "profile": {
       "cv": "Hirose Daisuke (廣瀬 大介)",
       "birthday": "17 tháng 5",
@@ -434,7 +434,7 @@
     "unit": "wxs",
     "color": "#FF66BC",
     "avatar": "/ava/ava_emu.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_emu.png",
     "profile": {
       "cv": "Kino Hina (木野 日菜)",
       "birthday": "9 tháng 9",
@@ -459,7 +459,7 @@
     "unit": "wxs",
     "color": "#33DD99",
     "avatar": "/ava/ava_nene.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_nene.png",
     "profile": {
       "cv": "Machico",
       "birthday": "20 tháng 7",
@@ -484,7 +484,7 @@
     "unit": "wxs",
     "color": "#BB88ED",
     "avatar": "/ava/ava_rui.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_rui.png",
     "profile": {
       "cv": "Toki Shun'ichi (土岐 隼一)",
       "birthday": "24 tháng 6",
@@ -509,7 +509,7 @@
     "unit": "n25",
     "color": "#BB6688",
     "avatar": "/ava/ava_knd.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_knd.png",
     "profile": {
       "cv": "Kusunoki Tomori (楠木 ともり)",
       "birthday": "10 tháng 2",
@@ -534,7 +534,7 @@
     "unit": "n25",
     "color": "#8889CC",
     "avatar": "/ava/ava_mfy.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_mfy.png",
     "profile": {
       "cv": "Tanabe Rui (田辺 留依)",
       "birthday": "27 tháng 1",
@@ -577,7 +577,7 @@
     "unit": "n25",
     "color": "#CCAA88",
     "avatar": "/ava/ava_ena.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_ena.png",
     "profile": {
       "cv": "Suzuki Minori (鈴木 みのり)",
       "birthday": "30 tháng 4",
@@ -602,7 +602,7 @@
     "unit": "n25",
     "color": "#E4A8CA",
     "avatar": "/ava/ava_mzk.png",
-    "portrait": "",
+    "portrait": "/pfp/pfp_mzk.png",
     "profile": {
       "cv": "Satou Hinata (佐藤 日向)",
       "birthday": "27 tháng 8",

@@ -84,7 +84,6 @@ export default function SideStoryPage() {
     );
   }
 
-  // 10 mục chia đều thành 2 cột x 5 hàng ngang nhau
   const profileRows = [
     { label: "Sinh nhật", value: activeChar.profile?.birthday },
     { label: "Chiều cao", value: activeChar.profile?.height },
@@ -143,7 +142,7 @@ export default function SideStoryPage() {
           {activeChar.enName || activeChar.name}
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[82px_245px_1fr] xl:grid-cols-[86px_270px_1fr] min-h-[calc(100vh-195px)]">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[82px_290px_1fr] xl:grid-cols-[86px_320px_1fr] min-h-[calc(100vh-195px)]">
           {/* CỘT 1: DẢI AVATAR TRÒN */}
           <aside className="bg-[var(--surface-alt)]/90 backdrop-blur-md border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)] flex lg:flex-col items-center gap-2.5 p-2.5 overflow-x-auto lg:overflow-x-hidden lg:overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
             {charactersData.map((char) => {
@@ -200,10 +199,10 @@ export default function SideStoryPage() {
           {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + BẢNG TÊN DỌC */}
           <div
             key={`portrait-${activeChar.id}`}
-            className="relative flex items-end justify-center min-h-[260px] lg:min-h-full overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60 pt-4 px-3 sekai-fade-up"
+            className="relative flex items-end justify-center h-[320px] sm:h-[360px] lg:h-[calc(100vh-195px)] overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60 sekai-fade-up"
           >
             {activeUnit?.logo && (
-              <div className="absolute top-3 right-3 z-10 bg-white/90 px-2.5 py-1 rounded-lg shadow-sm">
+              <div className="absolute top-3 right-3 z-20 bg-white/90 px-2.5 py-1 rounded-lg shadow-sm">
                 <img
                   src={activeUnit.logo}
                   alt={activeUnit.name}
@@ -228,7 +227,7 @@ export default function SideStoryPage() {
               <img
                 src={activeChar.portrait}
                 alt={activeChar.name}
-                className="relative z-10 max-h-[300px] lg:max-h-[640px] w-auto object-contain object-bottom drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]"
+                className="relative z-10 h-[92%] lg:h-[84%] max-h-[540px] w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_24px_rgba(0,0,0,0.3)]"
               />
             ) : (
               <div className="relative z-10 py-20 text-center text-xs text-muted">
@@ -237,7 +236,7 @@ export default function SideStoryPage() {
             )}
           </div>
 
-          {/* CỘT 3: PROFILE (2 CỘT ĐỀU + BIO + 2 NÚT GIỚI THIỆU BẢN THÂN) + SIDE STORY */}
+          {/* CỘT 3: PROFILE + SIDE STORY */}
           <div className="flex flex-col gap-4 p-4 md:p-5 overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
             {/* PHẦN TRÊN: THẺ PROFILE NHÂN VẬT */}
             <div className="rounded-2xl bg-[var(--surface)]/90 backdrop-blur-md border-[1.5px] border-[var(--border)] p-4 shadow-sm">
@@ -268,7 +267,6 @@ export default function SideStoryPage() {
 
               {profileExpanded && (
                 <div className="flex flex-col gap-2.5">
-                  {/* Lưới 2 cột thông tin chung đều nhau */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     {profileRows.map((row) => (
                       <div
@@ -285,14 +283,12 @@ export default function SideStoryPage() {
                     ))}
                   </div>
 
-                  {/* Khung Bio tụt thẳng xuống dưới, rộng bằng 2 cột phía trên */}
                   {activeChar.profile?.bio && (
                     <div className="w-full rounded-xl bg-[var(--surface-alt)] border border-[var(--border)]/70 p-3.5 text-xs sm:text-[13px] leading-relaxed text-[var(--text)]">
                       {activeChar.profile.bio}
                     </div>
                   )}
 
-                  {/* 2 nút Giới thiệu bản thân (Trước Anni 3 & Sau Anni 3) mở link FB tab mới */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
                     {introBeforeUrl ? (
                       <a
@@ -374,7 +370,6 @@ export default function SideStoryPage() {
                 </div>
               </div>
 
-              {/* Dải lọc độ hiếm */}
               <div className="flex items-center gap-1.5 flex-wrap">
                 {RARITY_FILTERS.map((rf) => (
                   <button
@@ -392,7 +387,6 @@ export default function SideStoryPage() {
                 ))}
               </div>
 
-              {/* Lưới 2 cột các thẻ Side Story */}
               {filteredStories.length === 0 ? (
                 <div className="text-center py-10 text-sm text-muted border-[1.5px] border-dashed border-[var(--border)] rounded-xl">
                   Chưa có Side Story nào khớp với bộ lọc này.
