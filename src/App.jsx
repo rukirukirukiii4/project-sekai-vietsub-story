@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import ReaderPage from "./pages/ReaderPage";
 import AdminRoute from "./components/common/AdminRoute";
 import AdminPage from "./pages/AdminPage";
+import SideStoryPage from "./pages/SideStoryPage";
 
 export default function App() {
   const [theme, setTheme] = useLocalStorage("sekai_story_theme_v1", "light");
@@ -56,6 +57,7 @@ export default function App() {
                   </AdminRoute>
                 }
               />
+              <Route path="/side-story/:storyId" element={<SideStoryPage />} />
             </Routes>
           </main>
 
