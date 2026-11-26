@@ -27,15 +27,15 @@
         "title": "Bài hát đầu tiên vang lên",
         "rarity": 4,
         "icon": "/images/cards/miku_01.png",
-        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/111111111/",
-        "part2Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/222222222/"
+        "part1Url": "",
+        "part2Url": ""
       },
       {
         "id": "miku-2",
         "title": "Ánh sáng nơi SEKAI",
         "rarity": 3,
         "icon": "/images/cards/miku_02.png",
-        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/333333333/",
+        "part1Url": "",
         "part2Url": ""
       }
     ]
@@ -68,15 +68,15 @@
         "title": "Hình tượng 「Đứa trẻ ngoan」 của tôi",
         "rarity": 3,
         "icon": "/images/mafuyu-main-untrained.png",
-        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/444444444/",
-        "part2Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/555555555/"
+        "part1Url": "",
+        "part2Url": ""
       },
       {
         "id": "mafuyu-2",
         "title": "Masquerade gò bó",
         "rarity": 4,
         "icon": "/images/mafuyu-main-trained.png",
-        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/666666666/",
+        "part1Url": "",
         "part2Url": ""
       }
     ]
