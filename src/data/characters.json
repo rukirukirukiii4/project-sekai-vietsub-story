@@ -6,39 +6,125 @@
     "enName": "HATSUNE MIKU",
     "unit": "vs",
     "color": "#33ccbb",
-    "avatar": "/images/avatars/miku.png",
-    "portrait": "/images/portraits/miku.png",
+    "avatar": "",
+    "portrait": "",
     "profile": {
-      "cv": "Fujita Saki (藤田 咲)",
       "birthday": "31 tháng 8",
       "height": "158cm",
-      "school": "—",
-      "grade": "—",
-      "hobby": "Ca hát",
-      "skill": "Truyền tải cảm xúc qua âm nhạc",
-      "favoriteFood": "—",
-      "dislikedFood": "—",
-      "weakness": "—",
-      "bio": "Ca sĩ ảo với mái tóc xanh ngọc hai chùm nổi tiếng toàn cầu. Ở mỗi SEKAI, Miku lại xuất hiện với một diện mạo khác nhau để lắng nghe và hỗ trợ các bạn trẻ tìm ra 'cảm xúc thật' của chính mình."
-    },
-    "sideStories": [
-      {
-        "id": "miku-1",
-        "title": "Bài hát đầu tiên vang lên",
-        "rarity": 4,
-        "icon": "/images/cards/miku_01.png",
-        "part1Url": "",
-        "part2Url": ""
-      },
-      {
-        "id": "miku-2",
-        "title": "Ánh sáng nơi SEKAI",
-        "rarity": 3,
-        "icon": "/images/cards/miku_02.png",
-        "part1Url": "",
-        "part2Url": ""
-      }
-    ]
+      "bio": "Cô ca sĩ ảo nổi bật với mái tóc buộc hai bên màu xanh ngọc đặc trưng. Cô thể hiện các ca khúc thuộc nhiều thể loại khác nhau bằng giọng hát tươi sáng, đáng yêu và tràn đầy sức sống. Trong số các ca sĩ ảo, tên tuổi của cô được biết đến rộng rãi trên toàn thế giới, không phân biệt thế hệ.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "rin",
+    "name": "Kagamine Rin",
+    "jpName": "鏡音リン",
+    "enName": "KAGAMINE RIN",
+    "unit": "vs",
+    "color": "#FFCC11",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "birthday": "27 tháng 12",
+      "height": "152cm",
+      "bio": "Nổi bật với mái tóc bob vàng rực cùng chiếc nơ lớn làm điểm nhấn, cô ca sĩ ảo sánh vai cùng Kagamine Len tạo nên một cặp song ca gắn kết. Thanh âm duyên dáng, giàu sức hút của cô như sinh ra để đồng điệu với vẻ ngoài dễ thương và căng tràn năng lượng.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "len",
+    "name": "Kagamine Len",
+    "jpName": "鏡音レン",
+    "enName": "KAGAMINE LEN",
+    "unit": "vs",
+    "color": "#FFEE11",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "birthday": "27 tháng 12",
+      "height": "156cm",
+      "bio": "Nổi bật với mái tóc vàng rực buộc ngắn nơi sau gáy, cậu ca sĩ ảo sánh vai cùng Kagamine Rin tạo nên một cặp song ca gắn kết. Ẩn trong thanh âm nội lực, vững vàng đậm chất thiếu niên ấy là khả năng truyền tải cảm xúc tinh tế và giàu sắc thái.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "luka",
+    "name": "Megurine Luka",
+    "jpName": "巡音ルカ",
+    "enName": "MEGURINE LUKA",
+    "unit": "vs",
+    "color": "#FFBBCC",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "birthday": "30 tháng 1",
+      "height": "162cm",
+      "bio": "Nữ ca sĩ ảo mang dấu ấn riêng với mái tóc dài màu hồng đặc trưng. Cô sở hữu chất giọng mềm mại, hòa quyện trọn vẹn với phong thái điềm đạm, nhưng đôi lúc lại cất lên những thanh âm đầy nhiệt huyết. Với khả năng song ngữ, cô có thể hát bằng cả tiếng Nhật lẫn tiếng Anh.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "MEIKO",
+    "name": "Meiko",
+    "jpName": "メイコ",
+    "enName": "MEIKO",
+    "unit": "vs",
+    "color": "#DD4444",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "birthday": "5 tháng 11",
+      "height": "167cm",
+      "bio": "Nữ ca sĩ ảo mang dấu ấn riêng với mái tóc bob ngắn màu hạt dẻ, nổi bật cùng áo dáng lửng màu đỏ và chân váy ngắn. Cô sở hữu kỹ năng thanh nhạc vượt trội, đầy vững vàng cùng chất giọng dịu dàng và ấm áp mang nét đặc trưng của phái nữ.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "KAITO",
+    "name": "KAITO",
+    "jpName": "カイト",
+    "enName": "KAITO",
+    "unit": "vs",
+    "color": "#3366CC",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "birthday": "17 tháng 2",
+      "height": "175cm",
+      "bio": "Nam ca sĩ ảo mang dấu ấn riêng với mái tóc xanh lam đậm hơi vểnh nhẹ, nổi bật cùng bộ trang phục phối chiếc khăn choàng dài màu xanh. Với chất giọng tự nhiên mà thanh mát, anh làm chủ linh hoạt từ những nốt trầm dày dặn đậm chất nam tính cho đến những quãng cao bay bổng, ngân vang.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
+  },
+  {
+    "id": "ichika",
+    "name": "Hoshino Ichika",
+    "jpName": "星乃一歌",
+    "enName": "HOSHINO ICHIKA",
+    "unit": "ln",
+    "color": "#33AAEE",
+    "avatar": "",
+    "portrait": "",
+    "profile": {
+      "cv": "Tanabe Rui (田辺 留依)",
+      "birthday": "27 tháng 1",
+      "height": "162cm",
+      "school": "Học viện nữ sinh Miyamasuzaka",
+      "grade": "3-B",
+      "hobby": "Thủy cung",
+      "skill": "Giao tiếp tiếng Anh",
+      "favoriteFood": "Cơm mẹ nấu",
+      "dislikedFood": "Không rõ",
+      "weakness": "Không rõ",
+      "bio": "Người phụ trách viết lời cho '25-ji, Nightcord de.'. Luôn bị mẹ ép đóng vai 'đứa trẻ ngoan' khiến cô dần đánh mất bản thân, cho đến khi tìm thấy chốn dừng chân thông qua hoạt động âm nhạc cùng cả nhóm.",
+      "introBeforeAnni3": "",
+      "introAfterAnni3": ""
+    }
   },
   {
     "id": "mafuyu",
@@ -47,8 +133,8 @@
     "enName": "ASAHINA MAFUYU",
     "unit": "n25",
     "color": "#8888cc",
-    "avatar": "/images/avatars/mafuyu.png",
-    "portrait": "/images/portraits/mafuyu.png",
+    "avatar": "",
+    "portrait": "",
     "profile": {
       "cv": "Tanabe Rui (田辺 留依)",
       "birthday": "27 tháng 1",
