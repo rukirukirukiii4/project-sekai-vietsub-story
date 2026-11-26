@@ -6,7 +6,7 @@
     "enName": "HATSUNE MIKU",
     "unit": "vs",
     "color": "#33ccbb",
-    "avatar": "",
+    "avatar": "/ava/ava_miku.png",
     "portrait": "",
     "profile": {
       "birthday": "31 tháng 8",
@@ -23,7 +23,7 @@
     "enName": "KAGAMINE RIN",
     "unit": "vs",
     "color": "#FFCC11",
-    "avatar": "",
+    "avatar": "/ava/ava_rin.png",
     "portrait": "",
     "profile": {
       "birthday": "27 tháng 12",
@@ -40,7 +40,7 @@
     "enName": "KAGAMINE LEN",
     "unit": "vs",
     "color": "#FFEE11",
-    "avatar": "",
+    "avatar": "/ava/ava_len.png",
     "portrait": "",
     "profile": {
       "birthday": "27 tháng 12",
@@ -57,7 +57,7 @@
     "enName": "MEGURINE LUKA",
     "unit": "vs",
     "color": "#FFBBCC",
-    "avatar": "",
+    "avatar": "/ava/ava_luka.png",
     "portrait": "",
     "profile": {
       "birthday": "30 tháng 1",
@@ -74,7 +74,7 @@
     "enName": "MEIKO",
     "unit": "vs",
     "color": "#DD4444",
-    "avatar": "",
+    "avatar": "/ava/ava_meiko.png",
     "portrait": "",
     "profile": {
       "birthday": "5 tháng 11",
@@ -91,7 +91,7 @@
     "enName": "KAITO",
     "unit": "vs",
     "color": "#3366CC",
-    "avatar": "",
+    "avatar": "/ava/ava_kaito.png",
     "portrait": "",
     "profile": {
       "birthday": "17 tháng 2",
@@ -108,7 +108,7 @@
     "enName": "HOSHINO ICHIKA",
     "unit": "ln",
     "color": "#33AAEE",
-    "avatar": "",
+    "avatar": "/ava/ava_ick.png",
     "portrait": "",
     "profile": {
       "cv": "Noguchi Ruriko (野口 瑠璃子)",
@@ -133,7 +133,7 @@
     "enName": "TENMA SAKI",
     "unit": "ln",
     "color": "#FFDD44",
-    "avatar": "",
+    "avatar": "/ava/ava_saki.png",
     "portrait": "",
     "profile": {
       "cv": "Isobe Karin (礒部 花凜)",
@@ -158,7 +158,7 @@
     "enName": "MOCHIZUKI HONAMI",
     "unit": "ln",
     "color": "#EE6666",
-    "avatar": "",
+    "avatar": "/ava/ava_hnm.png",
     "portrait": "",
     "profile": {
       "cv": "Ueda Reina (上田麗奈)",
@@ -183,7 +183,7 @@
     "enName": "HINOMORI SHIHO",
     "unit": "ln",
     "color": "#BBDD22",
-    "avatar": "",
+    "avatar": "/ava/ava_shiho.png",
     "portrait": "",
     "profile": {
       "cv": "Nakashima Yuki (中島 由貴)",
@@ -208,7 +208,7 @@
     "enName": "HANASATO MINORI",
     "unit": "mmj",
     "color": "#FFCCAA",
-    "avatar": "",
+    "avatar": "/ava/ava_mnr.png",
     "portrait": "",
     "profile": {
       "cv": "Ogura Yui (小倉 唯)",
@@ -233,7 +233,7 @@
     "enName": "KIRITANI HARUKA",
     "unit": "mmj",
     "color": "#99CCFF",
-    "avatar": "",
+    "avatar": "/ava/ava_hrk.png",
     "portrait": "",
     "profile": {
       "cv": "Yoshioka Mayu (吉岡 茉祐)",
@@ -258,7 +258,7 @@
     "enName": "MOMOI AIRI",
     "unit": "mmj",
     "color": "#FFAACC",
-    "avatar": "",
+    "avatar": "/ava/ava_airi.png",
     "portrait": "",
     "profile": {
       "cv": "Furihata Ai (降幡 愛)",
@@ -283,7 +283,7 @@
     "enName": "HINOMORI SHIZUKU",
     "unit": "mmj",
     "color": "#99EEDD",
-    "avatar": "",
+    "avatar": "/ava/ava_szk.png",
     "portrait": "",
     "profile": {
       "cv": "Hon'izumi Rina (本泉 莉奈)",
@@ -308,7 +308,7 @@
     "enName": "AZUSAWA KOHANE",
     "unit": "vbs",
     "color": "#FF679A",
-    "avatar": "",
+    "avatar": "/ava/ava_khn.png",
     "portrait": "",
     "profile": {
       "cv": "Akina (秋奈)",
@@ -331,9 +331,9 @@
     "name": "Shiraishi An",
     "jpName": "白石杏",
     "enName": "SHIRAISHI AN",
-    "unit": "",
+    "unit": "vbs",
     "color": "#00BBDD",
-    "avatar": "",
+    "avatar": "/ava/ava_an.png",
     "portrait": "",
     "profile": {
       "cv": "Tomomi Jiena Sumi (鷲見友美ジェナ)",
@@ -358,7 +358,7 @@
     "enName": "SHINONOME AKITO",
     "unit": "vbs",
     "color": "#FF7722",
-    "avatar": "",
+    "avatar": "/ava/ava_akt.png",
     "portrait": "",
     "profile": {
       "cv": "Imai Fumiya (今井 文也)",
@@ -383,7 +383,7 @@
     "enName": "AOYAGI TOUYA",
     "unit": "vbs",
     "color": "#0077DD",
-    "avatar": "",
+    "avatar": "/ava/ava_touya.png",
     "portrait": "",
     "profile": {
       "cv": "Itou Kento (伊東 健人)",
@@ -408,7 +408,7 @@
     "enName": "TENMA TSUKASA",
     "unit": "wxs",
     "color": "#FFBB00",
-    "avatar": "",
+    "avatar": "/ava/ava_tks.png",
     "portrait": "",
     "profile": {
       "cv": "Hirose Daisuke (廣瀬 大介)",
@@ -433,7 +433,7 @@
     "enName": "OOTORI EMU",
     "unit": "wxs",
     "color": "#FF66BC",
-    "avatar": "",
+    "avatar": "/ava/ava_emu.png",
     "portrait": "",
     "profile": {
       "cv": "Kino Hina (木野 日菜)",
@@ -458,7 +458,7 @@
     "enName": "KUSANAGI NENE",
     "unit": "wxs",
     "color": "#33DD99",
-    "avatar": "",
+    "avatar": "/ava/ava_nene.png",
     "portrait": "",
     "profile": {
       "cv": "Machico",
@@ -483,7 +483,7 @@
     "enName": "KAMISHIRO RUI",
     "unit": "wxs",
     "color": "#BB88ED",
-    "avatar": "",
+    "avatar": "/ava/ava_rui.png",
     "portrait": "",
     "profile": {
       "cv": "Toki Shun'ichi (土岐 隼一)",
@@ -508,7 +508,7 @@
     "enName": "YOISAKI KANADE",
     "unit": "n25",
     "color": "#BB6688",
-    "avatar": "",
+    "avatar": "/ava/ava_knd.png",
     "portrait": "",
     "profile": {
       "cv": "Kusunoki Tomori (楠木 ともり)",
@@ -533,7 +533,7 @@
     "enName": "ASAHINA MAFUYU",
     "unit": "n25",
     "color": "#8889CC",
-    "avatar": "",
+    "avatar": "/ava/ava_mfy.png",
     "portrait": "",
     "profile": {
       "cv": "Tanabe Rui (田辺 留依)",
@@ -576,7 +576,7 @@
     "enName": "SHINONOME ENA",
     "unit": "n25",
     "color": "#CCAA88",
-    "avatar": "",
+    "avatar": "/ava/ava_ena.png",
     "portrait": "",
     "profile": {
       "cv": "Suzuki Minori (鈴木 みのり)",
@@ -601,7 +601,7 @@
     "enName": "AKIYAMA MIZUKI",
     "unit": "n25",
     "color": "#E4A8CA",
-    "avatar": "",
+    "avatar": "/ava/ava_mzk.png",
     "portrait": "",
     "profile": {
       "cv": "Satou Hinata (佐藤 日向)",
