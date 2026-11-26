@@ -1,0 +1,84 @@
+[
+  {
+    "id": "miku",
+    "name": "Hatsune Miku",
+    "jpName": "初音 ミク",
+    "enName": "HATSUNE MIKU",
+    "unit": "vs",
+    "color": "#33ccbb",
+    "avatar": "/images/avatars/miku.png",
+    "portrait": "/images/portraits/miku.png",
+    "profile": {
+      "cv": "Fujita Saki (藤田 咲)",
+      "birthday": "31 tháng 8",
+      "height": "158cm",
+      "school": "—",
+      "grade": "—",
+      "hobby": "Ca hát",
+      "skill": "Truyền tải cảm xúc qua âm nhạc",
+      "favoriteFood": "—",
+      "dislikedFood": "—",
+      "weakness": "—",
+      "bio": "Ca sĩ ảo với mái tóc xanh ngọc hai chùm nổi tiếng toàn cầu. Ở mỗi SEKAI, Miku lại xuất hiện với một diện mạo khác nhau để lắng nghe và hỗ trợ các bạn trẻ tìm ra 'cảm xúc thật' của chính mình."
+    },
+    "sideStories": [
+      {
+        "id": "miku-1",
+        "title": "Bài hát đầu tiên vang lên",
+        "rarity": 4,
+        "icon": "/images/cards/miku_01.png",
+        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/111111111/",
+        "part2Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/222222222/"
+      },
+      {
+        "id": "miku-2",
+        "title": "Ánh sáng nơi SEKAI",
+        "rarity": 3,
+        "icon": "/images/cards/miku_02.png",
+        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/333333333/",
+        "part2Url": ""
+      }
+    ]
+  },
+  {
+    "id": "mafuyu",
+    "name": "Asahina Mafuyu",
+    "jpName": "朝比奈 まふゆ",
+    "enName": "ASAHINA MAFUYU",
+    "unit": "n25",
+    "color": "#8888cc",
+    "avatar": "/images/avatars/mafuyu.png",
+    "portrait": "/images/portraits/mafuyu.png",
+    "profile": {
+      "cv": "Tanabe Rui (田辺 留依)",
+      "birthday": "27 tháng 1",
+      "height": "162cm",
+      "school": "Nữ sinh Miyamasuzaka",
+      "grade": "3-B",
+      "hobby": "Thủy cung",
+      "skill": "Giao tiếp tiếng Anh",
+      "favoriteFood": "Cơm mẹ nấu",
+      "dislikedFood": "Không rõ",
+      "weakness": "Không rõ",
+      "bio": "Người phụ trách viết lời cho '25-ji, Nightcord de.'. Luôn bị mẹ ép đóng vai 'đứa trẻ ngoan' khiến cô dần đánh mất bản thân, cho đến khi tìm thấy chốn dừng chân thông qua hoạt động âm nhạc cùng cả nhóm."
+    },
+    "sideStories": [
+      {
+        "id": "mafuyu-1",
+        "title": "Hình tượng 「Đứa trẻ ngoan」 của tôi",
+        "rarity": 3,
+        "icon": "/images/mafuyu-main-untrained.png",
+        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/444444444/",
+        "part2Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/555555555/"
+      },
+      {
+        "id": "mafuyu-2",
+        "title": "Masquerade gò bó",
+        "rarity": 4,
+        "icon": "/images/mafuyu-main-trained.png",
+        "part1Url": "https://www.facebook.com/groups/TEN_NHOM_CUA_BAN/posts/666666666/",
+        "part2Url": ""
+      }
+    ]
+  }
+]
