@@ -157,13 +157,19 @@
 
 .sekai-char-watermark {
   position: absolute;
-  top: -12px;
-  left: 96px;
-  font-size: clamp(64px, 9vw, 130px);
+  top: 8px;
+  bottom: 8px;
+  right: 10px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(22px, calc(92cqh / (var(--char-len, 12) * 0.76)), 100px);
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   line-height: 1;
-  opacity: 0.2;
+  opacity: 0.3;
   white-space: nowrap;
   z-index: 0;
 }
@@ -257,19 +263,4 @@
 
 .sekai-slide-down-soft {
   animation: sekaiSlideDownSoft 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes sekaiWatermarkIn {
-  from {
-    opacity: 0;
-    transform: translateX(-70px);
-  }
-  to {
-    opacity: 0.2;
-    transform: translateX(0);
-  }
-}
-
-.sekai-watermark-in {
-  animation: sekaiWatermarkIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }

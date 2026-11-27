@@ -167,15 +167,6 @@ export default function SideStoryPage() {
             background: `radial-gradient(circle at 22% 30%, ${themeColor}, transparent 55%), linear-gradient(135deg, ${themeColor}33 0%, transparent 65%)`,
           }}
         />
-        {/* Giữ nguyên thiết kế chữ mờ ban đầu */}
-        <div
-          key={`wm-${activeChar.id}`}
-          aria-hidden="true"
-          className="sekai-char-watermark sekai-watermark-in pointer-events-none select-none"
-          style={{ color: themeColor }}
-        >
-          {activeChar.enName || activeChar.name}
-        </div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[82px_290px_1fr] xl:grid-cols-[86px_320px_1fr] min-h-[calc(100vh-195px)]">
           {/* CỘT 1: DẢI AVATAR TRÒN */}
@@ -231,31 +222,45 @@ export default function SideStoryPage() {
             })}
           </aside>
 
-          {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + BẢNG TÊN DỌC */}
-          <div className="relative h-[320px] sm:h-[360px] lg:h-[calc(100vh-195px)] overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60">
+          {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + CHỮ MỜ DỌC SAU LƯNG + LOGO BÊN TRÁI + TÊN NHẬT */}
+          <div
+            style={{ containerType: "size" }}
+            className="relative w-full h-[320px] sm:h-[360px] lg:h-[calc(100vh-195px)] overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60"
+          >
             <div
               key={`portrait-${activeChar.id}`}
               className={`relative w-full h-full flex items-end justify-center ${portraitAnimClass}`}
             >
+              {/* Chữ mờ tự động to & kéo dài đủ theo chiều cao ô nhân vật */}
+              <div
+                aria-hidden="true"
+                className="sekai-char-watermark pointer-events-none select-none"
+                style={{
+                  color: themeColor,
+                  "--char-len": (activeChar.enName || activeChar.name).length,
+                }}
+              >
+                {activeChar.enName || activeChar.name}
+              </div>
+
+              {/* Logo nhóm bên trái và to hơn */}
               {activeUnit?.logo && (
-                <div className="absolute top-3 right-3 z-20 bg-white/90 px-2.5 py-1 rounded-lg shadow-sm">
+                <div className="absolute top-3 left-3 z-20 pointer-events-none">
                   <img
                     src={resolveImageUrl(activeUnit.logo)}
                     alt={activeUnit.name}
-                    className="h-5 w-auto max-w-[100px] object-contain"
+                    className="h-8 sm:h-9 w-auto max-w-[145px] object-contain drop-shadow-sm dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
               )}
 
-              <div className="absolute left-3 bottom-4 z-20 flex items-end gap-1.5 pointer-events-none">
+              {/* Chỉ giữ lại tên Nhật dọc ở góc dưới trái */}
+              <div className="absolute left-3 bottom-4 z-20 pointer-events-none">
                 <div
-                  className="sekai-vertical-text px-2 py-3 rounded-lg text-white font-black text-base tracking-widest shadow-lg border border-white/25"
+                  className="sekai-vertical-text px-2.5 py-3 rounded-lg text-white font-black text-base tracking-widest shadow-lg border border-white/25"
                   style={{ backgroundColor: "rgba(30, 34, 58, 0.88)" }}
                 >
                   {activeChar.jpName || activeChar.name}
-                </div>
-                <div className="sekai-vertical-text text-[10px] font-extrabold tracking-[0.2em] text-slate-700 dark:text-white/80 drop-shadow pb-1">
-                  {activeChar.enName || activeChar.name.toUpperCase()}
                 </div>
               </div>
 
