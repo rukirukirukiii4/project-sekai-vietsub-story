@@ -163,7 +163,7 @@
   font-weight: 900;
   letter-spacing: 0.06em;
   line-height: 1;
-  opacity: 0.09;
+  opacity: 0.2;
   white-space: nowrap;
   z-index: 0;
 }
@@ -197,4 +197,79 @@
   cursor: not-allowed;
   pointer-events: none;
   background: var(--surface-alt);
+}
+
+@keyframes sekaiSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sekaiSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sekaiSlideUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sekaiSlideDownSoft {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sekai-slide-up {
+  animation: sekaiSlideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sekai-slide-down {
+  animation: sekaiSlideDown 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sekai-slide-up-soft {
+  animation: sekaiSlideUpSoft 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sekai-slide-down-soft {
+  animation: sekaiSlideDownSoft 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sekaiWatermarkIn {
+  from {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  to {
+    opacity: 0.2;
+    transform: translateX(0);
+  }
+}
+
+.sekai-watermark-in {
+  animation: sekaiWatermarkIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
