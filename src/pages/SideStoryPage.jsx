@@ -168,6 +168,16 @@ export default function SideStoryPage() {
           }}
         />
 
+        {/* Chữ nền mờ nằm ngang như ban đầu, trượt từ trái sang */}
+        <div
+          key={`wm-${activeChar.id}`}
+          aria-hidden="true"
+          className="sekai-char-watermark sekai-watermark-in pointer-events-none select-none"
+          style={{ color: themeColor }}
+        >
+          {activeChar.enName || activeChar.name}
+        </div>
+
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[82px_290px_1fr] xl:grid-cols-[86px_320px_1fr] min-h-[calc(100vh-195px)]">
           {/* CỘT 1: DẢI AVATAR TRÒN */}
           <aside className="bg-[var(--surface-alt)]/90 backdrop-blur-md border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)] flex lg:flex-col items-center gap-2.5 p-2.5 overflow-x-auto lg:overflow-x-hidden lg:overflow-y-auto lg:max-h-[calc(100vh-195px)] sekai-banner-scroll">
@@ -222,28 +232,13 @@ export default function SideStoryPage() {
             })}
           </aside>
 
-          {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + CHỮ MỜ DỌC SAU LƯNG + LOGO BÊN TRÁI + TÊN NHẬT */}
-          <div
-            style={{ containerType: "size" }}
-            className="relative w-full h-[320px] sm:h-[360px] lg:h-[calc(100vh-195px)] overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60"
-          >
+          {/* CỘT 2: ẢNH ĐỨNG NHÂN VẬT + LOGO TRÁI KHÔNG NỀN + TÊN NHẬT */}
+          <div className="relative h-[320px] sm:h-[360px] lg:h-[calc(100vh-195px)] overflow-hidden border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--border)]/60">
             <div
               key={`portrait-${activeChar.id}`}
               className={`relative w-full h-full flex items-end justify-center ${portraitAnimClass}`}
             >
-              {/* Chữ mờ tự động to & kéo dài đủ theo chiều cao ô nhân vật */}
-              <div
-                aria-hidden="true"
-                className="sekai-char-watermark pointer-events-none select-none"
-                style={{
-                  color: themeColor,
-                  "--char-len": (activeChar.enName || activeChar.name).length,
-                }}
-              >
-                {activeChar.enName || activeChar.name}
-              </div>
-
-              {/* Logo nhóm bên trái và to hơn */}
+              {/* Logo nhóm bên trái, to hơn và bỏ nền trắng */}
               {activeUnit?.logo && (
                 <div className="absolute top-3 left-3 z-20 pointer-events-none">
                   <img

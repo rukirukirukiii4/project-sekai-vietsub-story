@@ -135,6 +135,21 @@
   }
 }
 
+@keyframes sekaiWatermarkIn {
+  from {
+    opacity: 0;
+    transform: translateX(-140px);
+  }
+  to {
+    opacity: 0.2;
+    transform: translateX(0);
+  }
+}
+
+.sekai-watermark-in {
+  animation: sekaiWatermarkIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 .sekai-fade-up {
   animation: sekaiFadeUp 0.25s ease forwards;
 }
@@ -155,19 +170,31 @@
   text-orientation: mixed;
 }
 
+// .sekai-char-watermark {
+//   position: absolute;
+//   top: 8px;
+//   bottom: 8px;
+//   right: 10px;
+//   writing-mode: vertical-rl;
+//   text-orientation: mixed;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: clamp(22px, calc(92cqh / (var(--char-len, 12) * 0.76)), 100px);
+//   font-weight: 900;
+//   letter-spacing: 0.14em;
+//   line-height: 1;
+//   opacity: 0.3;
+//   white-space: nowrap;
+//   z-index: 0;
+// }
 .sekai-char-watermark {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 10px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(22px, calc(92cqh / (var(--char-len, 12) * 0.76)), 100px);
+  top: -12px;
+  left: 96px;
+  font-size: clamp(64px, 9vw, 130px);
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   line-height: 1;
   opacity: 0.3;
   white-space: nowrap;
