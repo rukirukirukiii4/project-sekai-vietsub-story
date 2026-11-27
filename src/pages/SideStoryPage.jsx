@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import charactersData from "../data/characters.json";
+// import charactersData from "../data/characters.json";
+import { useData } from "../contexts/DataContext";
 import { UNITS } from "../constants/units";
 import { setDynamicAccent, resolveImageUrl } from "../utils/helpers";
 
@@ -18,7 +19,7 @@ const RARITY_FILTERS = [
 
 export default function SideStoryPage() {
   const navigate = useNavigate();
-
+  const { characters: charactersData } = useData();
   const defaultCharId =
     charactersData.find((c) => c.id === "miku")?.id ||
     charactersData[0]?.id ||

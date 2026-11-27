@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import eventsData from "../data/events.json";
+// import eventsData from "../data/events.json";
+import { useData } from "../contexts/DataContext";
+// Trong HomePage(): bỏ import eventsData cũ, thay bằng:
 import { UNITS } from "../constants/units";
 import { setDynamicAccent, resolveImageUrl } from "../utils/helpers";
 import { useAuth } from "../contexts/AuthContext";
@@ -34,6 +36,8 @@ function getStoryBadge(ev, unitColor) {
 }
 
 export default function HomePage({ selectedUnit, onUnitChange }) {
+  
+  const { events: eventsData } = useData();
   const navigate = useNavigate();
   const { getEventProgress } = useAuth();
 

@@ -94,7 +94,7 @@ export default function Header({ isDark, onToggleTheme, onResetUnit }) {
                 onClick={() => navigate("/admin")}
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13px] font-bold border-[1.5px] border-amber-400/70 bg-amber-400/15 text-amber-600 dark:text-amber-300 hover:bg-amber-400 hover:text-slate-900 transition"
               >
-                Kho ảnh
+                Kho data
               </button>
             )}
           </div>

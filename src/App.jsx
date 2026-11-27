@@ -9,6 +9,7 @@ import ReaderPage from "./pages/ReaderPage";
 import AdminRoute from "./components/common/AdminRoute";
 import AdminPage from "./pages/AdminPage";
 import SideStoryPage from "./pages/SideStoryPage";
+import { DataProvider } from "./contexts/DataContext";
 
 export default function App() {
   const [theme, setTheme] = useLocalStorage("sekai_story_theme_v1", "light");
@@ -29,41 +30,43 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <div className="min-h-screen flex flex-col">
-          <Header
-            isDark={theme === "dark"}
-            onToggleTheme={handleToggleTheme}
-            onResetUnit={() => setSelectedUnit("all")}
-          />
+      <DataProvider>
+        <BrowserRouter>
+          <div className="min-h-screen flex flex-col">
+            <Header
+              isDark={theme === "dark"}
+              onToggleTheme={handleToggleTheme}
+              onResetUnit={() => setSelectedUnit("all")}
+            />
 
-          <main className="flex-1 w-full max-w-[1240px] mx-auto px-5 pt-6 pb-16">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <HomePage
-                    selectedUnit={selectedUnit}
-                    onUnitChange={setSelectedUnit}
-                  />
-                }
-              />
-              <Route path="/event/:eventId" element={<ReaderPage />} />
-              <Route
-                path="/admin"
-                element={
-                  <AdminRoute>
-                    <AdminPage />
-                  </AdminRoute>
-                }
-              />
-              <Route path="/side-stories" element={<SideStoryPage />} />
-            </Routes>
-          </main>
+            <main className="flex-1 w-full max-w-[1240px] mx-auto px-5 pt-6 pb-16">
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <HomePage
+                      selectedUnit={selectedUnit}
+                      onUnitChange={setSelectedUnit}
+                    />
+                  }
+                />
+                <Route path="/event/:eventId" element={<ReaderPage />} />
+                <Route
+                  path="/admin"
+                  element={
+                    <AdminRoute>
+                      <AdminPage />
+                    </AdminRoute>
+                  }
+                />
+                <Route path="/side-stories" element={<SideStoryPage />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </div>
-      </BrowserRouter>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </DataProvider>
     </AuthProvider>
   );
 }

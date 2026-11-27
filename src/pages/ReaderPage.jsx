@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import eventsData from "../data/events.json";
+// import eventsData from "../data/events.json";
+import { useData } from "../contexts/DataContext";
 import { UNITS } from "../constants/units";
 import {
   setDynamicAccent,
@@ -13,11 +14,12 @@ import ChapterList from "../components/reader/ChapterList";
 import GachaCardItem from "../components/reader/GachaCardItem";
 
 export default function ReaderPage() {
+  const { events: eventsData, dataLoading } = useData();
+  const event = eventsData.find((ev) => ev.id === eventId);
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { markChapterWatched, getEventProgress } = useAuth();
 
-  const event = eventsData.find((ev) => ev.id === eventId);
   const storyLabel =
     event?.type?.toLowerCase() === "main"
       ? "MAIN STORY"
@@ -49,6 +51,14 @@ export default function ReaderPage() {
       setPlaying(null);
     }
   }, [eventId, event, storyLabel, markChapterWatched]);
+
+  if (dataLoading && !event) {
+    return (
+      <div className="py-16 text-center text-sm font-bold text-muted">
+        ⏳ Đang tải dữ liệu Story...
+      </div>
+    );
+  }
 
   if (!event) {
     return (

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import siteConfig from "../../data/siteConfig.json";
-import eventsData from "../../data/events.json";
+// import eventsData from "../../data/events.json";
+import { useData } from "../../contexts/DataContext";
+
 
 export default function Footer() {
+  const { events: eventsData } = useData();
   const currentYear = new Date().getFullYear();
 
   const totalChapters = eventsData.reduce(
